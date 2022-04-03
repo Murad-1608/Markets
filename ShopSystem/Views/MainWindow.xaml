@@ -19,7 +19,7 @@
 
         <StackPanel Grid.Row="0" Background="#16adcc"  Grid.ColumnSpan="2">
             <TextBlock HorizontalAlignment="Right" Text="Murad" Margin="13"/>
-            <TextBlock HorizontalAlignment="Left" Text="Murad" Margin="13,0,13,700" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Text="Murad" Margin="13,0,13,701" FontSize="20"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Background="#adcc">
