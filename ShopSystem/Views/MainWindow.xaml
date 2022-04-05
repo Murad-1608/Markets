@@ -36,16 +36,16 @@
                 </Grid.RowDefinitions>
 
                 <Button BorderThickness="0" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
-                <Button Background="Transparent" Height="70" Grid.Row="1"  FontSize="15" Content="Branches" Foreground="White"/>
-                <Button Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Employees" Foreground="White"/>
-                <Button Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Products" Foreground="White"/>
-
-
-
+                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="1"  FontSize="15" Content="Branches" Foreground="White"/>
+                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Employees" Foreground="White"/>
+                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Products" Foreground="White"/>
+                
             </Grid>
         </StackPanel>
 
-
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="#eaeef4">
+            
+        </StackPanel>
 
 
     </Grid>
