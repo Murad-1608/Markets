@@ -22,6 +22,9 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             connectionString = builder.ConnectionString;
         }
         public IEmployeeRepository EmployeeRepository => new SqlEmployeeRepository(connectionString);
-       
+
+        public IBranchesRepository BranchesRepository =>  new SqlBranchesRepository(connectionString);
+
+        public IProductRepository ProductRepository => new SqlProductRepository(connectionString);
     }
 }

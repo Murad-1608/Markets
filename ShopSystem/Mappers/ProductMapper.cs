@@ -14,13 +14,14 @@ namespace ShopSystem.Mappers
         {
             ProductModel model = new ProductModel()
             {
-               Id = entity.Id,
-               Price = entity.Price,
-               Name = entity.Name,
-               Type = entity.Type,
-               Color = entity.Color,
-               Comment = entity.Comment,
-               Count = entity.Count                
+              Id=entity.Id,
+              Brand=entity.Brand,
+              Name=entity.Name,
+              Color=entity.Color,
+              Count=entity.Count,
+              Price=entity.Price,
+              Type=entity.Type,
+              Comment=entity.Comment
             };
             return model;
         }
@@ -29,6 +30,7 @@ namespace ShopSystem.Mappers
             ProductEntity entity = new ProductEntity()
             {
                 Id = model.Id,
+                Brand = model.Brand,
                 Price = model.Price,
                 Name = model.Name,
                 Type = model.Type,

@@ -1,4 +1,5 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.Entities;
 using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -14,23 +15,24 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         public SqlBranchesRepository(string connectionString)
         {
             this.connectionString = connectionString;
-        }
-        public int Insert()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Update()
-        {
-            throw new NotImplementedException();
-        }
+        }    
 
         public List<BranchesModel> GetBranches()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Insert(BranchEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(BranchEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(int Id)
         {
             throw new NotImplementedException();
         }

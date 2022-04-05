@@ -95,7 +95,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
                         entity.Brand = dr["Brand"].ToString();
-                        entity.Count = dr["Count"].ToString();
+                        entity.Count = int.Parse(dr["Count"].ToString());
                         entity.Price = double.Parse(dr["Price"].ToString());
                         entity.Type = dr["Type"].ToString();
                         entity.Color = dr["Color"].ToString();
