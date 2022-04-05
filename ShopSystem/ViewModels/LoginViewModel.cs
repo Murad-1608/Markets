@@ -14,9 +14,9 @@ namespace ShopSystem.ViewModels
         public LoginClick LoginClick => new LoginClick(this);
         public LoginForgotPassword ForgotPasswordClick => new LoginForgotPassword(this);
         
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string ForgotPasswordEmail { get; set; }
+        public EmployeeModel Email { get; set; }
+        public EmployeeModel Password { get; set; }
+        public EmployeeModel ForgotPasswordEmail { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

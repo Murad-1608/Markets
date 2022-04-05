@@ -1,5 +1,6 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Mappers;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using ShopSystem.Views;
@@ -23,8 +24,11 @@ namespace ShopSystem.Commands
         public override void Execute(object? parameter)
         {
             IUnitOfWork unitOfWork = new SqlUnitOfWork();
+            EmployeeMapper mapper = new EmployeeMapper();
+            
+            var Email=mapper.Map(viewModel.Email);
 
-            int check = unitOfWork.EmployeeRepository.Get(viewModel.Email);
+            int check = unitOfWork.EmployeeRepository.Get(Email);
 
             if (check==1)
             {

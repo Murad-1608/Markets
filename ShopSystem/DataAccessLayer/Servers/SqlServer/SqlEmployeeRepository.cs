@@ -34,7 +34,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public List<EmployeeEntity> Employees()
+        public List<EmployeeEntity> GetEmployees()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -89,22 +89,23 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Get(string Email)
+        public int Get(EmployeeEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Password from Employees where Email=@Email";
+                string command = @"select Password from Employees where Password=@Password and Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     int a = 0;
-                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
-                    {                        
-                        User.Email = Email;
-                        User.Password = dr["Password"].ToString();
+                    {
+                        entity.Email = dr["Email"].ToString();
+                        entity.Password = dr["Password"].ToString();
                         a++;
                     }
                     return a;

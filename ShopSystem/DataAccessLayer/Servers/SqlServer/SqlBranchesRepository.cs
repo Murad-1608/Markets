@@ -1,4 +1,5 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             this.connectionString = connectionString;
         }
-        public int Add()
+        public int Insert()
         {
             throw new NotImplementedException();
         }
@@ -25,6 +26,11 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
 
         public int Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BranchesModel> GetBranches()
         {
             throw new NotImplementedException();
         }

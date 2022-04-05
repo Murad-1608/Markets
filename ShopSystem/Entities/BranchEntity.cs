@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Entities
 {
-    public  class BranchesEntity
+    public  class BranchEntity
     {
         public int NumberId { get; set; }
         public string Location  { get; set; }

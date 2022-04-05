@@ -17,16 +17,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Background="#16adcc"  Grid.ColumnSpan="2">
+        <Border Grid.Row="0" Background="#3481b4"  Grid.ColumnSpan="2">
             <TextBlock FontSize="15" HorizontalAlignment="Right" Text="Murad" Margin="20"/>
         </Border>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Background="#16adcc" Height="70" Width="170">
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
             <Image HorizontalAlignment="Left" Width="158" Source="C:\Users\Asus\OneDrive - NATIONAL AVIATION ACADEMY\Desktop\kontakthome.png" Height="75" Margin="10,0,0,0"></Image>
         </StackPanel>
 
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Background="#adcc">
+        <StackPanel Grid.Column="0" Grid.Row="1" Background="#1d282d">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"/>
@@ -35,10 +35,10 @@
                     <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
 
-                <Button Background="#adcc" Height="70" FontSize="15" Content="Companies"/>
-                <Button Background="#adcc" Height="70" Grid.Row="1"  FontSize="15" Content="Branches"/>
-                <Button Background="#adcc" Height="70" Grid.Row="2"  FontSize="15" Content="Employees"/>
-                <Button Background="#adcc" Height="70" Grid.Row="3"  FontSize="15" Content="Products"/>
+                <Button BorderThickness="0" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
+                <Button Background="Transparent" Height="70" Grid.Row="1"  FontSize="15" Content="Branches" Foreground="White"/>
+                <Button Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Employees" Foreground="White"/>
+                <Button Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Products" Foreground="White"/>
 
 
 

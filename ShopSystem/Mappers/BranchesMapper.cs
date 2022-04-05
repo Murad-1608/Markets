@@ -10,7 +10,7 @@ namespace ShopSystem.Mappers
 {
     public class BranchesMapper
     {
-        public BranchesModel Map(BranchesEntity entity)
+        public BranchesModel Map(BranchEntity entity)
         {
            BranchesModel model = new BranchesModel()
            {
@@ -23,9 +23,9 @@ namespace ShopSystem.Mappers
            };
             return model;
         }
-        public BranchesEntity Map(BranchesModel model)
+        public BranchEntity Map(BranchesModel model)
         {
-            BranchesEntity entity = new BranchesEntity()
+            BranchEntity entity = new BranchEntity()
             {
                 NumberId = model.NumberId,
                 Location = model.Location,

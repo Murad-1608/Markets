@@ -1,5 +1,7 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Entities;
+using ShopSystem.Mappers;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using System;
@@ -32,10 +34,16 @@ namespace ShopSystem.Commands
         public void Execute(object? parameter)
         {
             IUnitOfWork unitOfWork = new SqlUnitOfWork();
-            int check = unitOfWork.EmployeeRepository.Get(viewModel.ForgotPasswordEmail);
+            EmployeeMapper mapper = new EmployeeMapper();
+            EmployeeEntity entity = new EmployeeEntity();
 
-            if (check==1)
-            {              
+            var ForGotPasswordEmail = mapper.Map(viewModel.ForgotPasswordEmail);
+            
+
+            int check = unitOfWork.EmployeeRepository.Get(ForGotPasswordEmail);
+
+            if (check == 1)
+            {
                 MailAddress mailReveiver = new MailAddress("murad.yunus.2017@mail.ru", "Murad Yunus");
                 MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
                 MailMessage message = new MailMessage();
@@ -43,21 +51,21 @@ namespace ShopSystem.Commands
                 message.To.Add(mailReveiver);
                 message.From = mailSender;
                 message.Subject = "Rememberin the password";
-                message.Body = "Password: " + User.Password;
+                message.Body = "Password: " + entity.Password;
 
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential("projecttesting452@gmail.com", "muradkenan");
                 smtp.EnableSsl = true;
                 smtp.Send(message);
-                MessageBox.Show("Your password has been sent to your E-mail address","Information",MessageBoxButton.OK,MessageBoxImage.Information);
+                MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("Incorrected E-mail","Fail",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Incorrected E-mail", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.Entities;
+using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace ShopSystem.DataAccessLayer.Abstraction
 {
     public interface IBranchesRepository
     {
-        int Insert();
-        int Update();
-        int Delete();
+        int Insert(BranchEntity entity);
+        int Update(BranchEntity entity);
+        int Delete(int Id);
         List<BranchesModel> GetBranches();
     }
 }

@@ -1,4 +1,5 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.Entities;
+using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    public interface IProductRepository
+    internal interface IProductRepository
     {
-        int Insert();
-        int Update();
-        int Delete();
-        List<ProductModel> GetProducts();
+        int Insert(ProductEntity entity);
+        int Update(ProductEntity entity);
+        int Delete(int Id);
+        List<ProductEntity> GetProducts();
 
     }
 }
