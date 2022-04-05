@@ -10,7 +10,7 @@ namespace ShopSystem.DataAccessLayer.Abstraction
 {
     internal interface IEmployeeRepository
     {
-        List<EmployeeEntity> Employees();
+        List<EmployeeEntity> GetEmployees();
         int Delete(int Id);
         int Update(EmployeeEntity entity);
         int Insert(EmployeeEntity entity);

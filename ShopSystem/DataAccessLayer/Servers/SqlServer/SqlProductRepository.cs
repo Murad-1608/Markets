@@ -1,6 +1,7 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
         public int Add()
         {
-            throw new NotImplementedException();
+            using (SqlConnection con=new SqlConnection(connectionString))
+            {
+                string command = @"Insert into Products vlues(@Brand,@Count,@Price,@Type,@Color,@Comment)";
+                using (SqlCommand cmd=new SqlCommand(command,con))
+                {
+                    cmd.Parameters.AddWithValue();
+                }
+            }
         }
 
         public int Delete()
