@@ -20,7 +20,18 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
         public int Delete(int Id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con=new SqlConnection(connectionString))
+            {
+                con.Open();
+                string command = @"delete from Employees where Id=@Id";
+
+                using (SqlCommand cmd=new SqlCommand(command,con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
 
         public List<EmployeeEntity> Employees()
@@ -54,9 +65,28 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
                
 
-        public int Insert(EmployeeEntity model)
+        public int Insert(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con=new SqlConnection(connectionString))
+            {
+                string command = @"Insert into Employees values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber,@Position)";
+                con.Open();
+                using (SqlCommand cmd=new SqlCommand(command,con))
+                {
+
+
+                    cmd.Parameters.AddWithValue("@BranchId",entity.BranchId);
+                    cmd.Parameters.AddWithValue("@Name",entity.Name);
+                    cmd.Parameters.AddWithValue("@Surname",entity.Surname);
+                    cmd.Parameters.AddWithValue("@FatherName",entity.FatherName);
+                    cmd.Parameters.AddWithValue("@Email",entity.Email);
+                    cmd.Parameters.AddWithValue("@Password",entity.Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber",entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Position",entity.Position);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
 
         public int Get(string Email)
@@ -82,9 +112,28 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Update(EmployeeEntity model)
+        public int Update(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con=new SqlConnection(connectionString))
+            {
+                string command = @"Update Employees set BranchId=@BranchId,Name=@Name,Surname=@Surname,FatherName=@FatherName,Email=@Email,Password=@Password,PhoneNumber=@PhoneNumber,Position=@Position where Id=@Id";
+                con.Open();
+                using (SqlCommand cmd=new SqlCommand(command,con))
+                {
+                    cmd.Parameters.AddWithValue("@Id",entity.Id);
+                    cmd.Parameters.AddWithValue("@BranchId", entity.BranchId);
+                    cmd.Parameters.AddWithValue("@Name", entity.Name);
+                    cmd.Parameters.AddWithValue("@Surname", entity.Surname);
+                    cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Position", entity.Position);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+
+            }
         }
     }
 }

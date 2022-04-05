@@ -17,14 +17,30 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Background="#16adcc"  Grid.ColumnSpan="2">
-            <TextBlock HorizontalAlignment="Right" Text="Murad" Margin="13"/>
-            <TextBlock HorizontalAlignment="Left" Text="Murad" Margin="13,0,13,701" FontSize="20"/>
+        <Border Grid.Row="0" Background="#16adcc"  Grid.ColumnSpan="2">
+            <TextBlock FontSize="15" HorizontalAlignment="Right" Text="Murad" Margin="20"/>
+        </Border>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="#16adcc" Height="70" Width="170">
+            <Image HorizontalAlignment="Left" Width="158" Source="C:\Users\Asus\OneDrive - NATIONAL AVIATION ACADEMY\Desktop\kontakthome.png" Height="75" Margin="10,0,0,0"></Image>
         </StackPanel>
+
 
         <StackPanel Grid.Column="0" Grid.Row="1" Background="#adcc">
             <Grid>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+
+                <Button Background="#adcc" Height="70" FontSize="15" Content="Companies"/>
+                <Button Background="#adcc" Height="70" Grid.Row="1"  FontSize="15" Content="Branches"/>
+                <Button Background="#adcc" Height="70" Grid.Row="2"  FontSize="15" Content="Employees"/>
+                <Button Background="#adcc" Height="70" Grid.Row="3"  FontSize="15" Content="Products"/>
+
+
 
             </Grid>
         </StackPanel>

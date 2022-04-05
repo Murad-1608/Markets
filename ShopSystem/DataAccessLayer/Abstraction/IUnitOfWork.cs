@@ -9,7 +9,6 @@ namespace ShopSystem.DataAccessLayer.Abstraction
     internal interface IUnitOfWork
     {
         IEmployeeRepository EmployeeRepository { get; }
-        IProductRepository ProductRepository { get; }
-        IBranchesRepository BranchesRepository { get; }
+        
     }
 }

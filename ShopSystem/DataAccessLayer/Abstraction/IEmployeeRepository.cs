@@ -12,8 +12,8 @@ namespace ShopSystem.DataAccessLayer.Abstraction
     {
         List<EmployeeEntity> Employees();
         int Delete(int Id);
-        int Update(EmployeeEntity model);
-        int Insert(EmployeeEntity model);
+        int Update(EmployeeEntity entity);
+        int Insert(EmployeeEntity entity);
         int Get(string Email);
     }
 }
