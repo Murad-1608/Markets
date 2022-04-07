@@ -38,7 +38,7 @@ namespace ShopSystem.Commands
 
 
 
-            int check = unitOfWork.EmployeeRepository.Get(viewModel.ForgotPasswordEmail);
+            int check = unitOfWork.UserRepository.Get(viewModel.ForgotPasswordEmail);
 
             if (check == 1)
             {

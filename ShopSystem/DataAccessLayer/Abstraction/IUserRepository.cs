@@ -13,7 +13,7 @@ namespace ShopSystem.DataAccessLayer.Abstraction
         List<UserEntity> GetUsers();
         int Delete(int Id);
         int Update(UserEntity entity);
-        int Insert(UserEntity entity);
+        int Insert(int BranchId,string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber);
         int Get(string Email, string Password);
         int Get(string Email);
         

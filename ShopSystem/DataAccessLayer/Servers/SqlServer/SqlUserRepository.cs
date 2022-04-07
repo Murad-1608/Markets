@@ -65,23 +65,23 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
 
 
-        public int Insert(UserEntity entity)
+        public int Insert(int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = @"Insert into Users values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber,@Position)";
+                string command = @"Insert into Users values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber)";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
 
 
-                    cmd.Parameters.AddWithValue("@BranchId", entity.BranchId);
-                    cmd.Parameters.AddWithValue("@Name", entity.Name);
-                    cmd.Parameters.AddWithValue("@Surname", entity.Surname);
-                    cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
-                    cmd.Parameters.AddWithValue("@Email", entity.Email);
-                    cmd.Parameters.AddWithValue("@Password", entity.Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@BranchId",BranchId);
+                    cmd.Parameters.AddWithValue("@Name",Name);
+                    cmd.Parameters.AddWithValue("@Surname",Surname);
+                    cmd.Parameters.AddWithValue("@FatherName", FatherName);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);                    
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }

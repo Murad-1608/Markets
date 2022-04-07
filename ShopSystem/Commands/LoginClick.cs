@@ -1,7 +1,9 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Entities;
 using ShopSystem.Mappers;
 using ShopSystem.Models;
+using ShopSystem.Security;
 using ShopSystem.ViewModels;
 using ShopSystem.Views;
 using System;
@@ -26,14 +28,18 @@ namespace ShopSystem.Commands
             IUnitOfWork unitOfWork = new SqlUnitOfWork();
  
             
-           
+           string Password=viewModel.Password;
 
-            int check = unitOfWork.EmployeeRepository.Get(viewModel.Email,viewModel.Password);
+            int check = unitOfWork.UserRepository.Get(viewModel.Email);
 
-            if (check==1)
+            if (Utils.PasswordHash("1234") =UserInformation.Password)
             {
                 MainWindow main = new MainWindow();
                 main.Show();
+
+
+               //int deyer= unitOfWork.UserRepository.Insert(1, "Nicat", "Muradov", "Natiq", "nicat@mail.ru", Utils.PasswordHash("1234"), "0775140308");
+
             }
             else
             {
