@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ShopSystem.Views
+namespace ShopSystem.Views.MainViews
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

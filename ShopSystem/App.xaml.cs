@@ -2,6 +2,7 @@
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.ViewModels;
 using ShopSystem.Views;
+using ShopSystem.Views.LoginViews;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,12 +23,15 @@ namespace ShopSystem
 
             LoginViewModel viewModel = new LoginViewModel();
 
-            Login login = new Login();
-            login.DataContext = viewModel;
-            login.Show();
+            //Login login = new Login();
+            //login.DataContext = viewModel;
+            //login.Show();
 
             //MainWindow main = new MainWindow();
             //main.Show();
+
+            ChangedPassword changedPassword = new ChangedPassword();
+            changedPassword.Show();
         }
     }
 }

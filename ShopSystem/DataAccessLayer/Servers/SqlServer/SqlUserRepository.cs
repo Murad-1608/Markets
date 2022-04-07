@@ -75,13 +75,13 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 {
 
 
-                    cmd.Parameters.AddWithValue("@BranchId",BranchId);
-                    cmd.Parameters.AddWithValue("@Name",Name);
-                    cmd.Parameters.AddWithValue("@Surname",Surname);
+                    cmd.Parameters.AddWithValue("@BranchId", BranchId);
+                    cmd.Parameters.AddWithValue("@Name", Name);
+                    cmd.Parameters.AddWithValue("@Surname", Surname);
                     cmd.Parameters.AddWithValue("@FatherName", FatherName);
                     cmd.Parameters.AddWithValue("@Email", Email);
                     cmd.Parameters.AddWithValue("@Password", Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);                    
+                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }
@@ -105,7 +105,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     cmd.Parameters.AddWithValue("@Password", Password);
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
-                    {                       
+                    {
 
                         UserInformation.Password = dr["Password"].ToString();
                         UserInformation.Name = dr["Name"].ToString();
@@ -117,7 +117,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Update(UserEntity entity)
+        public int Update(int Id, int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -125,14 +125,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", entity.Id);
-                    cmd.Parameters.AddWithValue("@BranchId", entity.BranchId);
-                    cmd.Parameters.AddWithValue("@Name", entity.Name);
-                    cmd.Parameters.AddWithValue("@Surname", entity.Surname);
-                    cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
-                    cmd.Parameters.AddWithValue("@Email", entity.Email);
-                    cmd.Parameters.AddWithValue("@Password", entity.Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.Parameters.AddWithValue("@BranchId", BranchId);
+                    cmd.Parameters.AddWithValue("@Name", Name);
+                    cmd.Parameters.AddWithValue("@Surname", Surname);
+                    cmd.Parameters.AddWithValue("@FatherName", FatherName);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
 
                     int check = cmd.ExecuteNonQuery();
                     return check;
@@ -146,7 +146,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Password from Users where Email=@Email";
+                string command = @"select Name,Surname,Password from Users where Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -154,16 +154,23 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
 
                     int a = 0;
-                    cmd.Parameters.AddWithValue("@Email", Email);                   
+                    cmd.Parameters.AddWithValue("@Email", Email);
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
                         UserInformation.Password = dr["Password"].ToString();
+                        UserInformation.Name = dr["Name"].ToString();
+                        UserInformation.Surname = dr["Surname"].ToString();
                         a++;
                     }
                     return a;
                 }
             }
+        }
+
+        public int Update(string Email, string Password)
+        {
+            throw new NotImplementedException();
         }
     }
 }

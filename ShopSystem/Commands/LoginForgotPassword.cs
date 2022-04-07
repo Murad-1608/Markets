@@ -4,6 +4,7 @@ using ShopSystem.Entities;
 using ShopSystem.Mappers;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
+using ShopSystem.Views.LoginViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +36,8 @@ namespace ShopSystem.Commands
         public void Execute(object? parameter)
         {
             IUnitOfWork unitOfWork = new SqlUnitOfWork();            
-
-
+            Random random = new Random();
+            UserInformation.Code=random.Next(1111,9999);
 
             int check = unitOfWork.UserRepository.Get(viewModel.ForgotPasswordEmail);
 
@@ -49,7 +50,7 @@ namespace ShopSystem.Commands
                 message.To.Add(mailReveiver);
                 message.From = mailSender;
                 message.Subject = "Rememberin the password";
-                message.Body = "Password: " + UserInformation.Password;
+                message.Body = "Security code : " + UserInformation.Code;
 
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
@@ -57,6 +58,10 @@ namespace ShopSystem.Commands
                 smtp.EnableSsl = true;
                 smtp.Send(message);
                 MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                ChangedPassword changedPassword = new ChangedPassword();
+                changedPassword.ShowDialog();
+
             }
             else
             {

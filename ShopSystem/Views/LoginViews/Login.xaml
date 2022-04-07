@@ -1,9 +1,9 @@
-﻿<Window x:Class="ShopSystem.Views.Login"
+﻿<Window x:Class="ShopSystem.Views.LoginViews.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ShopSystem.Views"
+        xmlns:local="clr-namespace:ShopSystem.Views.LoginViews"
         mc:Ignorable="d"
         Title="Login" Height="482" Width="400" MinHeight="440" MinWidth="400" WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -142,5 +142,6 @@
 
         </StackPanel>
 
+        
     </Grid>
 </Window>
