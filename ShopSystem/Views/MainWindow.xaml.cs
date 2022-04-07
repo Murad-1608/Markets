@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace ShopSystem.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            txt_UserFullName.Text = UserInformation.Name + " " + UserInformation.Surname;
         }
     }
 }

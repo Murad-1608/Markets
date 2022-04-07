@@ -14,11 +14,10 @@ namespace ShopSystem.Mappers
         {
            BranchesModel model = new BranchesModel()
            {
-               NumberId = entity.NumberId,
+               Id = entity.Id,
                Location = entity.Location,
                Profit = entity.Profit,
-               PhoneNumber = entity.PhoneNumber,
-               DepoInformations = entity.DepoInformations,
+               PhoneNumber = entity.PhoneNumber,       
                Balance = entity.Balance,
            };
             return model;
@@ -27,11 +26,10 @@ namespace ShopSystem.Mappers
         {
             BranchEntity entity = new BranchEntity()
             {
-                NumberId = model.NumberId,
+                Id = model.Id,
                 Location = model.Location,
                 PhoneNumber = model.PhoneNumber,
                 Profit = model.Profit,
-                DepoInformations = model.DepoInformations,
                 Balance = model.Balance,
             };
             return entity;

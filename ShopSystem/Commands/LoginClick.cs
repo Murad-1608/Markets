@@ -24,11 +24,11 @@ namespace ShopSystem.Commands
         public override void Execute(object? parameter)
         {
             IUnitOfWork unitOfWork = new SqlUnitOfWork();
-            EmployeeMapper mapper = new EmployeeMapper();
+ 
             
-            var Email=mapper.Map(viewModel.Email);
+           
 
-            int check = unitOfWork.EmployeeRepository.Get(Email);
+            int check = unitOfWork.EmployeeRepository.Get(viewModel.Email,viewModel.Password);
 
             if (check==1)
             {

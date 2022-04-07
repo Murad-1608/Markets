@@ -22,12 +22,12 @@ namespace ShopSystem
 
             LoginViewModel viewModel = new LoginViewModel();
 
-            //Login login = new Login();
-            //login.DataContext = viewModel;
-            //login.Show();
+            Login login = new Login();
+            login.DataContext = viewModel;
+            login.Show();
 
-            MainWindow main = new MainWindow();
-            main.Show();
+            //MainWindow main = new MainWindow();
+            //main.Show();
         }
     }
 }

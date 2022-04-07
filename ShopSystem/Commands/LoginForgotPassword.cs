@@ -19,6 +19,7 @@ namespace ShopSystem.Commands
     internal class LoginForgotPassword : ICommand
     {
         private readonly LoginViewModel viewModel;
+
         public LoginForgotPassword(LoginViewModel viewModel)
         {
             this.viewModel = viewModel;
@@ -33,25 +34,22 @@ namespace ShopSystem.Commands
 
         public void Execute(object? parameter)
         {
-            IUnitOfWork unitOfWork = new SqlUnitOfWork();
-            EmployeeMapper mapper = new EmployeeMapper();
-            EmployeeEntity entity = new EmployeeEntity();
+            IUnitOfWork unitOfWork = new SqlUnitOfWork();            
 
-            var ForGotPasswordEmail = mapper.Map(viewModel.ForgotPasswordEmail);
-            
 
-            int check = unitOfWork.EmployeeRepository.Get(ForGotPasswordEmail);
+
+            int check = unitOfWork.EmployeeRepository.Get(viewModel.ForgotPasswordEmail);
 
             if (check == 1)
             {
-                MailAddress mailReveiver = new MailAddress("murad.yunus.2017@mail.ru", "Murad Yunus");
+                MailAddress mailReveiver = new MailAddress(viewModel.ForgotPasswordEmail, "Murad Yunus");
                 MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
                 MailMessage message = new MailMessage();
 
                 message.To.Add(mailReveiver);
                 message.From = mailSender;
                 message.Subject = "Rememberin the password";
-                message.Body = "Password: " + entity.Password;
+                message.Body = "Password: " + UserInformation.Password;
 
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);

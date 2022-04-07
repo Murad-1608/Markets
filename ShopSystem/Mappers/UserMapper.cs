@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using ShopSystem.Models;
 namespace ShopSystem.Mappers
 {
-    internal class EmployeeMapper
+    internal class UserMapper
     {
-        public EmployeeModel Map(EmployeeEntity entity)
+        public UserModel Map(UserEntity entity)
         {
-            EmployeeModel model = new EmployeeModel()
+            UserModel model = new UserModel()
             {
                 Id = entity.Id,
                 Name = entity.Name,
@@ -19,15 +19,14 @@ namespace ShopSystem.Mappers
                 FatherName = entity.FatherName,
                 Email = entity.Email,
                 Password = entity.Password,
-                PhoneNumber = entity.PhoneNumber,
-                Position = entity.Position
+                PhoneNumber = entity.PhoneNumber     
             };
             return model;
         }
 
-        public EmployeeEntity Map(EmployeeModel model)
+        public UserEntity Map(UserModel model)
         {
-            EmployeeEntity entity = new EmployeeEntity()
+            UserEntity entity = new UserEntity()
             {
                 Id = model.Id,
                 Name = model.Name,
@@ -35,8 +34,7 @@ namespace ShopSystem.Mappers
                 FatherName = model.FatherName,
                 Email = model.Email,
                 Password = model.Password,
-                PhoneNumber = model.PhoneNumber,
-                Position = model.Position
+                PhoneNumber = model.PhoneNumber
             };
             return entity;
         }

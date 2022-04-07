@@ -14,14 +14,15 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         public SqlUnitOfWork()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "DESKTOP-D2H7I2Q";
-            builder.InitialCatalog = "ShopSystemData";
+            builder.DataSource = "SQL5104.site4now.net";
+            builder.InitialCatalog = "db_a853f8_shopsystemdata";
             builder.IntegratedSecurity = false;
-            builder.UserID = "sa";
-            builder.Password = "1";
+            builder.UserID = "db_a853f8_shopsystemdata_admin";
+            builder.Password = "mk20032003";
             connectionString = builder.ConnectionString;
         }
-        public IEmployeeRepository EmployeeRepository => new SqlEmployeeRepository(connectionString);
+        
+        public IUserRepository EmployeeRepository => new SqlUserRepository(connectionString);
 
         public IBranchesRepository BranchesRepository =>  new SqlBranchesRepository(connectionString);
 

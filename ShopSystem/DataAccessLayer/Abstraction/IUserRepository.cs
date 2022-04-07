@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    internal interface IEmployeeRepository
+    internal interface IUserRepository
     {
-        List<EmployeeEntity> GetEmployees();
+        List<UserEntity> GetUsers();
         int Delete(int Id);
-        int Update(EmployeeEntity entity);
-        int Insert(EmployeeEntity entity);
-        int Get(EmployeeEntity entity);
+        int Update(UserEntity entity);
+        int Insert(UserEntity entity);
+        int Get(string Email, string Password);
+        int Get(string Email);
+        
     }
 }
