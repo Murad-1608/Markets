@@ -22,7 +22,7 @@
         </Border>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
-            <Image HorizontalAlignment="Left" Width="158" Source="Images\kontakthome.png" Height="67" Margin="10,0,0,0"></Image>
+            <Image HorizontalAlignment="Left" Width="165" Source="\Images\kontakthome.png" Height="75" Margin="10,0,0,0"></Image>
         </StackPanel>
 
 

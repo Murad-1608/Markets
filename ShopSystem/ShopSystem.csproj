@@ -15,7 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\Back_Button_Icon.jpg" />
+    <None Remove="Images\kontakthome.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Back_Button_Icon.jpg" />
+    <Resource Include="Images\kontakthome.png" />
   </ItemGroup>
 
 </Project>

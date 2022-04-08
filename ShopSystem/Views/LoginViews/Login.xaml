@@ -116,7 +116,10 @@
         <!--Forgot password-->
         <StackPanel Visibility="Visible" HorizontalAlignment="Left" Name="Panel_ForgotPassword" Width="425" Margin="0,0,0,8" Grid.RowSpan="3" Grid.ColumnSpan="2">
 
-            <Button Click="Button_Click" Background="Transparent" Height="25" Width="40" Content="Log In" Margin="0,18,370,0"/>
+            <Button BorderThickness="0" Background="Transparent" Click="Button_Click" Height="31" Width="45" Margin="0,18,370,0">
+                <Image Source="\Images\Back_Button_Icon.jpg"></Image>                
+            </Button>
+
 
             <Grid Height="355" Margin="0,60,0,0">
                 <Grid.RowDefinitions>
@@ -142,6 +145,6 @@
 
         </StackPanel>
 
-        
+
     </Grid>
 </Window>
