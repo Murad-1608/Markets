@@ -161,6 +161,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         UserInformation.Password = dr["Password"].ToString();
                         UserInformation.Name = dr["Name"].ToString();
                         UserInformation.Surname = dr["Surname"].ToString();
+                        UserInformation.Email = dr["Email"].ToString();
                         a++;
                     }
                     return a;
@@ -170,7 +171,19 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
         public int Update(string Email, string Password)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string command = @"Update Users set Password=@Password where Mail=@Mail";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(command, con))
+                {
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
     }
 }

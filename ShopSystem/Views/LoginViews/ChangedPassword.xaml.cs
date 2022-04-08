@@ -1,4 +1,5 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.Commands;
+using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,17 @@ namespace ShopSystem.Views.LoginViews
             {
                 WriteCode.Visibility = Visibility.Collapsed;
                 UpdateCode.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (txt_NewPassword.Password==txt_ConfirmPassword.Password)
+            {
+                ChangedPassword_NewPasswordClick click = new ChangedPassword_NewPasswordClick();
+                click.Execute(txt_NewPassword);
             }
         }
     }

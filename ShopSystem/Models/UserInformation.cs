@@ -10,6 +10,7 @@ namespace ShopSystem.Models
     {
         public static string Name { get; set; }
         public static string Surname { get; set; }
+        public static string Email { get; set; }
         public static string Password { get; set; }
         public static int Code { get; set; }
     }
