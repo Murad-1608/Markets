@@ -23,15 +23,15 @@ namespace ShopSystem
 
             LoginViewModel viewModel = new LoginViewModel();
 
-            //Login login = new Login();
-            //login.DataContext = viewModel;
-            //login.Show();
+            Login login = new Login();
+            login.DataContext = viewModel;
+            login.Show();
 
             //MainWindow main = new MainWindow();
             //main.Show();
 
-            ChangedPassword changedPassword = new ChangedPassword();
-            changedPassword.Show();
+            //ChangedPassword changedPassword = new ChangedPassword();
+            //changedPassword.Show();
         }
     }
 }

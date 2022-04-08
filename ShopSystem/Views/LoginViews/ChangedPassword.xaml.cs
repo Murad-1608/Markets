@@ -27,7 +27,7 @@ namespace ShopSystem.Views.LoginViews
         {
             InitializeComponent();
 
-            
+
             DataContext = viewModel;
 
         }
@@ -44,12 +44,16 @@ namespace ShopSystem.Views.LoginViews
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
 
-            if (txt_NewPassword.Password==txt_ConfirmPassword.Password)
+
+            if (txt_NewPassword.Password == txt_ConfirmPassword.Password)
             {
-                ChangedPassword_NewPasswordClick click = new ChangedPassword_NewPasswordClick();
-                click.Execute(txt_NewPassword);
+                viewModel.password_NewPasswordClick.Execute(txt_NewPassword);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Check again","Error",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
     }

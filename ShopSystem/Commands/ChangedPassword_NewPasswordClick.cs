@@ -2,6 +2,7 @@
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
+using ShopSystem.Views.LoginViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace ShopSystem.Commands
 {
     internal class ChangedPassword_NewPasswordClick : BaseCommand
     {
-        //private readonly ChangedPasswordViewModel viewModel;
-        //public ChangedPassword_NewPasswordClick(ChangedPasswordViewModel viewModel)
-        //{
-        //    this.viewModel = viewModel;
-        //}
+        private readonly ChangedPasswordViewModel viewModel;
+        public ChangedPassword_NewPasswordClick(ChangedPasswordViewModel viewModel)
+        {
+            this.viewModel = viewModel;
+        }
         public override void Execute(object? parameter)
         {
             PasswordBox NewPassword = parameter as PasswordBox;
@@ -31,7 +32,7 @@ namespace ShopSystem.Commands
 
             if (check == 1)
             {
-                MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);                            
             }
         }
     }

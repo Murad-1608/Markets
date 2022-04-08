@@ -1,6 +1,7 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.Entities;
 using ShopSystem.Models;
+using ShopSystem.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -146,7 +147,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Name,Surname,Password from Users where Email=@Email";
+                string command = @"select Name,Surname,Password,Email from Users where Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -173,12 +174,12 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = @"Update Users set Password=@Password where Mail=@Mail";
+                string command = @"Update Users set Password=@Password where Email=@Email";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@Password", Utils.PasswordHash(Password));
                     cmd.Parameters.AddWithValue("@Email", Email);
                     int check = cmd.ExecuteNonQuery();
                     return check;
