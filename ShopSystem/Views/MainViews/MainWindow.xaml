@@ -17,13 +17,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!--User name-->
         <Border Grid.Row="0" Background="#3481b4"  Grid.ColumnSpan="2">
             <TextBlock x:Name="txt_UserFullName" FontSize="15" HorizontalAlignment="Right" Text="Murad" Margin="20" Foreground="White"/>
         </Border>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
-            <Image HorizontalAlignment="Left" Width="165" Source="\Images\kontakthome.png" Height="75" Margin="10,0,0,0"></Image>
-        </StackPanel>
+        <!--User position-->
+        <Border Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
+            <TextBlock x:Name="txt_Position" FontSize="30" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="35,15,10,10"><Run Text="Admin"/></TextBlock>
+        </Border>
 
 
         <StackPanel Grid.Column="0" Grid.Row="1" Background="#1d282d">
@@ -33,19 +35,22 @@
                     <RowDefinition Height="70"/>
                     <RowDefinition Height="70"/>
                     <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
 
-                <Button BorderThickness="0" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
-                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="1"  FontSize="15" Content="Branches" Foreground="White"/>
-                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Employees" Foreground="White"/>
-                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Products" Foreground="White"/>
-                
+                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="0"  FontSize="15" Content="Dashboard" Foreground="White"/>
+                <Button Command="{Binding openCompaniesCommand}" BorderThickness="0" Grid.Row="1" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
+                <Button Command="{Binding openBranhesCommand}"   BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Branches" Foreground="White"/>
+                <Button  Command ="{Binding openUsersCommand}"  BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Employees" Foreground="White"/>
+                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="4"  FontSize="15" Content="Products" Foreground="White"/>
+
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Background="#eaeef4">
-            
-        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="1" Background="#eaeef4" x:Name="grdCenter">         
+
+        </Grid>
 
 
     </Grid>

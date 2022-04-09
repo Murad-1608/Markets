@@ -1,4 +1,5 @@
 ﻿using ShopSystem.Models;
+using ShopSystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,14 @@ namespace ShopSystem.Views.MainViews
         {
             InitializeComponent();
 
+            MainViewModel main=new MainViewModel();
+
+            DataContext = main;
+
+            
+
             txt_UserFullName.Text = UserInformation.Name + " " + UserInformation.Surname;
+            txt_Position.Text=UserInformation.Position;
         }
     }
 }

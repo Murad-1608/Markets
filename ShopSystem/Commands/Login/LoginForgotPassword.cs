@@ -43,24 +43,34 @@ namespace ShopSystem.Commands
 
             if (check == 1)
             {
-                MailAddress mailReveiver = new MailAddress(viewModel.ForgotPasswordEmail, "Murad Yunus");
-                MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
-                MailMessage message = new MailMessage();
+                try
+                {
+                    MailAddress mailReveiver = new MailAddress(viewModel.ForgotPasswordEmail, "Murad Yunus");
+                    MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
+                    MailMessage message = new MailMessage();
 
-                message.To.Add(mailReveiver);
-                message.From = mailSender;
-                message.Subject = "Rememberin the password";
-                message.Body = "Security code : " + UserInformation.Code;
+                    message.To.Add(mailReveiver);
+                    message.From = mailSender;
+                    message.Subject = "Rememberin the password";
+                    message.Body = "Security code : " + UserInformation.Code;
 
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("projecttesting452@gmail.com", "muradkenan");
-                smtp.EnableSsl = true;
-                smtp.Send(message);
-                MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.Credentials = new NetworkCredential("projecttesting452@gmail.com", "muradkenan");
+                    smtp.EnableSsl = true;
+                    smtp.Send(message);
+                    MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                ChangedPassword changedPassword = new ChangedPassword();
-                changedPassword.ShowDialog();
+                    ChangedPassword changedPassword = new ChangedPassword();
+                    changedPassword.ShowDialog();
+                }
+
+                catch (Exception)
+                {
+
+                    MessageBox.Show("You don't have internet");
+                }
+                
 
             }
             else

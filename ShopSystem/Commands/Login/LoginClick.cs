@@ -32,18 +32,18 @@ namespace ShopSystem.Commands
 
             int check = unitOfWork.UserRepository.Get(viewModel.Email);
 
+            string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
-            if (Utils.PasswordHash(viewModel.Password) == UserInformation.Password)
+            if (PasswordHash == UserInformation.Password)
             {
-
-                Login login = new Login();
-                login.Hide();
+                MainViewModel mainViewModel = new MainViewModel();
 
                 MainWindow main = new MainWindow();
+                main.DataContext = mainViewModel;
+
+                mainViewModel.CenterGrid = main.grdCenter;
+
                 main.Show();
-
-
-                //int deyer= unitOfWork.UserRepository.Insert(1, "Nicat", "Muradov", "Natiq", "nicat@mail.ru", Utils.PasswordHash("1234"), "0775140308");
 
             }
             else

@@ -40,6 +40,10 @@ namespace ShopSystem.Views.LoginViews
                 WriteCode.Visibility = Visibility.Collapsed;
                 UpdateCode.Visibility = Visibility.Visible;
             }
+            else
+            {
+                MessageBox.Show("Wrong code");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

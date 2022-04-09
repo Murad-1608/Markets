@@ -3,6 +3,7 @@ using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.ViewModels;
 using ShopSystem.Views;
 using ShopSystem.Views.LoginViews;
+using ShopSystem.Views.MainViews;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

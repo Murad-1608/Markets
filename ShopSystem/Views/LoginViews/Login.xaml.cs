@@ -22,9 +22,9 @@ namespace ShopSystem.Views.LoginViews
     {
         public Login()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
-      
+
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Panel_ForgotPassword.Visibility = Visibility.Visible;
@@ -36,6 +36,23 @@ namespace ShopSystem.Views.LoginViews
         {
             Panel_ForgotPassword.Visibility = Visibility.Hidden;
             Panel_Login.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (txtEmail.Text == "" || txtPassword.Password == "")
+            {
+                MessageBox.Show("Please fill in the textboxes");
+            }
+            else
+            {
+                LoginViewModel viewModel = (LoginViewModel)DataContext;
+
+
+                viewModel.LoginClick.Execute(txtPassword.Password);
+            }
         }
     }
 }

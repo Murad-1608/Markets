@@ -66,11 +66,11 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
 
 
-        public int Insert(int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber)
+        public int Insert(int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber,string Position)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = @"Insert into Users values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber)";
+                string command = @"Insert into Users values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber,@Position)";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -94,7 +94,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Name,Surname,Password from Users where Password=@Password and Email=@Email";
+                string command = @"select Name,Surname,Password,Position from Users where Password=@Password and Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -111,6 +111,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         UserInformation.Password = dr["Password"].ToString();
                         UserInformation.Name = dr["Name"].ToString();
                         UserInformation.Surname = dr["Surname"].ToString();
+                        UserInformation.Position = dr["Position"].ToString();
                         a++;
                     }
                     return a;
@@ -118,7 +119,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Update(int Id, int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber)
+        public int Update(int Id, int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber, string Position)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -134,6 +135,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     cmd.Parameters.AddWithValue("@Email", Email);
                     cmd.Parameters.AddWithValue("@Password", Password);
                     cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Position", PhoneNumber);
 
                     int check = cmd.ExecuteNonQuery();
                     return check;
@@ -147,7 +149,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Name,Surname,Password,Email from Users where Email=@Email";
+                string command = @"select Name,Surname,Password,Email,Position from Users where Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -163,6 +165,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         UserInformation.Name = dr["Name"].ToString();
                         UserInformation.Surname = dr["Surname"].ToString();
                         UserInformation.Email = dr["Email"].ToString();
+                        UserInformation.Position = dr["Position"].ToString();
                         a++;
                     }
                     return a;
