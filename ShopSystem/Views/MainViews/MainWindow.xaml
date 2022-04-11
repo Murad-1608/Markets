@@ -24,7 +24,7 @@
 
         <!--User position-->
         <Border Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
-            <TextBlock x:Name="txt_Position" FontSize="30" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="35,15,10,10"><Run Text="Admin"/></TextBlock>
+            <TextBlock x:Name="txt_Position" FontSize="25" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="35,15,10,10"><Run Text="Admin"/></TextBlock>
         </Border>
 
 
@@ -41,15 +41,15 @@
                 <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="0"  FontSize="15" Content="Dashboard" Foreground="White"/>
                 <Button Command="{Binding openCompaniesCommand}" BorderThickness="0" Grid.Row="1" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
                 <Button Command="{Binding openBranhesCommand}"   BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Branches" Foreground="White"/>
-                <Button  Command ="{Binding openUsersCommand}"  BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Employees" Foreground="White"/>
+                <Button  Command ="{Binding openUsersCommand}"  BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Users" Foreground="White"/>
                 <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="4"  FontSize="15" Content="Products" Foreground="White"/>
 
             </Grid>
         </StackPanel>
 
 
-        <Grid Grid.Row="1" Grid.Column="1" Background="#eaeef4" x:Name="grdCenter">         
-
+        <Grid Grid.Row="1" Grid.Column="1" Background="#eaeef4" x:Name="grdCenter">
+            <Image Source="/Images/kontakthome.png"></Image>
         </Grid>
 
 

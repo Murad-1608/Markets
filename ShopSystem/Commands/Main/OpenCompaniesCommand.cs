@@ -24,8 +24,6 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(companies);
 
-            viewModel.Header = "Manage";
-            viewModel.Header1 = "Companies";
         }
     }
 }

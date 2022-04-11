@@ -40,9 +40,13 @@ namespace ShopSystem.Views.LoginViews
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
 
-            if (txtEmail.Text == "" || txtPassword.Password == "")
+
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Please fill in the textboxes");
+            }
+            else if (txtPassword.Text==""&&PswPassword.Password=="")
             {
                 MessageBox.Show("Please fill in the textboxes");
             }
@@ -50,9 +54,39 @@ namespace ShopSystem.Views.LoginViews
             {
                 LoginViewModel viewModel = (LoginViewModel)DataContext;
 
+                if (txtPassword.IsVisible==true)
+                {
+                    viewModel.LoginClick.Execute(txtPassword.Text);
+                }
 
-                viewModel.LoginClick.Execute(txtPassword.Password);
+                else if (PswPassword.IsVisible==true)
+                {
+                    viewModel.LoginClick.Execute(PswPassword.Password);
+                }
+                
             }
+        }
+
+        private void check_Show_Checked(object sender, RoutedEventArgs e)
+        {       
+
+            txtPassword.Text = PswPassword.Password;
+
+            PswPassword.Visibility=Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Visible;
+        }
+
+        private void txt_Password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+         
+        }
+
+        private void check_Show_Unchecked(object sender, RoutedEventArgs e)
+        {
+            PswPassword.Password = txtPassword.Text;
+
+            txtPassword.Visibility = Visibility.Hidden;
+            PswPassword.Visibility = Visibility.Visible;
         }
     }
 }

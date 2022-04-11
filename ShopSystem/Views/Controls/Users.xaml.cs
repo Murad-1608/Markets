@@ -13,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShopSystem.Views.Companents
+namespace ShopSystem.Views.Controls
 {
     /// <summary>
-    /// Interaction logic for Header.xaml
+    /// Interaction logic for Users.xaml
     /// </summary>
-    public partial class Header : UserControl
+    public partial class Users : UserControl
     {
-        public Header()
+        public Users()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

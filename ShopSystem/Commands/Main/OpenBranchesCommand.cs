@@ -24,8 +24,7 @@ namespace ShopSystem.Commands.Main
             
             viewModel.CenterGrid.Children.Add(branches);
 
-            viewModel.Header = "Manage";
-            viewModel.Header1 = "Branhes";
+           
         }
     }
 }

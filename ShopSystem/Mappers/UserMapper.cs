@@ -19,7 +19,8 @@ namespace ShopSystem.Mappers
                 FatherName = entity.FatherName,
                 Email = entity.Email,
                 Password = entity.Password,
-                PhoneNumber = entity.PhoneNumber     
+                PhoneNumber = entity.PhoneNumber,
+                Position = entity.Position       
             };
             return model;
         }
@@ -34,7 +35,8 @@ namespace ShopSystem.Mappers
                 FatherName = model.FatherName,
                 Email = model.Email,
                 Password = model.Password,
-                PhoneNumber = model.PhoneNumber
+                PhoneNumber = model.PhoneNumber,
+                Position = model.Position
             };
             return entity;
         }

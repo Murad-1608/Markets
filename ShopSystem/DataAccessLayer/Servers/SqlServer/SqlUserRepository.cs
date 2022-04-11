@@ -50,15 +50,17 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        UserEntity model = new UserEntity();
-                        model.Id = int.Parse(dr["id"].ToString());
-                        model.Name = dr["Name"].ToString();
-                        model.Surname = dr["Surname"].ToString();
-                        model.FatherName = dr["FatherName"].ToString();
-                        model.Email = dr["Email"].ToString();
-                        model.Password = dr["Password"].ToString();
-                        model.PhoneNumber = dr["PhoneNumber"].ToString();
-                        Users.Add(model);
+                        UserEntity entity = new UserEntity();
+                        entity.Id = int.Parse(dr["id"].ToString());
+                        entity.Name = dr["Name"].ToString();
+                        entity.Surname = dr["Surname"].ToString();
+                        entity.FatherName = dr["FatherName"].ToString();
+                        entity.Email = dr["Email"].ToString();
+                        entity.Password = dr["Password"].ToString();
+                        entity.PhoneNumber = dr["PhoneNumber"].ToString();
+                        entity.Position = dr["Position"].ToString();
+                        
+                        Users.Add(entity);
                     }
                     return Users;
                 }

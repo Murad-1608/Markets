@@ -13,10 +13,12 @@ namespace ShopSystem.ViewModels
     {
         public LoginClick LoginClick => new LoginClick(this);
         public LoginForgotPassword ForgotPasswordClick => new LoginForgotPassword(this);
-        
-        public string Email { get; set; }
+
+        public string Email { get; set; } = "murad.yunus.2017@mail.ru";
         public string Password { get; set; }
         public string ForgotPasswordEmail { get; set; }
+
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
