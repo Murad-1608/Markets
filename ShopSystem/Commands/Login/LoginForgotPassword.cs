@@ -45,7 +45,7 @@ namespace ShopSystem.Commands
             {
                 try
                 {
-                    MailAddress mailReveiver = new MailAddress(viewModel.ForgotPasswordEmail, "Murad Yunus");
+                    MailAddress mailReveiver = new MailAddress("murad.yunus.2017@gmail.com", "Murad Yunus");
                     MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
                     MailMessage message = new MailMessage();
 

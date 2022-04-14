@@ -51,6 +51,7 @@ namespace ShopSystem.ViewModels
         public OpenCompaniesCommand openCompaniesCommand => new OpenCompaniesCommand(this);
         public OpenBranchesCommand openBranhesCommand => new OpenBranchesCommand(this);
         public OpenUsersCommand openUsersCommand => new OpenUsersCommand(this);
+        public OpenProductsCommand openProductsCommand => new OpenProductsCommand(this);
 
      
 

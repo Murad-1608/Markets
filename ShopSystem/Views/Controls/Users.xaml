@@ -22,7 +22,7 @@
                 </WrapPanel>
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Background="White" Margin="20,28,20,10">
+            <StackPanel  Grid.Row="1" Background="#cdd0d5" Margin="20,45,20,6">
                 <DataGrid FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
@@ -42,7 +42,7 @@
                         </DataGridTemplateColumn>
 
 
-                        <DataGridTemplateColumn Header="Surname" Width="150">
+                        <DataGridTemplateColumn Header="Surname" Width="200">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Surname}"/>
@@ -50,7 +50,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn MaxWidth="120" MinWidth="120" Header="Father name" Width="120">
+                        <DataGridTemplateColumn MaxWidth="175" MinWidth="120" Header="Father name" Width="175">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Name="txtFatherName" Text="{Binding FatherName}"/>
@@ -59,7 +59,7 @@
                         </DataGridTemplateColumn>
 
 
-                        <DataGridTemplateColumn Header="Email" Width="220">
+                        <DataGridTemplateColumn Header="Email" Width="350">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Email}"/>

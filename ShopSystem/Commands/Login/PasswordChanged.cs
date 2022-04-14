@@ -13,10 +13,10 @@ using System.Windows.Controls;
 
 namespace ShopSystem.Commands
 {
-    internal class ChangedPassword_NewPasswordClick : BaseCommand
+    internal class PasswordChanged : BaseCommand
     {
         private readonly ChangedPasswordViewModel viewModel;
-        public ChangedPassword_NewPasswordClick(ChangedPasswordViewModel viewModel)
+        public PasswordChanged(ChangedPasswordViewModel viewModel)
         {
             this.viewModel = viewModel;
         }

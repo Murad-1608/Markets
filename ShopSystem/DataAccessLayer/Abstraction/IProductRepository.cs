@@ -10,7 +10,7 @@ namespace ShopSystem.DataAccessLayer.Abstraction
 {
     internal interface IProductRepository
     {
-        int Insert(ProductEntity entity);
+        int Insert(string name,string brand, double price, int count,string type, string color, string comment);
         int Update(ProductEntity entity);
         int Delete(int Id);
         List<ProductEntity> GetProducts();

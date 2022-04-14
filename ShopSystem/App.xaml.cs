@@ -33,6 +33,11 @@ namespace ShopSystem
 
             //ChangedPassword changedPassword = new ChangedPassword();
             //changedPassword.Show();
+
+
+            //AddProduct addProduct = new AddProduct();
+            //addProduct.Show();
+
         }
     }
 }

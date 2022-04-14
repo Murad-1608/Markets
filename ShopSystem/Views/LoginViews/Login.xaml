@@ -91,7 +91,8 @@
                 <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Height="48" Width="176">WELCOME</TextBlock>
 
 
-                <TextBlock Grid.Row="1" FontSize="15" Margin="50,0,0,0">Name:</TextBlock>
+                <TextBlock Grid.Row="1" FontSize="15" Margin="50,0,0,0">E-mail:</TextBlock>
+                
                 <TextBox x:Name="txtEmail" Text="{Binding Path=Email}"  Grid.Row="1" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,24,0,11"  />
 
 

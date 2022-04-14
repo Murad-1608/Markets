@@ -42,7 +42,7 @@
                 <Button Command="{Binding openCompaniesCommand}" BorderThickness="0" Grid.Row="1" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
                 <Button Command="{Binding openBranhesCommand}"   BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Branches" Foreground="White"/>
                 <Button  Command ="{Binding openUsersCommand}"  BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Users" Foreground="White"/>
-                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="4"  FontSize="15" Content="Products" Foreground="White"/>
+                <Button Command="{Binding openProductsCommand}" BorderThickness="0" Background="Transparent" Height="70" Grid.Row="4"  FontSize="15" Content="Products" Foreground="White"/>
 
             </Grid>
         </StackPanel>

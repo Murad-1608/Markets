@@ -12,27 +12,50 @@ using System.Threading.Tasks;
 namespace ShopSystem.DataContext
 {
     internal class DataProvider
-    {  
+    {
+        IUnitOfWork db = new SqlUnitOfWork();
+
         public List<UserModel> Users()
         {
-            IUnitOfWork unitOfWork = new SqlUnitOfWork();
-            var users = unitOfWork.UserRepository.GetUsers();
+            var users = db.UserRepository.GetUsers();
 
             List<UserModel> UsersModel = new List<UserModel>();
 
             UserMapper mapper = new UserMapper();
 
-            for (int i=0; i<users.Count;i++)
+            for (int i = 0; i < users.Count; i++)
             {
                 var user = users[i];
 
-                var usersmodel=mapper.Map(user);
+                var usersmodel = mapper.Map(user);
 
                 usersmodel.No = i + 1;
 
                 UsersModel.Add(usersmodel);
             }
             return UsersModel;
+        }
+
+
+
+        public List<ProductModel> Products()
+        {
+            var products = db.ProductRepository.GetProducts();
+            List<ProductModel> ProductModel = new List<ProductModel>();
+
+            ProductMapper mapper = new ProductMapper();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                var product = products[i];
+
+                var productModel = mapper.Map(product);
+
+                productModel.No = i + 1;
+
+                ProductModel.Add(productModel);
+            }
+            return ProductModel;
         }
 
     }

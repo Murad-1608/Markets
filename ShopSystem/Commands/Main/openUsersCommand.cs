@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main
         public override void Execute(object? parameter)
         {
             viewModel.CenterGrid.Children.Clear();
-            UserMapper mapper = new UserMapper();
+       
 
             Users users = new Users();
 

@@ -18,20 +18,21 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             this.connectionString = connectionString;
         }
 
-        public int Insert(ProductEntity entity)
+        public int Insert(string name, string brand, double price, int count, string type, string color, string comment)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"Insert into Products values(@Brand,@Count,@Price,@Type,@Color,@Comment)";
+                string command = @"Insert into Products values(@Name,@Brand,@Count,@Price,@Type,@Color,@Comment)";
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Brad", entity.Brand);
-                    cmd.Parameters.AddWithValue("@Count", entity.Count);
-                    cmd.Parameters.AddWithValue("@Prince", entity.Price);
-                    cmd.Parameters.AddWithValue("@Type", entity.Type);
-                    cmd.Parameters.AddWithValue("@Color", entity.Color);
-                    cmd.Parameters.AddWithValue("@Type", entity.Comment);
+                    cmd.Parameters.AddWithValue("@Name",name);
+                    cmd.Parameters.AddWithValue("@Brand", brand);
+                    cmd.Parameters.AddWithValue("@Count", count);
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@Type", type);
+                    cmd.Parameters.AddWithValue("@Color", color);
+                    cmd.Parameters.AddWithValue("@Comment", comment);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }
@@ -86,7 +87,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
                 string command = @"select *from Products";
 
-                using(SqlCommand cmd = new SqlCommand(connectionString, con))
+                using(SqlCommand cmd = new SqlCommand(command, con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -94,12 +95,13 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     {
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
+                        entity.Name =dr["Name"].ToString();
                         entity.Brand = dr["Brand"].ToString();
                         entity.Count = int.Parse(dr["Count"].ToString());
                         entity.Price = double.Parse(dr["Price"].ToString());
                         entity.Type = dr["Type"].ToString();
                         entity.Color = dr["Color"].ToString();
-                        entity.Comment = dr["Commenct"].ToString();
+                        entity.Comment = dr["Comment"].ToString();
                         products.Add(entity);
                         
                     }
