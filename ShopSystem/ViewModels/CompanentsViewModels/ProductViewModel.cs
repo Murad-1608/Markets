@@ -1,4 +1,6 @@
 ﻿using ShopSystem.Commands.Main.ProductCommand;
+using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.DataContext;
 using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -10,14 +12,35 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class ProductViewModel : INotifyPropertyChanged
+    internal class ProductViewModel : BaseViewModel
     {
+        public IUnitOfWork db;
+        public DataProvider dataprovider;
+        public ProductViewModel(IUnitOfWork db) : base(db)
+        {
+            this.db = db;
+            dataprovider = new DataProvider();
+        }
 
-
+        #region Commands
         public AddProductCommand addcommand => new AddProductCommand(this);
+        public DeleteProductCommand DeleteProductCommand => new DeleteProductCommand(this);
+
+        #endregion
 
 
+        #region Values
 
+        private ProductModel selectedvalue;
+        public ProductModel SelectedValue
+        {
+            get => selectedvalue;
+            set
+            {
+                selectedvalue = value;
+                OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
 
 
         private ObservableCollection<ProductModel> getproducts;
@@ -31,8 +54,9 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
-        private ObservableCollection<ProductModel> allproducts;
-        public ObservableCollection<ProductModel> AllProducts
+
+        private List<ProductModel> allproducts;
+        public List<ProductModel> AllProducts
         {
             get { return allproducts; }
             set
@@ -43,10 +67,31 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
+        private ProductModel model=new ProductModel();
+        public ProductModel Model
+        {
+            get
+            {
+                return model;
+            }
+            set
+            {
+                model = value;
+                OnPropertyChanged(nameof(Model));
+            }
+        }
+
+
+
+        #endregion
+
+
+
         public void Initialize()
         {
-            GetProducts = AllProducts;
+            GetProducts = new ObservableCollection<ProductModel>(AllProducts);
         }
+
 
         private string searchText;
 
@@ -74,17 +119,5 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             GetProducts = new ObservableCollection<ProductModel>(products);
         }
 
-        public ProductModel Model { get; set; } = new ProductModel();
-
-       
-
-
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string PropertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
-        }
     }
 }

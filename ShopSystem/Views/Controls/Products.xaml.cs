@@ -33,7 +33,7 @@ namespace ShopSystem.Views.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProductViewModel viewModel = new ProductViewModel();
+            ProductViewModel viewModel = (ProductViewModel)DataContext;
             AddProduct addproduct = new AddProduct();
 
             addproduct.DataContext = viewModel;
@@ -42,11 +42,6 @@ namespace ShopSystem.Views.Controls
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
-            IUnitOfWork unit = new SqlUnitOfWork();
-            int check = unit.ProductRepository.Delete(model.Name);
-        }
+     
     }
 }

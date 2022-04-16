@@ -1,13 +1,8 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
-using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.DataContext;
-using ShopSystem.Entities;
-using ShopSystem.Mappers;
-using ShopSystem.Models;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,26 +10,23 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.ProductCommand
 {
-    internal class AddProductCommand : BaseCommand
+    internal class DeleteProductCommand : BaseCommand
     {
-        private readonly ProductViewModel viewModel;
-        public AddProductCommand(ProductViewModel viewModel)
+        public ProductViewModel viewModel;
+        
+        public DeleteProductCommand(ProductViewModel viewModel)
         {
             this.viewModel = viewModel;
-        }
 
+        }
         public override void Execute(object? parameter)
         {
-            ProductMapper mapper = new ProductMapper();
-            var entity = mapper.Map(viewModel.Model);
-            int check = viewModel.db.ProductRepository.Insert(entity);
+            
+            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Name,viewModel.SelectedValue.Brand);
 
             if (check == 1)
-            
             {
                 MessageBox.Show("Success");
-                viewModel.Model = null;
-
 
                 viewModel.AllProducts = viewModel.dataprovider.Products();
                 viewModel.Initialize();

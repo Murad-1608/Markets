@@ -18,7 +18,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             this.connectionString = connectionString;
         }
 
-        public int Insert(string name, string brand, double price, int count, string type, string color, string comment)
+        public int Insert(ProductEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -26,13 +26,13 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 string command = @"Insert into Products values(@Name,@Brand,@Count,@Price,@Type,@Color,@Comment)";
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Name",name);
-                    cmd.Parameters.AddWithValue("@Brand", brand);
-                    cmd.Parameters.AddWithValue("@Count", count);
-                    cmd.Parameters.AddWithValue("@Price", price);
-                    cmd.Parameters.AddWithValue("@Type", type);
-                    cmd.Parameters.AddWithValue("@Color", color);
-                    cmd.Parameters.AddWithValue("@Comment", comment);
+                    cmd.Parameters.AddWithValue("@Name",entity.Name);
+                    cmd.Parameters.AddWithValue("@Brand", entity.Brand);
+                    cmd.Parameters.AddWithValue("@Count", entity.Count);
+                    cmd.Parameters.AddWithValue("@Price", entity.Price);
+                    cmd.Parameters.AddWithValue("@Type", entity.Type);
+                    cmd.Parameters.AddWithValue("@Color", entity.Color);
+                    cmd.Parameters.AddWithValue("@Comment", entity.Comment);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }
@@ -60,15 +60,16 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Delete(string Name)
+        public int Delete(string Name,string Brand)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = " delete from Products where Name=@Name";
+                string command = " delete from Products where Name=@Name and Brand=@Brand";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     cmd.Parameters.AddWithValue("@Name", Name);
+                    cmd.Parameters.AddWithValue("@Brand", Brand);
 
                     int check = cmd.ExecuteNonQuery();
                     return check;

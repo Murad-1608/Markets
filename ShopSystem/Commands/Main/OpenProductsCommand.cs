@@ -31,7 +31,7 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(products);
 
-            ProductViewModel productViewModel=new ProductViewModel();
+            ProductViewModel productViewModel=new ProductViewModel(new SqlUnitOfWork());
 
             products.DataContext = productViewModel;
 
@@ -39,7 +39,7 @@ namespace ShopSystem.Commands.Main
 
             var GetProducts = data.Products();
 
-            productViewModel.AllProducts = new ObservableCollection<ProductModel>(GetProducts);
+            productViewModel.AllProducts = data.Products();
 
             productViewModel.Initialize();
         }

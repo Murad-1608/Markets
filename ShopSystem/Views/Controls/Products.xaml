@@ -85,7 +85,7 @@
             </WrapPanel>
 
             <StackPanel Grid.Row="1" Background="#cdd0d5" Margin="20,50,20,30">
-                <DataGrid  FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetProducts}">
+                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetProducts}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
@@ -157,7 +157,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Background="Transparent" BorderThickness="0" Height="25" >
-                                        <Image Source="\Images\pen-icon-png-0"></Image>
+                                        <Image Source="\Images\pen-icon-png-0.jpg"></Image>
                                     </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
@@ -165,7 +165,7 @@
                         <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderThickness="0" Height="25" Click="Button_Click_1">
+                                    <Button Command="{Binding Path=DeleteProductCommand}" Background="Transparent" BorderThickness="0" Height="25">
                                         <Image Source="\Images\DeleteIcon.png"></Image>
                                     </Button>
                                 </DataTemplate>

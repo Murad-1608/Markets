@@ -59,7 +59,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         entity.Password = dr["Password"].ToString();
                         entity.PhoneNumber = dr["PhoneNumber"].ToString();
                         entity.Position = dr["Position"].ToString();
-                        
+
                         Users.Add(entity);
                     }
                     return Users;
@@ -68,7 +68,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
 
 
-        public int Insert(int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber,string Position)
+        public int Insert(UserEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -78,13 +78,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 {
 
 
-                    cmd.Parameters.AddWithValue("@BranchId", BranchId);
-                    cmd.Parameters.AddWithValue("@Name", Name);
-                    cmd.Parameters.AddWithValue("@Surname", Surname);
-                    cmd.Parameters.AddWithValue("@FatherName", FatherName);
-                    cmd.Parameters.AddWithValue("@Email", Email);
-                    cmd.Parameters.AddWithValue("@Password", Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+                    cmd.Parameters.AddWithValue("@BranchId", entity.Id);
+                    cmd.Parameters.AddWithValue("@Name", entity.Name);
+                    cmd.Parameters.AddWithValue("@Surname", entity.Surname);
+                    cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Position", entity.Position);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }
@@ -121,7 +122,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Update(int Id, int BranchId, string Name, string Surname, string FatherName, string Email, string Password, string PhoneNumber, string Position)
+        public int Update(UserEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -129,15 +130,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", Id);
-                    cmd.Parameters.AddWithValue("@BranchId", BranchId);
-                    cmd.Parameters.AddWithValue("@Name", Name);
-                    cmd.Parameters.AddWithValue("@Surname", Surname);
-                    cmd.Parameters.AddWithValue("@FatherName", FatherName);
-                    cmd.Parameters.AddWithValue("@Email", Email);
-                    cmd.Parameters.AddWithValue("@Password", Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
-                    cmd.Parameters.AddWithValue("@Position", PhoneNumber);
+                    cmd.Parameters.AddWithValue("@BranchId", entity.Id);
+                    cmd.Parameters.AddWithValue("@Name", entity.Name);
+                    cmd.Parameters.AddWithValue("@Surname", entity.Surname);
+                    cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Position", entity.Position);
 
                     int check = cmd.ExecuteNonQuery();
                     return check;

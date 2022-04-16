@@ -1,4 +1,5 @@
-﻿using ShopSystem.ViewModels.CompanentsViewModels;
+﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace ShopSystem.Views.MainViews
         public AddProduct()
         {
             InitializeComponent();
-            ProductViewModel viewModel = new ProductViewModel();
+            ProductViewModel viewModel = new ProductViewModel(new SqlUnitOfWork());
             DataContext = viewModel;
         }
     }
