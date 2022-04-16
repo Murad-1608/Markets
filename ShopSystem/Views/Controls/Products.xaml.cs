@@ -1,4 +1,7 @@
-﻿using ShopSystem.ViewModels.CompanentsViewModels;
+﻿using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Models;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.MainViews;
 using System;
 using System.Collections.Generic;
@@ -22,6 +25,7 @@ namespace ShopSystem.Views.Controls
     /// </summary>
     public partial class Products : UserControl
     {
+        ProductModel model = null;
         public Products()
         {
             InitializeComponent();
@@ -36,6 +40,13 @@ namespace ShopSystem.Views.Controls
             addproduct.ShowDialog();
 
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+            IUnitOfWork unit = new SqlUnitOfWork();
+            int check = unit.ProductRepository.Delete(model.Name);
         }
     }
 }

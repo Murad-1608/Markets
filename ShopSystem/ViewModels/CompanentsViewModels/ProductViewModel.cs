@@ -76,7 +76,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         public ProductModel Model { get; set; } = new ProductModel();
 
-
+       
 
 
 

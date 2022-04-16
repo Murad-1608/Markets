@@ -1,4 +1,5 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace ShopSystem.Views.MainViews
         {
             InitializeComponent();
 
-            MainViewModel main=new MainViewModel();
+            MainViewModel main=new MainViewModel(new SqlUnitOfWork());
 
             DataContext = main;
 

@@ -1,4 +1,5 @@
 ﻿using ShopSystem.Commands;
+using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,13 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels
 {
-    internal class LoginViewModel : INotifyPropertyChanged
+    internal class LoginViewModel : BaseViewModel
     {
+        public IUnitOfWork db = null;
+        public LoginViewModel(IUnitOfWork db):base(db)
+        {
+            this.db = db;
+        }
         public LoginClick LoginClick => new LoginClick(this);
         public LoginForgotPassword ForgotPasswordClick => new LoginForgotPassword(this);
 

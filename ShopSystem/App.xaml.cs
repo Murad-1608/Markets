@@ -22,7 +22,7 @@ namespace ShopSystem
         public App()
         {
 
-            LoginViewModel viewModel = new LoginViewModel();
+            LoginViewModel viewModel = new LoginViewModel(new SqlUnitOfWork());
 
             Login login = new Login();
             login.DataContext = viewModel;

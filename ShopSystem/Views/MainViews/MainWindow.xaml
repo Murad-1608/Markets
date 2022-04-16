@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:ShopSystem.Views.MainViews"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="1500" MinHeight="650" MinWidth="1200" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+    </Window.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -38,18 +43,20 @@
                     <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
 
-                <Button BorderThickness="0" Background="Transparent" Height="70" Grid.Row="0"  FontSize="15" Content="Dashboard" Foreground="White"/>
-                <Button Command="{Binding openCompaniesCommand}" BorderThickness="0" Grid.Row="1" Background="Transparent" Height="70" FontSize="15" Content="Companies" Foreground="White"/>
-                <Button Command="{Binding openBranhesCommand}"   BorderThickness="0" Background="Transparent" Height="70" Grid.Row="2"  FontSize="15" Content="Branches" Foreground="White"/>
-                <Button  Command ="{Binding openUsersCommand}"  BorderThickness="0" Background="Transparent" Height="70" Grid.Row="3"  FontSize="15" Content="Users" Foreground="White"/>
-                <Button Command="{Binding openProductsCommand}" BorderThickness="0" Background="Transparent" Height="70" Grid.Row="4"  FontSize="15" Content="Products" Foreground="White"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Grid.Row="0" Content="Dashboard"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openCompaniesCommand}" Grid.Row="1" Content="Companies"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openBranhesCommand}"   Grid.Row="2" Content="Branches"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command ="{Binding openUsersCommand}"    Grid.Row="3" Content="Users"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openProductsCommand}"  Grid.Row="4" Content="Products"/>
+
+
 
             </Grid>
         </StackPanel>
 
 
         <Grid Grid.Row="1" Grid.Column="1" Background="#eaeef4" x:Name="grdCenter">
-            <Image Source="/Images/kontakthome.png"></Image>
+            <Image Source="/Images/kontakthome.png" Height="800" Margin="0,-84,0,-52" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
 
 

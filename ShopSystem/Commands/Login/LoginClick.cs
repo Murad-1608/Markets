@@ -26,17 +26,15 @@ namespace ShopSystem.Commands
             this.viewModel = viewModel;
         }
         public override void Execute(object? parameter)
-        {
-            IUnitOfWork unitOfWork = new SqlUnitOfWork();
+        {          
 
-
-            int check = unitOfWork.UserRepository.Get(viewModel.Email);
+            int check = viewModel.db.UserRepository.Get(viewModel.Email);
 
             string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
             if (PasswordHash == UserInformation.Password)
             {
-                MainViewModel mainViewModel = new MainViewModel();
+                MainViewModel mainViewModel = new MainViewModel(new SqlUnitOfWork());
 
                 MainWindow main = new MainWindow();
                 main.DataContext = mainViewModel;

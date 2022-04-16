@@ -17,6 +17,6 @@ namespace ShopSystem.Commands
         }
 
         public abstract void Execute(object? parameter);
-       
+
     }
 }

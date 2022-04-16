@@ -1,4 +1,6 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.Commands;
+using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,10 +11,16 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class CompanyViewModel : INotifyPropertyChanged
+    internal class CompanyViewModel : BaseViewModel
     {
-        private ObservableCollection<UserModel> companies;
+        IUnitOfWork db = null;
+        public CompanyViewModel(IUnitOfWork db):base(db)
+        {
+            this.db = db;
+        }
 
+
+        private ObservableCollection<UserModel> companies;
         public ObservableCollection<UserModel> Companies
         {
             get { return companies; }
@@ -22,11 +30,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnPropertyChanged(nameof(Companies));
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string PropertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
-        }
+       
+        
     }
 }

@@ -12,8 +12,14 @@ using System.Windows.Controls;
 
 namespace ShopSystem.ViewModels
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    internal class MainViewModel : BaseViewModel
     {
+        public IUnitOfWork db = null;
+        public MainViewModel(IUnitOfWork db) : base(db)
+        {
+            this.db = db;
+        }
+
         private ObservableCollection<UserModel> allusers;
 
         public ObservableCollection<UserModel> AllGetUsers
@@ -53,7 +59,7 @@ namespace ShopSystem.ViewModels
         public OpenUsersCommand openUsersCommand => new OpenUsersCommand(this);
         public OpenProductsCommand openProductsCommand => new OpenProductsCommand(this);
 
-     
+
 
 
 

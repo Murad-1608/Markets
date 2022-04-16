@@ -3,6 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ShopSystem">
     <Application.Resources>
-         
+
+        <Style x:Key="SearchPanel" TargetType="WrapPanel">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="#3480b1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ButtonStyleMainWindow" TargetType="Button">
+            <Setter Property="Background" Value="#1d282d"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
     </Application.Resources>
 </Application>

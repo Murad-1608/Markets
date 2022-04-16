@@ -60,15 +60,15 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Delete(int Id)
+        public int Delete(string Name)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = " delete from Products where Id=@Id";
+                string command = " delete from Products where Name=@Name";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.Parameters.AddWithValue("@Name", Name);
 
                     int check = cmd.ExecuteNonQuery();
                     return check;
