@@ -1,8 +1,5 @@
-﻿using ShopSystem.DataAccessLayer.Abstraction;
-using ShopSystem.DataAccessLayer.Servers.SqlServer;
-using ShopSystem.Models;
-using ShopSystem.ViewModels;
-using ShopSystem.Views.LoginViews;
+﻿using ShopSystem.Models;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +8,29 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ShopSystem.Commands
+namespace ShopSystem.Commands.Main
 {
-    internal class PasswordChanged : BaseCommand
+    internal class ChangePassword : BaseCommand
     {
-        private readonly ChangedPasswordViewModel viewModel;
-        public PasswordChanged(ChangedPasswordViewModel viewModel)
+        private ProductViewModel viewModel;
+        public ChangePassword(ProductViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
+
         public override void Execute(object? parameter)
         {
             PasswordBox NewPassword = parameter as PasswordBox;
 
             string Password = NewPassword.Password;
 
-            
+
 
             int check = viewModel.db.UserRepository.Update(UserInformation.Email, Password);
 
             if (check == 1)
             {
-                MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);                            
+                MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

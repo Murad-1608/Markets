@@ -1,4 +1,5 @@
 ﻿using ShopSystem.Commands;
+using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using System;
@@ -22,7 +23,7 @@ namespace ShopSystem.Views.LoginViews
     /// </summary>
     public partial class ChangedPassword : Window
     {
-        ChangedPasswordViewModel viewModel = new ChangedPasswordViewModel();
+        ChangedPasswordViewModel viewModel = new ChangedPasswordViewModel(new SqlUnitOfWork());
         public ChangedPassword()
         {
             InitializeComponent();

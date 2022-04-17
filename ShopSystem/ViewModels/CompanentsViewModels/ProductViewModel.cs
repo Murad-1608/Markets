@@ -1,4 +1,5 @@
-﻿using ShopSystem.Commands.Main.ProductCommand;
+﻿using ShopSystem.Commands.Main;
+using ShopSystem.Commands.Main.ProductCommand;
 using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataContext;
 using ShopSystem.Models;
@@ -25,6 +26,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         #region Commands
         public AddProductCommand addcommand => new AddProductCommand(this);
         public DeleteProductCommand DeleteProductCommand => new DeleteProductCommand(this);
+        public ChangePassword changePassword => new ChangePassword(this);
 
         #endregion
 
@@ -80,7 +82,6 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnPropertyChanged(nameof(Model));
             }
         }
-
 
 
         #endregion

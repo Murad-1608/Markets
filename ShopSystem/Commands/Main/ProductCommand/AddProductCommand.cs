@@ -30,7 +30,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
             int check = viewModel.db.ProductRepository.Insert(entity);
 
             if (check == 1)
-            
+
             {
                 MessageBox.Show("Success");
                 viewModel.Model = null;

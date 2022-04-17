@@ -35,5 +35,17 @@ namespace ShopSystem.Views.MainViews
             txt_UserFullName.Text = UserInformation.Name + " " + UserInformation.Surname;
             txt_Position.Text=UserInformation.Position;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            ChangePasswordMain changePasswordMain = new ChangePasswordMain();
+            changePasswordMain.DataContext = DataContext;
+            changePasswordMain.ShowDialog();
+        }
     }
 }

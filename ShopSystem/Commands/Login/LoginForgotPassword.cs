@@ -35,42 +35,33 @@ namespace ShopSystem.Commands
 
         public void Execute(object? parameter)
         {
-            IUnitOfWork unitOfWork = new SqlUnitOfWork();            
+                  
             Random random = new Random();
             UserInformation.Code=random.Next(1111,9999);
 
-            int check = unitOfWork.UserRepository.Get(viewModel.ForgotPasswordEmail);
+            int check = viewModel.db.UserRepository.Get(viewModel.ForgotPasswordEmail);
 
             if (check == 1)
             {
-                try
-                {
-                    MailAddress mailReveiver = new MailAddress("murad.yunus.2017@gmail.com", "Murad Yunus");
-                    MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
-                    MailMessage message = new MailMessage();
+                MailAddress mailReveiver = new MailAddress( viewModel.Email,"Murad Yunus");
+                MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
+                MailMessage message = new MailMessage();
 
-                    message.To.Add(mailReveiver);
-                    message.From = mailSender;
-                    message.Subject = "Rememberin the password";
-                    message.Body = "Security code : " + UserInformation.Code;
+                message.To.Add(mailReveiver);
+                message.From = mailSender;
+                message.Subject = "Rememberin the password";
+                message.Body = "Security code : " + UserInformation.Code;
 
 
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.Credentials = new NetworkCredential("projecttesting452@gmail.com", "muradkenan");
-                    smtp.EnableSsl = true;
-                    smtp.Send(message);
-                    MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("projecttesting452@gmail.com", "muradkenan");
+                smtp.EnableSsl = true;
+                smtp.Send(message);
+                MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    ChangedPassword changedPassword = new ChangedPassword();
-                    changedPassword.ShowDialog();
-                }
+                ChangedPassword changedPassword = new ChangedPassword();
+                changedPassword.ShowDialog();
 
-                catch (Exception)
-                {
-
-                    MessageBox.Show("You don't have internet");
-                }
-                
 
             }
             else
