@@ -1,4 +1,7 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Models;
+using ShopSystem.Security;
+using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,20 +24,26 @@ namespace ShopSystem.Views.MainViews
     /// </summary>
     public partial class ChangePasswordMain : Window
     {
+
         public ChangePasswordMain()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProductViewModel viewModel = (ProductViewModel)DataContext;
+            MainViewModel viewModel = (MainViewModel)DataContext;
 
-            if (txtPassword.Password == UserInformation.Password)
+
+            string Password = Utils.PasswordHash(txtPassword.Password);
+
+            if (Password == UserInformation.Password)
             {
-                if (txtNewPassword.Password==txtConfirmPassword.Password)
+                if (txtNewPassword.Password == txtConfirmPassword.Password)
                 {
-                    viewModel.changePassword.Execute(txtNewPassword.Password);
+                    viewModel.changePassword.Execute(txtNewPassword);
+                    this.Close();
                 }
                 else
                 {

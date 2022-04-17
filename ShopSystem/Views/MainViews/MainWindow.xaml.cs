@@ -1,6 +1,7 @@
 ﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,8 +44,9 @@ namespace ShopSystem.Views.MainViews
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            MainViewModel viewModel = (MainViewModel)DataContext;
             ChangePasswordMain changePasswordMain = new ChangePasswordMain();
-            changePasswordMain.DataContext = DataContext;
+            changePasswordMain.DataContext = viewModel;
             changePasswordMain.ShowDialog();
         }
     }

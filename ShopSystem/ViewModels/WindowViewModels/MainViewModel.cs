@@ -20,6 +20,12 @@ namespace ShopSystem.ViewModels
             this.db = db;
         }
 
+
+
+
+
+
+
         private ObservableCollection<UserModel> allusers;
 
         public ObservableCollection<UserModel> AllGetUsers
@@ -58,6 +64,7 @@ namespace ShopSystem.ViewModels
         public OpenBranchesCommand openBranhesCommand => new OpenBranchesCommand(this);
         public OpenUsersCommand openUsersCommand => new OpenUsersCommand(this);
         public OpenProductsCommand openProductsCommand => new OpenProductsCommand(this);
+        public ChangePassword changePassword => new ChangePassword(this);
 
 
 

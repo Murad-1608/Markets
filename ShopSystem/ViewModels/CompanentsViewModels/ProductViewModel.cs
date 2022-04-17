@@ -26,7 +26,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         #region Commands
         public AddProductCommand addcommand => new AddProductCommand(this);
         public DeleteProductCommand DeleteProductCommand => new DeleteProductCommand(this);
-        public ChangePassword changePassword => new ChangePassword(this);
+       
 
         #endregion
 

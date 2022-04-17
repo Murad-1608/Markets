@@ -1,4 +1,6 @@
 ﻿using ShopSystem.Models;
+using ShopSystem.Security;
+using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,8 +14,8 @@ namespace ShopSystem.Commands.Main
 {
     internal class ChangePassword : BaseCommand
     {
-        private ProductViewModel viewModel;
-        public ChangePassword(ProductViewModel viewModel)
+        private MainViewModel viewModel;
+        public ChangePassword(MainViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -31,6 +33,7 @@ namespace ShopSystem.Commands.Main
             if (check == 1)
             {
                 MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                UserInformation.Password = NewPassword.Password;
             }
         }
     }
