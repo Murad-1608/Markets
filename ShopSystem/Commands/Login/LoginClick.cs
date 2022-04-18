@@ -26,28 +26,35 @@ namespace ShopSystem.Commands
             this.viewModel = viewModel;
         }
         public override void Execute(object? parameter)
-        {          
-
-            int check = viewModel.db.UserRepository.Get(viewModel.Email);
-
-            string PasswordHash = Utils.PasswordHash(parameter.ToString());
-
-            if (PasswordHash == UserInformation.Password)
+        {
+            try
             {
-                MainViewModel mainViewModel = new MainViewModel(new SqlUnitOfWork());
+                int check = viewModel.db.UserRepository.Get(viewModel.Email);
 
-                MainWindow main = new MainWindow();
-                main.DataContext = mainViewModel;
+                string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
-                mainViewModel.CenterGrid = main.grdCenter;
+                if (PasswordHash == UserInformation.Password)
+                {
+                    MainViewModel mainViewModel = new MainViewModel(new SqlUnitOfWork());
 
-                main.Show();
+                    MainWindow main = new MainWindow();
+                    main.DataContext = mainViewModel;
 
+                    mainViewModel.CenterGrid = main.grdCenter;
+
+                    main.Show();
+
+                }
+                else
+                {
+                    MessageBox.Show("Email and password incorrected", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Email and password incorrected", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No connection", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            
         }
     }
 }
