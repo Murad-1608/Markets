@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -34,10 +34,10 @@
             <!--<Button Grid.Column="0" Height="50" Width="50" VerticalAlignment="Center"></Button>-->
 
             <Menu Height="50" Width="50" Background="Transparent">
-                <MenuItem FontSize="13" VerticalAlignment="Center" Height="50" Width="50">
-                    <MenuItem.Icon>
-                        <Image Source="\Images\DeleteIcon.png" Margin="-4,-17,-28,-17"/>
-                    </MenuItem.Icon>
+                <MenuItem Header=":" FontSize="13" VerticalAlignment="Center" Height="50" Width="50">
+                    <!--<MenuItem.Icon>
+                        <Image Source="\Images\menuIcon.png" Margin="-4,-17,-28,-17"/>
+                    </MenuItem.Icon>-->
 
                     <MenuItem Header="Acount"/>
                     <MenuItem Header="Change Password" Click="MenuItem_Click_1" />
@@ -55,7 +55,7 @@
 
         <!--User position-->
         <Border Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
-            <TextBlock x:Name="txt_Position" FontSize="25" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="35,15,10,10"><Run Text="Admin"/></TextBlock>
+            <TextBlock x:Name="txt_Position" FontSize="30" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="30,20,10,10"><Run Text="Admin"/></TextBlock>
         </Border>
 
 
@@ -82,7 +82,7 @@
 
 
         <Grid Grid.Row="1" Grid.Column="1" Background="#eaeef4" x:Name="grdCenter">
-            <Image Source="/Images/kontakthome.png" Height="800" Margin="0,-78,0,-58" RenderTransformOrigin="0.5,0.5"/>
+            <Image Source="/Images/kontakthome.png" Margin="-30,-38,132,0" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
 
 

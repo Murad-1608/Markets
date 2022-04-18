@@ -40,14 +40,14 @@ namespace ShopSystem.Views.MainViews
 
             if (Password == UserInformation.Password)
             {
-                if (txtNewPassword.Password == txtConfirmPassword.Password)
+                if (txtNewPassword.Password != "" && (txtNewPassword.Password == txtConfirmPassword.Password))
                 {
                     viewModel.changePassword.Execute(txtNewPassword);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Check that the passwords are the same");
+                    MessageBox.Show("Check that the passwords are the same or empty");
                 }
             }
             else

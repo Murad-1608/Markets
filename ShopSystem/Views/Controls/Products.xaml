@@ -176,6 +176,10 @@
             </StackPanel>
 
             <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
+
+            <Button Command="{Binding DeleteProductCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
+                <Image Source="\Images\DeleteIcon.png"></Image>
+            </Button>
         </Grid>
 
         <WrapPanel Grid.Row="1" Style="{StaticResource SearchPanel}">

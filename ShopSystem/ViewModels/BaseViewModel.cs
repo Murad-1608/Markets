@@ -12,7 +12,7 @@ namespace ShopSystem.ViewModels
 {
     internal class BaseViewModel : INotifyPropertyChanged
     {
-        private IUnitOfWork db = new SqlUnitOfWork();
+        private IUnitOfWork db = null;
 
         public BaseViewModel(IUnitOfWork db)
         {

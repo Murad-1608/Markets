@@ -1,4 +1,7 @@
-﻿using ShopSystem.Models;
+﻿using ShopSystem.Commands.Main.UserCommand;
+using ShopSystem.DataAccessLayer.Abstraction;
+using ShopSystem.DataContext;
+using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,20 +12,40 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class UserViewModel : INotifyPropertyChanged
+    internal class UserViewModel : BaseViewModel
     {
+        public IUnitOfWork db;
+        public DataProvider dataprovider;
+        public UserViewModel(IUnitOfWork db) : base(db)
+        {
+            this.db = db;
+            dataprovider = new DataProvider();
+        }
 
-        private ObservableCollection<UserModel> allusers;
-        public ObservableCollection<UserModel> AllUsers
+
+        public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
+
+        private List<UserModel> allusers;
+        public List<UserModel> AllUsers
         {
             get { return allusers; }
             set
             {
                 allusers = value;
-                OnProperyChanged(nameof(allusers));
+                OnPropertyChanged(nameof(allusers));
             }
         }
 
+        private UserModel selectedvalue;
+        public UserModel SelectedValue
+        {
+            get => selectedvalue;
+            set
+            {
+                selectedvalue = value;
+                OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
 
         private ObservableCollection<UserModel> getusers;
         public ObservableCollection<UserModel> GetUsers
@@ -31,7 +54,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 getusers = value;
-                OnProperyChanged(nameof(GetUsers));
+                OnPropertyChanged(nameof(GetUsers));
             }
         }
 
@@ -48,14 +71,14 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 searchText = value;
-                OnProperyChanged(nameof(SearchText));
+                OnPropertyChanged(nameof(SearchText));
                 OnSearchUsers();
             }
         }
 
         public void Initialize()
         {
-            GetUsers = AllUsers;
+            GetUsers =new ObservableCollection<UserModel>(AllUsers);
         }
 
         public void OnSearchUsers()
@@ -67,10 +90,6 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #endregion
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnProperyChanged(string PropertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
-        }
+       
     }
 }

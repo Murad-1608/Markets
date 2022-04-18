@@ -22,7 +22,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
         public override void Execute(object? parameter)
         {
             
-            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Name,viewModel.SelectedValue.Brand);
+            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
 
             if (check == 1)
             {

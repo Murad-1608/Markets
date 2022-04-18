@@ -32,12 +32,12 @@
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="2">
             <TextBlock Text="Price :" FontSize="15"/>
-            <TextBox Text="{Binding Path=Model.Price}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
+            <TextBox Text="{Binding Path=Model.Price}" PreviewTextInput="TextBox_PreviewTextInput" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="3">
             <TextBlock Text="Count :" FontSize="15"/>
-            <TextBox Text="{Binding Path=Model.Count}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Path=Model.Count}"  PreviewTextInput="TextBox_PreviewTextInput" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">

@@ -32,7 +32,7 @@ namespace ShopSystem.Commands.Main
             Users users = new Users();
 
             viewModel.CenterGrid.Children.Add(users);
-            UserViewModel userViewModel = new UserViewModel();
+            UserViewModel userViewModel = new UserViewModel(new SqlUnitOfWork());
 
             users.DataContext= userViewModel;
 
@@ -41,7 +41,7 @@ namespace ShopSystem.Commands.Main
            
             var GetUsers = dataprovider.Users();
 
-            userViewModel.AllUsers = new ObservableCollection<UserModel>(GetUsers);
+            userViewModel.AllUsers =GetUsers;
 
             userViewModel.Initialize();
         }

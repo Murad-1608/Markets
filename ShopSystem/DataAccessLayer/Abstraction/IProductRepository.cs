@@ -12,7 +12,7 @@ namespace ShopSystem.DataAccessLayer.Abstraction
     {
         int Insert(ProductEntity entity);
         int Update(ProductEntity entity);
-        int Delete(string Name,string Brand);
+        int Delete(int Id);
         List<ProductEntity> GetProducts();
 
     }
