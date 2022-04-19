@@ -43,8 +43,8 @@ namespace ShopSystem.Commands
 
             if (check == 1)
             {
-                MailAddress mailReveiver = new MailAddress( viewModel.Email,"Murad Yunus");
-                MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Holding");
+                MailAddress mailReveiver = new MailAddress( viewModel.Email," ");
+                MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Kenan");
                 MailMessage message = new MailMessage();
 
                 message.To.Add(mailReveiver);

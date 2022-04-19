@@ -26,7 +26,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 string command = @"Insert into Products values(@Name,@Brand,@Count,@Price,@Type,@Color,@Comment)";
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@Name",entity.Name);
+                    cmd.Parameters.AddWithValue("@Name", entity.Name);
                     cmd.Parameters.AddWithValue("@Brand", entity.Brand);
                     cmd.Parameters.AddWithValue("@Count", entity.Count);
                     cmd.Parameters.AddWithValue("@Price", entity.Price);
@@ -69,7 +69,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
-                    
+
 
                     int check = cmd.ExecuteNonQuery();
                     return check;
@@ -88,7 +88,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
                 string command = @"select *from Products";
 
-                using(SqlCommand cmd = new SqlCommand(command, con))
+                using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -96,7 +96,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     {
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
-                        entity.Name =dr["Name"].ToString();
+                        entity.Name = dr["Name"].ToString();
                         entity.Brand = dr["Brand"].ToString();
                         entity.Count = int.Parse(dr["Count"].ToString());
                         entity.Price = double.Parse(dr["Price"].ToString());
@@ -104,7 +104,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         entity.Color = dr["Color"].ToString();
                         entity.Comment = dr["Comment"].ToString();
                         products.Add(entity);
-                        
+
                     }
                     return products;
                 }
@@ -112,7 +112,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
     }
 
-    
+
 
 
 }

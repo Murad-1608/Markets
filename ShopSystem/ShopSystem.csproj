@@ -18,6 +18,20 @@
     <None Remove="Images\Back_Button_Icon.jpg" />
     <None Remove="Images\DeleteIcon.png" />
     <None Remove="Images\kontakthome.png" />
+    <None Remove="Images\menuIcon.png" />
+    <None Remove="Images\pen-icon-png-0.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\menuIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\pen-icon-png-0.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

@@ -165,7 +165,7 @@
                         <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.DeleteProductCommand}" Background="Transparent" BorderThickness="0" Height="25">
+                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteProductCommand}" Background="Transparent" BorderThickness="0" Height="25">
                                         <Image Source="\Images\DeleteIcon.png"></Image>
                                     </Button>
                                 </DataTemplate>

@@ -13,7 +13,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
     internal class DeleteProductCommand : BaseCommand
     {
         public ProductViewModel viewModel;
-        
+
         public DeleteProductCommand(ProductViewModel viewModel)
         {
             this.viewModel = viewModel;
@@ -21,8 +21,10 @@ namespace ShopSystem.Commands.Main.ProductCommand
         }
         public override void Execute(object? parameter)
         {
-            
+
             int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
+
+
 
             if (check == 1)
             {

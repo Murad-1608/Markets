@@ -67,17 +67,14 @@
 
 
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="482" Width="400">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="43*"/>
-        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="54*"/>
             <RowDefinition Height="59*"/>
             <RowDefinition Height="368*"/>
         </Grid.RowDefinitions>
         <!--LOGIN ACCOUNT-->
-        <StackPanel Visibility="Visible" x:Name="Panel_Login" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
+        <StackPanel Visibility="Collapsed" x:Name="Panel_Login" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
             <Grid HorizontalAlignment="Center" Width="400" Height="387">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="130"/>
@@ -144,6 +141,66 @@
             </Grid>
 
         </StackPanel>
+
+
+        <!--Register-->
+        <StackPanel Visibility="Visible" x:Name="Panel_Register" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
+            <Grid HorizontalAlignment="Center" Width="400" Height="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="29*"/>
+                    <ColumnDefinition Width="51*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Height="48" Width="176" Margin="114,0,0,0" Grid.ColumnSpan="2">REGISTER</TextBlock>
+
+
+                <TextBlock Grid.Row="1"  Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0" >E-mail:</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtEmailRegister" Text="{Binding Path=Register.Email}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"  />
+
+                <TextBlock Grid.Row="2" Style="{StaticResource TextBLockStyle}" Margin="10,0,10,0" Height="24">Name:</TextBlock>
+                <TextBox Grid.Column="1" Grid.Row="2"  x:Name="txtNameRegister" Text="{Binding Path=Register.Name}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"/>
+
+                <TextBlock Grid.Row="3" Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0">Surname:</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtSurnameRegister" Text="{Binding Path=Register.Surname}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"/>
+
+                <TextBlock Grid.Row="4" Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0">Father name:</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="FatherNameRegister" Text="{Binding Path=Register.FatherName}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"/>
+
+                <TextBlock Grid.Row="5" Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0">Phone number:</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtPhoneNumberRegister" Text="{Binding Path=Register.PhoneNumber}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"/>
+
+                <TextBlock Grid.Row="6" Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0">Password:</TextBlock>
+                <PasswordBox Grid.Row="6" Grid.Column="1" x:Name="pswRegister" Style="{StaticResource PasswordDesign}" Margin="0,5,0,5" Width="220"/>
+
+                <TextBlock Grid.Row="7" Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0">Confirm password:</TextBlock>
+                <PasswordBox Grid.Row="7" Grid.Column="1" x:Name="pswConfirmRegister" Style="{StaticResource PasswordDesign}" Margin="0,5,0,5" Width="220"/>
+
+
+                <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="8" HorizontalAlignment="Center" Width="218" FontSize="14" Background="#16adcc" Foreground="White" Margin="0,13,0,48" Grid.Column="1">Enter</Button>
+
+                <Grid Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="0" Width="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
 
 
     </Grid>

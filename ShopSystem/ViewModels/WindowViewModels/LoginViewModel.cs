@@ -24,7 +24,7 @@ namespace ShopSystem.ViewModels
         public string Password { get; set; }
         public string ForgotPasswordEmail { get; set; }
 
-
+       public UserModel Register { get; set; }=new UserModel(); 
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
