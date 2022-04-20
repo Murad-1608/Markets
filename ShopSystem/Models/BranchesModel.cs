@@ -9,6 +9,7 @@ namespace ShopSystem.Models
     public class BranchesModel
     {
         public int Id { get; set; }
+        public int No { get; set; }
         public string Location { get; set; }
         public int Profit { get; set; }
         public string PhoneNumber { get; set; }     

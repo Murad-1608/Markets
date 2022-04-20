@@ -1,4 +1,5 @@
 ﻿using ShopSystem.ViewModels;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls;
 using System;
 using System.Collections.Generic;

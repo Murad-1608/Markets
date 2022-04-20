@@ -58,5 +58,44 @@ namespace ShopSystem.DataContext
             return ProductModel;
         }
 
+        public List<CompaniesModel> Companies()
+        {
+            var products = db.CompaniesRepository.GetCompanies();
+            List<CompaniesModel> ProductModel = new List<CompaniesModel>();
+
+            CompaniesMapper mapper = new CompaniesMapper();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                var product = products[i];
+
+                var productModel = mapper.Map(product);
+
+                productModel.No = i + 1;
+
+                ProductModel.Add(productModel);
+            }
+            return ProductModel;
+        }
+        public List<BranchesModel> Branches()
+        {
+            var products = db.BranchesRepository.GetBranches();
+            List<BranchesModel> ProductModel = new List<BranchesModel>();
+
+            BranchesMapper mapper = new BranchesMapper();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                var product = products[i];
+
+                var productModel = mapper.Map(product);
+
+                productModel.No = i + 1;
+
+                ProductModel.Add(productModel);
+            }
+            return ProductModel;
+        }
+
     }
 }

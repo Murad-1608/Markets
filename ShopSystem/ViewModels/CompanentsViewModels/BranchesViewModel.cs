@@ -1,33 +1,30 @@
-﻿using ShopSystem.Commands;
-using ShopSystem.Commands.Main;
-using ShopSystem.Commands.Main.CompanyCommand;
-using ShopSystem.Commands.Main.ProductCommand;
+﻿using ShopSystem.Commands.Main;
+using ShopSystem.Commands.Main.BranchesCommand;
 using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataContext;
 using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class CompanyViewModel : BaseViewModel
+    internal class BranchesViewModel : BaseViewModel
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;
-        public CompanyViewModel(IUnitOfWork db) : base(db)
+        public BranchesViewModel(IUnitOfWork db) : base(db)
         {
             this.db = db;
             dataprovider = new DataProvider();
         }
 
         #region Commands
-        public AddCompanyCommand addcommand => new AddCompanyCommand(this);
-        public DeleteCompanyCommand DeleteProductCommand => new DeleteCompanyCommand(this);
+        public AddBranchesCommand addcommand => new AddBranchesCommand(this);
+        public DeleteBranchesCommand DeleteProductCommand => new DeleteBranchesCommand(this);
 
 
         #endregion
@@ -35,8 +32,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #region Values
 
-        private CompaniesModel selectedvalue;
-        public CompaniesModel SelectedValue
+        private BranchesModel selectedvalue;
+        public BranchesModel SelectedValue
         {
             get => selectedvalue;
             set
@@ -47,8 +44,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<CompaniesModel> getproducts;
-        public ObservableCollection<CompaniesModel> GetProducts
+        private ObservableCollection<BranchesModel> getproducts;
+        public ObservableCollection<BranchesModel> GetProducts
         {
             get { return getproducts; }
             set
@@ -59,20 +56,20 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private List<CompaniesModel> allCompanies;
-        public List<CompaniesModel> AllCompanies
+        private List<BranchesModel> allBranches;
+        public List<BranchesModel> AllBranches
         {
-            get { return allCompanies; }
+            get { return allBranches; }
             set
             {
-                allCompanies = value;
-                OnPropertyChanged(nameof(allCompanies));
+                AllBranches = value;
+                OnPropertyChanged(nameof(AllBranches));
             }
         }
 
 
-        private CompaniesModel model = new CompaniesModel();
-        public CompaniesModel Model
+        private BranchesModel model = new BranchesModel();
+        public BranchesModel Model
         {
             get
             {
@@ -92,7 +89,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         public void Initialize()
         {
-            GetProducts = new ObservableCollection<CompaniesModel>(AllCompanies);
+            GetProducts = new ObservableCollection<BranchesModel>(AllBranches);
         }
 
 
@@ -114,12 +111,12 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         public void OnSearch()
         {
-            var products = AllCompanies.Where(x => (x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower())));
+            var products = AllBranches.Where(x => (x.Location != null && x.Location.ToLower().Contains(SearchText.ToLower()) ||
+                                                  (x.PhoneNumber != null && x.PhoneNumber.ToLower().Contains(SearchText.ToLower()))));
+                                                  
 
 
-            GetProducts = new ObservableCollection<CompaniesModel>(products);
+            GetProducts = new ObservableCollection<BranchesModel>(products);
         }
-
-
     }
 }
