@@ -27,5 +27,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         public IBranchesRepository BranchesRepository =>  new SqlBranchesRepository(connectionString);
 
         public IProductRepository ProductRepository => new SqlProductRepository(connectionString);
+
+        public ICompaniesRepository CompaniesRepository => new SqlCompaniesRepository(connectionString);
     }
 }

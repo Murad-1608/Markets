@@ -11,5 +11,6 @@ namespace ShopSystem.DataAccessLayer.Abstraction
         IUserRepository UserRepository { get; }
         IBranchesRepository BranchesRepository { get; }
         IProductRepository ProductRepository { get; }
+        ICompaniesRepository CompaniesRepository { get; }
     }
 }

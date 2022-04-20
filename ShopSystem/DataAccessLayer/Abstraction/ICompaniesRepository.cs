@@ -1,5 +1,4 @@
 ﻿using ShopSystem.Entities;
-using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    public interface IBranchesRepository
+    public interface ICompaniesRepository
     {
-        int Insert(BranchEntity entity);
-        int Update(BranchEntity entity);
+        int Insert(CompaniesEntity entity);
+        int Update(CompaniesEntity entity);
         int Delete(int Id);
-        List<BranchEntity> GetBranches();
+        List<CompaniesEntity> GetCompanies();
     }
 }

@@ -3,6 +3,7 @@ using ShopSystem.Entities;
 using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,24 +18,80 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             this.connectionString = connectionString;
         }    
 
-        public List<BranchesModel> GetBranches()
+        public List<BranchEntity> GetBranches()
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                List<BranchEntity> branches = new List<BranchEntity>();
+                con.Open();
+                string cmdtxt = "selct * from Branches";
+                using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
+                {
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        BranchEntity entity = new BranchEntity();
+                        entity.Id = int.Parse(dr["Id"].ToString());
+                        entity.Location = dr["Location"].ToString();
+                        entity.Profit = int.Parse(dr["Profit"].ToString());
+                        entity.PhoneNumber = dr["PhoneNumber"].ToString();
+                        entity.Balance = int.Parse(dr["Balance"].ToString());
+                        branches.Add(entity);
+                    }
+                    return branches;
+                }
+            }
         }
 
         public int Insert(BranchEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string cmdtxt = "insert into Branches values(@Id,@Location,@Profit,@PhoneNumber,@Balance)";
+                using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", entity.Id);
+                    cmd.Parameters.AddWithValue("@Location", entity.Location);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Balance", entity.Balance);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
 
         public int Update(BranchEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string cmdtxt = "update Branches set Name=@Name,Location=@Location,Profit=@Profit,PhoneNumber=@PhoneNumber,Balance=@Balance  where Id=@Id";
+                using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", entity.Id);
+                    cmd.Parameters.AddWithValue("@Location", entity.Location);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Balance", entity.Balance);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
 
         public int Delete(int Id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string cmdtxt = "delete from Branches where Id=@Id";
+                using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    int check = cmd.ExecuteNonQuery();
+                    return check;
+                }
+            }
         }
     }
 }
