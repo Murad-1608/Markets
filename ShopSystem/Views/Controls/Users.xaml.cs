@@ -34,5 +34,13 @@ namespace ShopSystem.Views.Controls
         {
             
         }
+
+        private void dgContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                dgContent.UnselectAllCells();
+            }
+        }
     }
 }

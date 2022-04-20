@@ -22,8 +22,14 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             dataprovider = new DataProvider();
         }
 
-
+        #region Commands
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
+        #endregion
+
+
+        #region Values
+
+
 
         private List<UserModel> allusers;
         public List<UserModel> AllUsers
@@ -57,7 +63,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnPropertyChanged(nameof(GetUsers));
             }
         }
-
+        #endregion
 
         #region SEARCH
 

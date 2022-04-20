@@ -33,7 +33,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
 
             {
                 MessageBox.Show("Success");
-                viewModel.Model = null;
+               
 
 
                 viewModel.AllProducts = viewModel.dataprovider.Products();

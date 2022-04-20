@@ -74,7 +74,7 @@
             <RowDefinition Height="368*"/>
         </Grid.RowDefinitions>
         <!--LOGIN ACCOUNT-->
-        <StackPanel Visibility="Collapsed" x:Name="Panel_Login" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
+        <StackPanel Visibility="Visible" x:Name="Panel_Login" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
             <Grid HorizontalAlignment="Center" Width="400" Height="387">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="130"/>
@@ -144,7 +144,7 @@
 
 
         <!--Register-->
-        <StackPanel Visibility="Visible" x:Name="Panel_Register" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
+        <!--<StackPanel Visibility="Visible" x:Name="Panel_Register" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
             <Grid HorizontalAlignment="Center" Width="400" Height="450">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100"/>
@@ -168,7 +168,7 @@
                 <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Height="48" Width="176" Margin="114,0,0,0" Grid.ColumnSpan="2">REGISTER</TextBlock>
 
 
-                <TextBlock Grid.Row="1"  Style="{StaticResource TextBLockStyle}" Height="24" Margin="10,0,10,0" >E-mail:</TextBlock>
+                <TextBlock Grid.Row="1"  Style="{StaticResource TextBLockStyle}"  Margin="10,0,10,0" >E-mail:</TextBlock>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtEmailRegister" Text="{Binding Path=Register.Email}" Style="{StaticResource TextBoxDesign}" Margin="0,5,0,5" Width="220"  />
 
                 <TextBlock Grid.Row="2" Style="{StaticResource TextBLockStyle}" Margin="10,0,10,0" Height="24">Name:</TextBlock>
@@ -199,7 +199,7 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </Grid>
-        </StackPanel>
+        </StackPanel>-->
 
 
 

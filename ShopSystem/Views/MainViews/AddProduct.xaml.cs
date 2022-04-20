@@ -25,9 +25,7 @@ namespace ShopSystem.Views.MainViews
     {
         public AddProduct()
         {
-            InitializeComponent();
-            ProductViewModel viewModel = new ProductViewModel(new SqlUnitOfWork());
-            DataContext = viewModel;
+            InitializeComponent();            
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

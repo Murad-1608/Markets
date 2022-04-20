@@ -20,8 +20,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<UserModel> companies;
-        public ObservableCollection<UserModel> Companies
+        private ObservableCollection<CompaniesModel> companies;
+        public ObservableCollection<CompaniesModel> Companies
         {
             get { return companies; }
             set
