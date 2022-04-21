@@ -22,44 +22,40 @@
 
         <WrapPanel Margin="5,5,5,5">
             <TextBlock Text="Name :" FontSize="15"/>
-            <TextBox Name="txtName" Text="{Binding Path=CurrentValue.Name}" FontSize="13" Height="20" Width="120" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="60,0,0,0"/>
+            <TextBox Name="txtName" Text="{Binding Path=CurrentValue.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="13" Height="20" Width="120" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="60,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1">
             <TextBlock Text="Surname :" FontSize="15"/>
-            <TextBox Name="txtSurname" Text="{Binding Path=CurrentValue.Surname}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="40,0,0,0"/>
+            <TextBox Name="txtSurname" Text="{Binding Path=CurrentValue.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="40,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="2">
             <TextBlock Text="Father name :" FontSize="15"/>
-            <TextBox Name="txtFatherName" Text="{Binding Path=CurrentValue.FatherName}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
+            <TextBox Name="txtFatherName" Text="{Binding Path=CurrentValue.FatherName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
         </WrapPanel>
 
-        <WrapPanel Margin="5,5,5,5" Grid.Row="3">
+        <WrapPanel Margin="5,5,5,5" Grid.Row="3" Grid.ColumnSpan="2" Width="300" HorizontalAlignment="Left">
             <TextBlock Text="Email :" FontSize="15"/>
-            <TextBox Name="txtEmail" Text="{Binding Path=CurrentValue.Email}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="63,0,0,0"/>
+            <TextBox Grid.ColumnSpan="2" Name="txtEmail" Text="{Binding Path=CurrentValue.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontSize="13" Height="20" Width="180" VerticalAlignment="Center" Margin="60,0,0,0"/>
         </WrapPanel>
+
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
-            <TextBlock Text="Password :" FontSize="15"/>
-            <TextBox Name="txtPassword" Text="{Binding Path=CurrentValue.Password}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="45,0,0,0"/>
+            <TextBlock Text="Phone number :" FontSize="15"/>
+            <TextBox Name="txtPhoneNumber" Text="{Binding Path=CurrentValue.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" MaxLength="10"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Phone number :" FontSize="15"/>
-            <TextBox Name="txtPhoneNumber" Text="{Binding Path=CurrentValue.PhoneNumber}" PreviewTextInput="txtPhoneNumber_PreviewTextInput" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" MaxLength="10"/>
-        </WrapPanel>
-
-        <WrapPanel Margin="5,5,5,5" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="Position :" FontSize="15"/>
-            <ComboBox Text="{Binding Path=CurrentValue.Position}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
+            <ComboBox Text="{Binding Path=CurrentValue.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
                 <ComboBoxItem Content="Admin"></ComboBoxItem>
                 <ComboBoxItem Content="User"></ComboBoxItem>
             </ComboBox>
 
         </WrapPanel>
 
-        <Button Click="Button_Click" Command="{Binding Path=addcommand}" Content="Add" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="137,11,0,0" Grid.RowSpan="2"/>
+        <Button Click="Button_Click" Command="{Binding Path=addcommand}" Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0"/>
 
 
     </Grid>

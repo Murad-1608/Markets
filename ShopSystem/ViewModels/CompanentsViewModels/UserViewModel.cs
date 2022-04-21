@@ -25,6 +25,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         #region Commands
         public AddUserCommand AddUserCommand => new AddUserCommand(this);
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
+        public SaveUserCommand SaveUserCommand => new SaveUserCommand(this);
         #endregion
 
 
@@ -65,7 +66,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 selectedvalue = value;
-                CurrentValue = (UserModel)SelectedValue.Clone();
+                CurrentValue = (UserModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
             }
         }

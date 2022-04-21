@@ -151,7 +151,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <WrapPanel>
-                                        <Button Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0">
+                                        <Button Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0" Click="Button_Click_2">
                                             <Image Source="\Images\pen-icon-png-0.jpg" Height="15" Width="15"></Image>
                                         </Button>
                                         <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteUserCommand}" Background="Transparent" BorderThickness="1" Height="25" Width="25">
@@ -167,9 +167,7 @@
 
             <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
 
-            <Button Command="{Binding DeleteUserCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
-                <Image Source="\Images\DeleteIcon.png"></Image>
-            </Button>
+            
 
         </Grid>
         

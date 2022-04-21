@@ -22,6 +22,7 @@ namespace ShopSystem.Models
             { 
                 Id=Id,
                 Name=Name,
+                Surname=Surname,
                 FatherName=FatherName,
                 Email=Email,
                 Password=Password,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopSystem.ViewModels.CompanentsViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,33 @@ namespace ShopSystem.Views.MainViews
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserViewModel viewModel = (UserViewModel)DataContext;
+
+            if (txtName.Text == "")
+                MessageBox.Show("Name is empty");
+
+            else if (txtSurname.Text == "")
+                MessageBox.Show("Surname is empty");
+
+            else if (txtFatherName.Text == "")
+                MessageBox.Show("Father name is empty");
+
+            else if (txtEmail.Text == "")
+                MessageBox.Show("Email is empty");           
+
+            else if (txtPhoneNumber.Text == "")
+                MessageBox.Show("Phone number is empty");
+
+            else if (ComboPosition.Text == "")
+                MessageBox.Show("Position is empty");
+
+            else
+                viewModel.SaveUserCommand.Execute("");
+        }
+
     }
 }
+

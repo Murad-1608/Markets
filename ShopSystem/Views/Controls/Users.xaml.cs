@@ -48,5 +48,13 @@ namespace ShopSystem.Views.Controls
                 dgContent.UnselectAllCells();
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            UserViewModel viewModel = (UserViewModel)DataContext;
+            EditUser editUser = new EditUser();
+            editUser.DataContext = viewModel;
+            editUser.ShowDialog();
+        }
     }
 }
