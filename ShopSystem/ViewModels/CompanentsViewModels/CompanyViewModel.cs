@@ -47,14 +47,14 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<CompaniesModel> getproducts;
-        public ObservableCollection<CompaniesModel> GetProducts
+        private ObservableCollection<CompaniesModel> getcompanies;
+        public ObservableCollection<CompaniesModel> GetCompanies
         {
-            get { return getproducts; }
+            get { return getcompanies; }
             set
             {
-                getproducts = value;
-                OnPropertyChanged(nameof(GetProducts));
+                getcompanies = value;
+                OnPropertyChanged(nameof(GetCompanies));
             }
         }
 

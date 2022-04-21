@@ -24,7 +24,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #region Commands
         public AddBranchesCommand addcommand => new AddBranchesCommand(this);
-        public DeleteBranchesCommand DeleteProductCommand => new DeleteBranchesCommand(this);
+        public DeleteBranchesCommand DeleteBranchesCommand => new DeleteBranchesCommand(this);
 
 
         #endregion
@@ -44,14 +44,14 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<BranchesModel> getproducts;
-        public ObservableCollection<BranchesModel> GetProducts
+        private ObservableCollection<BranchesModel> getbranches;
+        public ObservableCollection<BranchesModel> GetBranches
         {
-            get { return getproducts; }
+            get { return getbranches; }
             set
             {
-                getproducts = value;
-                OnPropertyChanged(nameof(GetProducts));
+                getbranches = value;
+                OnPropertyChanged(nameof(GetBranches));
             }
         }
 
@@ -62,7 +62,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             get { return allBranches; }
             set
             {
-                AllBranches = value;
+                allBranches = value;
                 OnPropertyChanged(nameof(AllBranches));
             }
         }
@@ -89,7 +89,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         public void Initialize()
         {
-            GetProducts = new ObservableCollection<BranchesModel>(AllBranches);
+            GetBranches = new ObservableCollection<BranchesModel>(AllBranches);
         }
 
 
@@ -113,10 +113,10 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         {
             var products = AllBranches.Where(x => (x.Location != null && x.Location.ToLower().Contains(SearchText.ToLower()) ||
                                                   (x.PhoneNumber != null && x.PhoneNumber.ToLower().Contains(SearchText.ToLower()))));
-                                                  
 
 
-            GetProducts = new ObservableCollection<BranchesModel>(products);
+
+            GetBranches = new ObservableCollection<BranchesModel>(products);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ShopSystem.Models;
+using ShopSystem.ViewModels.CompanentsViewModels;
+using ShopSystem.Views.MainViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,19 @@ namespace ShopSystem.Views.Controls
     /// </summary>
     public partial class Branches : UserControl
     {
+        BranchesModel model = null;
         public Branches()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BranchesViewModel viewModel = (BranchesViewModel)DataContext;
+            AddProduct addproduct = new AddProduct();
+
+            addproduct.DataContext = viewModel;
+            addproduct.ShowDialog();
         }
     }
 }

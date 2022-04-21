@@ -1,4 +1,7 @@
-﻿using ShopSystem.ViewModels;
+﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.DataContext;
+using ShopSystem.ViewModels;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls;
 using System;
 using System.Collections.Generic;
@@ -20,11 +23,24 @@ namespace ShopSystem.Commands.Main
         public override void Execute(object? parameter)
         {
             viewModel.CenterGrid.Children.Clear();
-            Branches branches = new Branches();
-            
-            viewModel.CenterGrid.Children.Add(branches);
 
-           
+            Branches products = new Branches();
+
+            viewModel.CenterGrid.Children.Add(products);
+
+            BranchesViewModel productViewModel = new BranchesViewModel(new SqlUnitOfWork());
+
+            products.DataContext = productViewModel;
+
+            DataProvider data = new DataProvider();
+
+            var GetBranches = data.Branches();
+
+            productViewModel.AllBranches = data.Branches();
+
+            productViewModel.Initialize();
+
+
         }
     }
 }

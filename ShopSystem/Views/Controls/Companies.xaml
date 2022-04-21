@@ -6,52 +6,168 @@
              xmlns:local="clr-namespace:ShopSystem.Views.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
 
-        <StackPanel Background="#cdd0d5">
-            <Grid Height="449">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>              
 
-            <StackPanel Grid.Row="0">
-                <WrapPanel >
-                    <TextBlock Margin="10,10,5,10" FontSize="25" x:Name="Header" FontWeight="Bold" VerticalAlignment="Bottom">Manage</TextBlock>
-                    <TextBlock Foreground="Gray" x:Name="Header1" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7">Companies</TextBlock>
-                </WrapPanel>
-            </StackPanel>
+    <UserControl.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
-            <StackPanel Grid.Row="1" Background="White" Margin="20,50,20,20">
-                <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#cdd0d5" Grid.RowSpan="2"/>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="450"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <WrapPanel Grid.Row="0">
+                <TextBlock Margin="10,10,5,10" FontSize="25" x:Name="Header" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Manage"/></TextBlock>
+                <TextBlock Foreground="Gray" x:Name="Header1" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7"><Run Text="Companies"/></TextBlock>
+            </WrapPanel>
+
+            <StackPanel Grid.Row="1" Background="#cdd0d5" Margin="20,50,20,30">
+                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetCompanies}" SelectionChanged="dgContent_SelectionChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Width="50"/>
-                        <DataGridTextColumn Header="Name" Width="500"/>
-                        <DataGridTemplateColumn Header="Edit" Width="100">
+                        <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Edit"/>
+                                    <TextBlock Text="{Binding No}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Delete" Width="100">
+
+                        <DataGridTemplateColumn Header="Name" Width="220">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delete"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="Profit" Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Profit}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn MaxWidth="200" MinWidth="120" Header="PhoneNumber" Width="210">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  Text="{Binding PhoneNumber}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="Balance" Width="250">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Balance}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                        <DataGridTemplateColumn MaxWidth="100" MinWidth="70" Header="Edit" Width="70">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderThickness="0" Height="25" >
+                                        <Image Source="\Images\pen-icon-png-0.jpg"></Image>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteProductCommand}" Background="Transparent" BorderThickness="0" Height="25">
+                                        <Image Source="\Images\DeleteIcon.png"></Image>
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-           
 
+            <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
 
+            <Button Command="{Binding DeleteProductCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
+                <Image Source="\Images\DeleteIcon.png"></Image>
+            </Button>
         </Grid>
-            
-                    
-            
-        </StackPanel>     
-      
-           
+
+        <WrapPanel Grid.Row="1" Style="{StaticResource SearchPanel}">
+            <TextBlock Foreground="White" FontSize="15" VerticalAlignment="Center" Margin="20,7,0,0" ><Run Text="Search :"/></TextBlock>
+            <TextBox VerticalAlignment="Center" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="25" Width="141" Background="White" Margin="5,10,0,0"/>
+        </WrapPanel>
+
+    </Grid>
+
+
 </UserControl>

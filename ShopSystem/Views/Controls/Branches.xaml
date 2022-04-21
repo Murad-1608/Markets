@@ -85,7 +85,7 @@
             </WrapPanel>
 
             <StackPanel Grid.Row="1" Background="#cdd0d5" Margin="20,50,20,30">
-                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetProducts}">
+                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}" SelectionChanged="dgContent_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
@@ -95,65 +95,43 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Id" Width="120">
+                        <DataGridTemplateColumn Header="Location" Width="220">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding Location}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
 
-                        <DataGridTemplateColumn Header="Brand" Width="200">
+                        <DataGridTemplateColumn Header="Profit" Width="110">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Brand}"/>
+                                    <TextBlock Text="{Binding Profit}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn MaxWidth="150" MinWidth="120" Header="Price" Width="150">
+                        <DataGridTemplateColumn MaxWidth="200" MinWidth="120" Header="PhoneNumber" Width="210">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  Text="{Binding Price}"/>
+                                    <TextBlock  Text="{Binding PhoneNumber}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
 
-                        <DataGridTemplateColumn Header="Count" Width="250">
+                        <DataGridTemplateColumn Header="Balance" Width="250">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Count}"/>
+                                    <TextBlock Text="{Binding Balance}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Type" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Type}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Color" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Color}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Comment" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Comment}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Edit" Width="70">
+                        <DataGridTemplateColumn MaxWidth="100" MinWidth="70" Header="Edit" Width="70">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Background="Transparent" BorderThickness="0" Height="25" >
@@ -165,7 +143,7 @@
                         <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteProductCommand}" Background="Transparent" BorderThickness="0" Height="25">
+                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteCompanyCommand}" Background="Transparent" BorderThickness="0" Height="25">
                                         <Image Source="\Images\DeleteIcon.png"></Image>
                                     </Button>
                                 </DataTemplate>
@@ -177,7 +155,7 @@
 
             <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
 
-            <Button Command="{Binding DeleteProductCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
+            <Button Command="{Binding DeleteCompanyCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
                 <Image Source="\Images\DeleteIcon.png"></Image>
             </Button>
         </Grid>

@@ -24,7 +24,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             {
                 List<BranchEntity> branches = new List<BranchEntity>();
                 con.Open();
-                string cmdtxt = "selct * from Branches";
+                string cmdtxt = @"select * from Branches";
                 using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();

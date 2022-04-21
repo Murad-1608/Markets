@@ -1,4 +1,6 @@
-﻿using ShopSystem.ViewModels;
+﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.DataContext;
+using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls;
 using System;
@@ -21,9 +23,21 @@ namespace ShopSystem.Commands.Main
         {
             viewModel.CenterGrid.Children.Clear();
 
-            Companies companies = new Companies();
+            Companies products = new Companies();
 
-            viewModel.CenterGrid.Children.Add(companies);
+            viewModel.CenterGrid.Children.Add(products);
+
+            CompanyViewModel productViewModel = new CompanyViewModel(new SqlUnitOfWork());
+
+            products.DataContext = productViewModel;
+
+            DataProvider data = new DataProvider();
+
+            var GetCompanies = data.Companies();
+
+            productViewModel.AllCompanies = data.Companies();
+
+            productViewModel.Initialize();
 
         }
     }
