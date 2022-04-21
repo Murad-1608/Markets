@@ -1,5 +1,4 @@
-﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
-using ShopSystem.ViewModels.CompanentsViewModels;
+﻿using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,30 +12,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Text.RegularExpressions;
-
 
 namespace ShopSystem.Views.MainViews
 {
     /// <summary>
-    /// Interaction logic for AddProduct.xaml
+    /// Interaction logic for EditProduct.xaml
     /// </summary>
-    public partial class AddProduct : Window
+    public partial class EditProduct : Window
     {
-        public AddProduct()
+        public EditProduct()
         {
-            InitializeComponent();            
-        }
-
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex(@"[^0-9\.]+");
-            e.Handled = regex.IsMatch(e.Text);
+            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ProductViewModel viewModel = (ProductViewModel)DataContext;
+
 
             if (txtName.Text == "")
                 MessageBox.Show("Name is empty");
@@ -60,8 +52,9 @@ namespace ShopSystem.Views.MainViews
                 MessageBox.Show("Comment is empty");
 
             else
-                viewModel.AddProductCommand.Execute("");
+                viewModel.SaveProductCommand.Execute("");
+
+
         }
     }
 }
-

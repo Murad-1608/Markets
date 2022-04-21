@@ -42,6 +42,20 @@ namespace ShopSystem.Views.Controls
 
         }
 
-     
+        private void dgContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key==Key.Escape)
+            {
+                dgContent.UnselectAllCells();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EditProduct editProduct = new EditProduct();
+            ProductViewModel viewModel = (ProductViewModel)DataContext;
+            editProduct.DataContext = viewModel;
+            editProduct.ShowDialog();
+        }
     }
 }

@@ -63,7 +63,6 @@ namespace ShopSystem.Views.LoginViews
                 {
                     viewModel.LoginClick.Execute(PswPassword.Password);
                 }
-
             }
         }
 

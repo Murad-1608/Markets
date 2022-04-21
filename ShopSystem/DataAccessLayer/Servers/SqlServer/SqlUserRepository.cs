@@ -72,18 +72,15 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = @"Insert into Users values(@BranchId,@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber,@Position)";
+                string command = @"Insert into Users values(@Name,@Surname,@FatherName,@Email,@Password,@PhoneNumber,@Position)";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
-                {
-
-
-                    cmd.Parameters.AddWithValue("@BranchId", entity.Id);
+                {                 
                     cmd.Parameters.AddWithValue("@Name", entity.Name);
                     cmd.Parameters.AddWithValue("@Surname", entity.Surname);
                     cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
                     cmd.Parameters.AddWithValue("@Email", entity.Email);
-                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@Password", Utils.PasswordHash(entity.Password));
                     cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Position", entity.Position);
                     int check = cmd.ExecuteNonQuery();
@@ -126,16 +123,15 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = @"Update Users set BranchId=@BranchId,Name=@Name,Surname=@Surname,FatherName=@FatherName,Email=@Email,Password=@Password,PhoneNumber=@PhoneNumber,Position=@Position where Id=@Id";
+                string command = @"Update Users set Name=@Name,Surname=@Surname,FatherName=@FatherName,Email=@Email,PhoneNumber=@PhoneNumber,Position=@Position where Id=@Id";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    cmd.Parameters.AddWithValue("@BranchId", entity.Id);
+                    cmd.Parameters.AddWithValue("@Id", entity.Id);
                     cmd.Parameters.AddWithValue("@Name", entity.Name);
                     cmd.Parameters.AddWithValue("@Surname", entity.Surname);
                     cmd.Parameters.AddWithValue("@FatherName", entity.FatherName);
-                    cmd.Parameters.AddWithValue("@Email", entity.Email);
-                    cmd.Parameters.AddWithValue("@Password", entity.Password);
+                    cmd.Parameters.AddWithValue("@Email", entity.Email);                   
                     cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Position", entity.Position);
 

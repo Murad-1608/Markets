@@ -22,21 +22,29 @@ namespace ShopSystem.Commands.Main.ProductCommand
         public override void Execute(object? parameter)
         {
 
-            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
+            
 
-
-
-            if (check == 1)
+            if (MessageBox.Show("Want to delete information?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Success");
+                int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
 
-                viewModel.AllProducts = viewModel.dataprovider.Products();
-                viewModel.Initialize();
-            }
-            else
-            {
-                MessageBox.Show("Fail");
-            }
+
+
+                if (check == 1)
+                {
+                    MessageBox.Show("Success");
+
+                    viewModel.AllProducts = viewModel.dataprovider.Products();
+                    viewModel.Initialize();
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
+            }        
+
+
+            
         }
     }
 }

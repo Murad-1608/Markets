@@ -24,19 +24,13 @@ namespace ShopSystem
 
             LoginViewModel viewModel = new LoginViewModel(new SqlUnitOfWork());
 
+            
+
             Login login = new Login();
             login.DataContext = viewModel;
             login.Show();
 
-            //MainWindow main = new MainWindow();
-            //main.Show();
-
-            //ChangedPassword changedPassword = new ChangedPassword();
-            //changedPassword.Show();
-
-
-            //AddProduct addProduct = new AddProduct();
-            //addProduct.Show();
+            
 
         }
     }

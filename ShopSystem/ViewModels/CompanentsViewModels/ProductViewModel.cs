@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class ProductViewModel : BaseViewModel
+    internal class ProductViewModel : BaseControlViewModel
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;
@@ -23,15 +23,19 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             dataprovider = new DataProvider();
         }
 
+
+
         #region Commands
-        public AddProductCommand addcommand => new AddProductCommand(this);
+        public AddProductCommand AddProductCommand => new AddProductCommand(this);
         public DeleteProductCommand DeleteProductCommand => new DeleteProductCommand(this);
-       
+        public SaveProductCommand SaveProductCommand => new SaveProductCommand(this);
+
 
         #endregion
 
 
         #region Values
+        public override string Header => "Products";
 
         private ProductModel selectedvalue;
         public ProductModel SelectedValue
@@ -40,7 +44,20 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 selectedvalue = value;
+                CurrentValue = (ProductModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
+
+
+        private ProductModel currentValue;
+        public ProductModel CurrentValue
+        {
+            get => currentValue;
+            set
+            {
+                currentValue = value;
+                OnPropertyChanged(nameof(currentValue));
             }
         }
 
@@ -69,7 +86,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ProductModel model=new ProductModel();
+        private ProductModel model = new ProductModel();
         public ProductModel Model
         {
             get
@@ -94,31 +111,14 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private string searchText;
-
-        public string SearchText
+        public override void OnSearch()
         {
-            get
-            {
-                return searchText;
-            }
-            set
-            {
-                searchText = value;
-                OnPropertyChanged(nameof(SearchText));
-                OnSearch();
-            }
-        }
-
-        public void OnSearch()
-        {
-            var products = AllProducts.Where(x => (x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower()) ||
-                                                  (x.Brand != null && x.Brand.ToLower().Contains(SearchText.ToLower()) ||
-                                                  (x.Type != null && x.Type.ToLower().Contains(SearchText.ToLower())))));
+            var products = AllProducts.Where(x => Filter(x.Name) ||
+                                                  Filter(x.Brand) ||
+                                                  Filter(x.Type));
 
 
             GetProducts = new ObservableCollection<ProductModel>(products);
         }
-
     }
 }

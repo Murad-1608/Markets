@@ -6,115 +6,7 @@
              xmlns:local="clr-namespace:ShopSystem.Views.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="800">
-    <!--<StackPanel Background="#cdd0d5">
-        <Grid Height="449">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="121*"/>
-                <RowDefinition Height="12*"/>
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0">
-                <WrapPanel >
-                    <TextBlock Margin="10,10,5,10" FontSize="25" x:Name="Header" FontWeight="Bold" VerticalAlignment="Bottom">Manage</TextBlock>
-                    <TextBlock Foreground="Gray" x:Name="Header1" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7">Users</TextBlock>
-
-                </WrapPanel>
-            </StackPanel>
-
-            <StackPanel  Grid.Row="1" Background="#cdd0d5" Margin="20,45,20,6">
-                <DataGrid FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="№" Width="40">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding No}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Name" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-
-                        <DataGridTemplateColumn Header="Surname" Width="200">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Surname}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn MaxWidth="175" MinWidth="120" Header="Father name" Width="175">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Name="txtFatherName" Text="{Binding FatherName}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-
-                        <DataGridTemplateColumn Header="Email" Width="350">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Email}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Phone number" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding PhoneNumber}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Position" Width="120">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Position}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Edit" Width="70">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button  Content="Edit"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Click="Button_Click_1" Content="Delete">
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
-
-
-            <StackPanel Grid.Row="2">
-                <WrapPanel>
-                    <TextBlock FontSize="15" VerticalAlignment="Center" Margin="20,0,0,0" >Search :</TextBlock>
-                    <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="25" Width="141" Background="White" Margin="5,0,0,0"/>
-                </WrapPanel>
-            </StackPanel>
-
-        </Grid>
-
-
-
-    </StackPanel>-->
+  
 
     <UserControl.Resources>
         <Style x:Key="FocusVisual">
@@ -180,7 +72,7 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Background="#cdd0d5" Grid.RowSpan="2"/>
+        <StackPanel Background="White" Grid.RowSpan="2"/>
 
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
@@ -190,12 +82,12 @@
             </Grid.RowDefinitions>
 
             <WrapPanel Grid.Row="0">
-                <TextBlock Margin="10,10,5,10" FontSize="25" x:Name="Header" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Manage"/></TextBlock>
-                <TextBlock Foreground="Gray" x:Name="Header1" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7"><Run Text="Users"/></TextBlock>
+                <TextBlock Margin="10,10,5,10" FontSize="25" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Manage"/></TextBlock>
+                <TextBlock Foreground="Gray" x:Name="Header" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7" Text="{Binding Header}"/>
             </WrapPanel>
 
-            <StackPanel  Grid.Row="1" Background="#cdd0d5" Margin="20,45,20,6">
-                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
+            <StackPanel  Grid.Row="1" Background="White" Margin="20,45,20,6">
+                <DataGrid KeyDown="dgContent_KeyDown" Style="{StaticResource DataGridStyle}"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
@@ -231,7 +123,7 @@
                         </DataGridTemplateColumn>
 
 
-                        <DataGridTemplateColumn Header="Email" Width="350">
+                        <DataGridTemplateColumn Header="Email" Width="400">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Email}"/>
@@ -253,20 +145,19 @@
                                     <TextBlock Text="{Binding Position}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Edit" Width="70">
+                        </DataGridTemplateColumn>                       
+                        
+                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Action" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button  Content="Edit"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Click="Button_Click_1" Content="Delete">
-                                    </Button>
+                                    <WrapPanel>
+                                        <Button Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0" Click="Button_Click_2">
+                                            <Image Source="\Images\pen-icon-png-0.jpg" Height="15" Width="15"></Image>
+                                        </Button>
+                                        <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteUserCommand}" Background="Transparent" BorderThickness="1" Height="25" Width="25">
+                                            <Image Source="\Images\DeleteIcon.png" Height="15" Width="15"></Image>
+                                        </Button>
+                                    </WrapPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -276,9 +167,7 @@
 
             <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
 
-            <Button Command="{Binding DeleteUserCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
-                <Image Source="\Images\DeleteIcon.png"></Image>
-            </Button>
+            
 
         </Grid>
         

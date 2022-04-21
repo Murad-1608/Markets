@@ -19,6 +19,10 @@ namespace ShopSystem.ViewModels
             this.db = db;
         }
 
+
+
+        
+
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {

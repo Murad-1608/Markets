@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopSystem.ViewModels.CompanentsViewModels;
+using ShopSystem.Views.MainViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,12 +29,32 @@ namespace ShopSystem.Views.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            UserViewModel viewModel =(UserViewModel)DataContext;
+            AddUser addUser = new AddUser();
+            addUser.DataContext = viewModel;
+            addUser.ShowDialog();
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void dgContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                dgContent.UnselectAllCells();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            UserViewModel viewModel = (UserViewModel)DataContext;
+            EditUser editUser = new EditUser();
+            editUser.DataContext = viewModel;
+            editUser.ShowDialog();
         }
     }
 }
