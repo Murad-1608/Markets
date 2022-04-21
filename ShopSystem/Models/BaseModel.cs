@@ -10,7 +10,6 @@ namespace ShopSystem.Models
     {
         public int Id { get; set; }
         public int No { get; set; }
-
         public abstract object Clone();
         
     }

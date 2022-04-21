@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopSystem.Views.MainViews"
         mc:Ignorable="d"
-        Title="EditUser" Height="200" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="EditUser" Height="200" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -43,7 +43,7 @@
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
             <TextBlock Text="Phone number :" FontSize="15"/>
-            <TextBox Name="txtPhoneNumber" Text="{Binding Path=CurrentValue.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" MaxLength="10"/>
+            <TextBox Name="txtPhoneNumber" Text="{Binding Path=CurrentValue.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="txtPhoneNumber_PreviewTextInput"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0" MaxLength="10"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
@@ -55,7 +55,7 @@
 
         </WrapPanel>
 
-        <Button Click="Button_Click" Command="{Binding Path=addcommand}" Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0"/>
+        <Button Click="Button_Click" Command="{Binding Path=SaveUserCommand}" Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0"/>
 
 
     </Grid>

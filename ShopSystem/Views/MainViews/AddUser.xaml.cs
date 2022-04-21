@@ -26,6 +26,7 @@ namespace ShopSystem.Views.MainViews
             InitializeComponent();
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UserViewModel viewModel = (UserViewModel)DataContext;
@@ -60,5 +61,7 @@ namespace ShopSystem.Views.MainViews
             Regex regex = new Regex(@"[^0-9\.]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+     
     }
 }
