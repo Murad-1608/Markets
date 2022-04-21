@@ -48,12 +48,12 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", entity.Id);
-                    cmd.Parameters.AddWithValue("@Brad", entity.Brand);
+                    cmd.Parameters.AddWithValue("@Brand", entity.Brand);
                     cmd.Parameters.AddWithValue("@Count", entity.Count);
-                    cmd.Parameters.AddWithValue("@Prince", entity.Price);
+                    cmd.Parameters.AddWithValue("@Price", entity.Price);
                     cmd.Parameters.AddWithValue("@Type", entity.Type);
                     cmd.Parameters.AddWithValue("@Color", entity.Color);
-                    cmd.Parameters.AddWithValue("@Type", entity.Comment);
+                    cmd.Parameters.AddWithValue("@Comment", entity.Comment);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }

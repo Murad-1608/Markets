@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class UserViewModel : BaseViewModel
+    internal class UserViewModel : BaseControlViewModel
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;
@@ -23,12 +23,28 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
         #region Commands
+        public AddUserCommand AddUserCommand => new AddUserCommand(this);
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
         #endregion
 
 
         #region Values
 
+        public override string Header => "Users";
+
+        private UserModel model = new UserModel();
+        public UserModel Model
+        {
+            get
+            {
+                return model;
+            }
+            set
+            {
+                model = value;
+                OnPropertyChanged(nameof(Model));
+            }
+        }
 
 
         private List<UserModel> allusers;
@@ -49,7 +65,19 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 selectedvalue = value;
+                CurrentValue = (UserModel)SelectedValue.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
+
+        private UserModel currentValue;
+        public UserModel CurrentValue
+        {
+            get => currentValue;
+            set
+            {
+                currentValue = value;
+                OnPropertyChanged(nameof(CurrentValue));
             }
         }
 
@@ -67,35 +95,27 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #region SEARCH
 
-        private string searchText;
-        public string SearchText
-        {
-            get
-            {
-                return searchText;
-            }
-            set
-            {
-                searchText = value;
-                OnPropertyChanged(nameof(SearchText));
-                OnSearchUsers();
-            }
-        }
 
         public void Initialize()
         {
-            GetUsers =new ObservableCollection<UserModel>(AllUsers);
+            GetUsers = new ObservableCollection<UserModel>(AllUsers);
         }
 
-        public void OnSearchUsers()
+
+
+        public override void OnSearch()
         {
-            var users = AllUsers.Where(x => x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower()));
+            var users = AllUsers.Where(x => Filter(x.Name) ||
+                                            Filter(x.Email) ||
+                                            Filter(x.Position) ||
+                                            Filter(x.Surname) ||
+                                            Filter(x.FatherName));
 
             GetUsers = new ObservableCollection<UserModel>(users);
         }
 
         #endregion
 
-       
+
     }
 }

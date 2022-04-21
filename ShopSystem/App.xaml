@@ -63,10 +63,11 @@
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="GridLinesVisibility" Value="None"/>
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="AutoGenerateColumns" Value="True"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="CanUserAddRows" Value="False"/>
             <Setter Property="AlternationCount" Value="2"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
+            
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         </Style>
 
 

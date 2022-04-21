@@ -1,13 +1,7 @@
-﻿using ShopSystem.DataAccessLayer.Abstraction;
-using ShopSystem.DataAccessLayer.Servers.SqlServer;
-using ShopSystem.DataContext;
-using ShopSystem.Entities;
-using ShopSystem.Mappers;
-using ShopSystem.Models;
+﻿using ShopSystem.Mappers;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,25 +9,28 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.ProductCommand
 {
-    internal class AddProductCommand : BaseCommand
+    internal class SaveProductCommand : BaseCommand
     {
         private readonly ProductViewModel viewModel;
-        public AddProductCommand(ProductViewModel viewModel)
+
+        public SaveProductCommand(ProductViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
 
         public override void Execute(object? parameter)
         {
-            ProductMapper mapper = new ProductMapper();
-            var entity = mapper.Map(viewModel.Model);
-            int check = viewModel.db.ProductRepository.Insert(entity);
+            ProductMapper mapper=new ProductMapper();
+            var entity = mapper.Map(viewModel.CurrentValue);
+            
+
+            int check = viewModel.db.ProductRepository.Update(entity);
 
             if (check == 1)
 
             {
                 MessageBox.Show("Success");
-                viewModel.Model=new ProductModel();
+                
 
 
                 viewModel.AllProducts = viewModel.dataprovider.Products();

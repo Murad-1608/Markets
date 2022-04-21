@@ -22,40 +22,40 @@
 
         <WrapPanel Margin="5,5,5,5">
             <TextBlock Text="Name :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Name}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Name}" x:Name="txtName" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1">
             <TextBlock Text="Brand :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Brand}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Brand}" x:Name="txtBrand" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="2">
             <TextBlock Text="Price :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Price}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Price}" x:Name="txtPrice" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="3">
             <TextBlock Text="Count :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="txtCount" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
             <TextBlock Text="Type :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Type}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="45,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Type}" x:Name="txtType" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="45,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Color :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Color}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="39,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Color}" x:Name="txtColor" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="39,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="Comment :" FontSize="15"/>
-            <TextBox Text="{Binding Path=SelectedValue.Comment}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox Text="{Binding Path=CurrentValue.Comment}" x:Name="txtComment" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
-        <Button Command="{Binding Path=addcommand}" Content="Add" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2"/>
+        <Button  Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2" Click="Button_Click"/>
 
 
     </Grid>
