@@ -85,7 +85,7 @@
             </WrapPanel>
 
             <StackPanel Grid.Row="1" Background="#cdd0d5" Margin="20,50,20,30">
-                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}" SelectionChanged="dgContent_SelectionChanged">
+                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>

@@ -40,6 +40,7 @@ namespace ShopSystem.Views.Controls
             addproduct.ShowDialog();
 
 
+
         }
 
      
