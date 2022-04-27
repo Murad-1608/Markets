@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
         List<UserEntity> GetUsers();
         int Delete(int Id);

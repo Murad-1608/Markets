@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopSystem.Models
+namespace ShopSystem.Entities
 {
-    public abstract class BaseModel : ICloneable
+    public class CompaniesEntity
     {
         public int Id { get; set; }
-        public int No { get; set; }
-        public abstract object Clone();
+        public string Name { get; set; }
 
     }
 }

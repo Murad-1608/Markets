@@ -1,4 +1,5 @@
-﻿using ShopSystem.DataAccessLayer.Abstraction;
+﻿using ShopSystem.Core.DataAccessLayer.Abstraction;
+using ShopSystem.DataAccessLayer.Abstraction;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,15 +12,9 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
     internal class SqlUnitOfWork : IUnitOfWork
     {
         private readonly string connectionString;
-        public SqlUnitOfWork()
+        public SqlUnitOfWork(string connectionString)
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "SQL5104.site4now.net";
-            builder.InitialCatalog = "db_a853f8_shopsystemdata";
-            builder.IntegratedSecurity = false;
-            builder.UserID = "db_a853f8_shopsystemdata_admin";
-            builder.Password = "mk20032003";
-            connectionString = builder.ConnectionString;
+            this.connectionString = connectionString;
         }
         
         public IUserRepository UserRepository => new SqlUserRepository(connectionString);
@@ -29,5 +24,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         public IProductRepository ProductRepository => new SqlProductRepository(connectionString);
 
         public ICompaniesRepository CompaniesRepository => new SqlCompaniesRepository(connectionString);
+
+        
     }
 }

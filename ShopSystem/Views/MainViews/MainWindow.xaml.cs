@@ -27,7 +27,7 @@ namespace ShopSystem.Views.MainViews
         {
             InitializeComponent();
 
-            MainViewModel main=new MainViewModel(new SqlUnitOfWork());
+            MainViewModel main = new MainViewModel(Global.DB); 
 
             DataContext = main;
 

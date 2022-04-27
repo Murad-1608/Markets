@@ -23,7 +23,7 @@ namespace ShopSystem.Views.LoginViews
     /// </summary>
     public partial class ChangedPassword : Window
     {
-        ChangedPasswordViewModel viewModel = new ChangedPasswordViewModel(new SqlUnitOfWork());
+        ChangedPasswordViewModel viewModel = new ChangedPasswordViewModel(Global.DB);
         public ChangedPassword()
         {
             InitializeComponent();

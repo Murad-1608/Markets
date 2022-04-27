@@ -1,15 +1,14 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
-using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopSystem.DataAccessLayer
+namespace ShopSystem
 {
-    public class Server
+    public static class Global
     {
-        //public static IUnitOfWork DB = new SqlUnitOfWork();
+        public static IUnitOfWork DB { get; set; }
     }
 }

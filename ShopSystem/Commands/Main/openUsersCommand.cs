@@ -32,7 +32,7 @@ namespace ShopSystem.Commands.Main
             Users users = new Users();
 
             viewModel.CenterGrid.Children.Add(users);
-            UserViewModel userViewModel = new UserViewModel(new SqlUnitOfWork());
+            UserViewModel userViewModel = new UserViewModel(Global.DB);
 
             users.DataContext= userViewModel;
 

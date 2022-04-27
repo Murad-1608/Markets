@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Mappers
 {
-    public class ProductMapper
+    public class ProductMapper:BaseMapper<ProductModel,ProductEntity>
     {
-        public ProductModel Map(ProductEntity entity)
+        public override ProductModel Map(ProductEntity entity)
         {
             ProductModel model = new ProductModel()
             {
@@ -25,7 +25,7 @@ namespace ShopSystem.Mappers
             };
             return model;
         }
-        public ProductEntity Map(ProductModel model)
+        public override ProductEntity Map(ProductModel model)
         {
             ProductEntity entity = new ProductEntity()
             {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels
 {
-    internal class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         private IUnitOfWork db = null;
 

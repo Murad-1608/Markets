@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Entities
 {
-    public class UserEntity:BaseEntity
+    internal class UserEntity
     {
-       
+        public int Id { get; set; }
         public int BranchId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

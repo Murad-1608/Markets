@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels
 {
-    internal abstract class BaseControlViewModel : BaseViewModel
+    public abstract class BaseControlViewModel : BaseViewModel
     {
         public IUnitOfWork db;
         public BaseControlViewModel(IUnitOfWork db):base(db)

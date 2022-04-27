@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class UserViewModel : BaseControlViewModel
+    public class UserViewModel : BaseControlViewModel
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;

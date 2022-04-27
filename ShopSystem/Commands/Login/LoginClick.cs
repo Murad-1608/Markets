@@ -27,34 +27,56 @@ namespace ShopSystem.Commands
         }
         public override void Execute(object? parameter)
         {
-            try
+            //try
+            //{
+            //    int check = viewModel.db.UserRepository.Get(viewModel.Email);
+
+            //    string PasswordHash = Utils.PasswordHash(parameter.ToString());
+
+            //    if (PasswordHash == UserInformation.Password)
+            //    {
+            //        MainViewModel mainViewModel = new MainViewModel(Global.DB);
+
+            //        MainWindow main = new MainWindow();
+            //        main.DataContext = mainViewModel;
+
+            //        mainViewModel.CenterGrid = main.grdCenter;
+
+            //        main.Show();
+
+            //    }
+            //    else
+            //    {
+            //        viewModel.LoginInCorrected = Visibility.Visible;
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("No connection", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+
+            int check = viewModel.db.UserRepository.Get(viewModel.Email);
+
+            string PasswordHash = Utils.PasswordHash(parameter.ToString());
+
+            if (PasswordHash == UserInformation.Password)
             {
-                int check = viewModel.db.UserRepository.Get(viewModel.Email);
+                MainViewModel mainViewModel = new MainViewModel(Global.DB);
 
-                string PasswordHash = Utils.PasswordHash(parameter.ToString());
+                MainWindow main = new MainWindow();
+                main.DataContext = mainViewModel;
 
-                if (PasswordHash == UserInformation.Password)
-                {
-                    MainViewModel mainViewModel = new MainViewModel(new SqlUnitOfWork());
+                mainViewModel.CenterGrid = main.grdCenter;
 
-                    MainWindow main = new MainWindow();
-                    main.DataContext = mainViewModel;
+                main.Show();
 
-                    mainViewModel.CenterGrid = main.grdCenter;
-
-                    main.Show();
-
-                }
-                else
-                {
-                    MessageBox.Show("Email and password incorrected", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No connection", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
+                viewModel.LoginInCorrected = Visibility.Visible;
             }
-            
+
+
         }
     }
 }

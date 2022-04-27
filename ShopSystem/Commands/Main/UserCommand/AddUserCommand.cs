@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    internal class AddUserCommand : BaseCommand
+    public class AddUserCommand : BaseCommand
     {
         private readonly UserViewModel viewModel;
         public AddUserCommand(UserViewModel viewModel)

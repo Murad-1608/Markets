@@ -29,7 +29,7 @@ namespace ShopSystem.Commands.Main.CompanyCommand
                 MessageBox.Show("Success");
 
                 viewModel.AllCompanies = viewModel.dataprovider.Companies();
-                viewModel.Initialize();
+                //viewModel.Initialize();
             }
             else
             {

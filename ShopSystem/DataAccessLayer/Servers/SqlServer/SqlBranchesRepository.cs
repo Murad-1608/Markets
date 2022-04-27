@@ -1,4 +1,5 @@
-﻿using ShopSystem.DataAccessLayer.Abstraction;
+﻿using ShopSystem.Core.DataAccessLayer.Abstraction;
+using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.Entities;
 using ShopSystem.Models;
 using System;

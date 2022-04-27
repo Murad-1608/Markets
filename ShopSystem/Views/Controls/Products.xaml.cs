@@ -25,7 +25,7 @@ namespace ShopSystem.Views.Controls
     /// </summary>
     public partial class Products : UserControl
     {
-        ProductModel model = null;
+        //ProductModel model = null;
         public Products()
         {
             InitializeComponent();

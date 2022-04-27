@@ -28,7 +28,7 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(products);
 
-            BranchesViewModel productViewModel = new BranchesViewModel(new SqlUnitOfWork());
+            BranchesViewModel productViewModel = new BranchesViewModel(Global.DB);
 
             products.DataContext = productViewModel;
 

@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    internal class DeleteUserCommand : BaseCommand
+    public class DeleteUserCommand : BaseCommand
     {
         private UserViewModel viewModel;
         public DeleteUserCommand(UserViewModel viewModel)

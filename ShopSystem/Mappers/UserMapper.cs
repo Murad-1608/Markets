@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using ShopSystem.Models;
 namespace ShopSystem.Mappers
 {
-    internal class UserMapper
+    internal class UserMapper : BaseMapper<UserModel, UserEntity>
     {
-        public UserModel Map(UserEntity entity)
+        public override UserModel Map(UserEntity entity)
         {
             UserModel model = new UserModel()
             {
@@ -20,12 +20,12 @@ namespace ShopSystem.Mappers
                 Email = entity.Email,
                 Password = entity.Password,
                 PhoneNumber = entity.PhoneNumber,
-                Position = entity.Position       
+                Position = entity.Position
             };
             return model;
         }
 
-        public UserEntity Map(UserModel model)
+        public override UserEntity Map(UserModel model)
         {
             UserEntity entity = new UserEntity()
             {

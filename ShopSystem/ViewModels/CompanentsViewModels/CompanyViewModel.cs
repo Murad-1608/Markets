@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShopSystem.Core.DataAccessLayer.Abstraction;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
@@ -90,10 +91,10 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
 
 
-        public void Initialize()
-        {
-            GetProducts = new ObservableCollection<CompaniesModel>(AllCompanies);
-        }
+        //public void Initialize()
+        //{
+        //    GetProducts = new ObservableCollection<CompaniesModel>(AllCompanies);
+        //}
 
 
         private string searchText;
@@ -117,7 +118,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             var products = AllCompanies.Where(x => (x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower())));
 
 
-            GetProducts = new ObservableCollection<CompaniesModel>(products);
+            //GetProducts = new ObservableCollection<CompaniesModel>(products);
         }
 
 

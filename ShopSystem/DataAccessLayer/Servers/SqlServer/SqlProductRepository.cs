@@ -110,6 +110,13 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 }
             }
         }
+
+       
+
+        public int Update(string Email, string Password)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

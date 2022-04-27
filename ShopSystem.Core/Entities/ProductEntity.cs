@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Entities
 {
-    public class ProductEntity:BaseEntity
+    public class ProductEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

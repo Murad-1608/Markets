@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopSystem.Core.DataAccessLayer.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IUserRepository UserRepository { get; }
         IBranchesRepository BranchesRepository { get; }

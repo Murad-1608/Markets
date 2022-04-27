@@ -31,7 +31,7 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(products);
 
-            ProductViewModel productViewModel=new ProductViewModel(new SqlUnitOfWork());
+            ProductViewModel productViewModel=new ProductViewModel(Global.DB);
 
             products.DataContext = productViewModel;
 

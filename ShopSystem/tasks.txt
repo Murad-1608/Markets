@@ -1,0 +1,5 @@
+﻿1)Add edit UI-lari birlesdirmek
+2)Add UI-nin animasiya ile acilmasi
+3)Praktika6 video:47;
+
+Login placeHolder problemi

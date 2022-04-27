@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(products);
 
-            CompanyViewModel productViewModel = new CompanyViewModel(new SqlUnitOfWork());
+            CompanyViewModel productViewModel = new CompanyViewModel(Global.DB);
 
             products.DataContext = productViewModel;
 
@@ -35,9 +35,10 @@ namespace ShopSystem.Commands.Main
 
             var GetCompanies = data.Companies();
 
+           
             productViewModel.AllCompanies = data.Companies();
 
-            productViewModel.Initialize();
+            //productViewModel.Initialize();
 
         }
     }

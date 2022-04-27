@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Models
 {
-    internal class UserModel:BaseModel
+    public class UserModel:BaseModel
     {  
         public string Name { get; set; }
         public string Surname { get; set; }

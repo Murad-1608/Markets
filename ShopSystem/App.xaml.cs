@@ -1,5 +1,6 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
+using ShopSystem.Factories;
 using ShopSystem.ViewModels;
 using ShopSystem.Views;
 using ShopSystem.Views.LoginViews;
@@ -21,8 +22,11 @@ namespace ShopSystem
     {
         public App()
         {
+            var connectionstring = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
 
-            LoginViewModel viewModel = new LoginViewModel(new SqlUnitOfWork());
+            Global.DB = DBFactory.Create(connectionstring);
+            LoginViewModel viewModel = new LoginViewModel(Global.DB);
+
 
             
 

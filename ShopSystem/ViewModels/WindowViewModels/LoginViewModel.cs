@@ -7,13 +7,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ShopSystem.ViewModels
 {
     internal class LoginViewModel : BaseViewModel
     {
         public IUnitOfWork db = null;
-        public LoginViewModel(IUnitOfWork db):base(db)
+        public LoginViewModel(IUnitOfWork db) : base(db)
         {
             this.db = db;
         }
@@ -24,13 +25,21 @@ namespace ShopSystem.ViewModels
         public string Password { get; set; }
         public string ForgotPasswordEmail { get; set; }
 
-       public UserModel Register { get; set; }=new UserModel(); 
+        public UserModel Register { get; set; } = new UserModel();
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public void OnPropertyChanged(string propertyName)
+        private Visibility loginInCorrected=Visibility.Collapsed;
+        public Visibility LoginInCorrected
         {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+            get
+            {
+                return loginInCorrected;
+            }
+            set
+            {
+                loginInCorrected = value;
+                OnPropertyChanged(nameof(LoginInCorrected));
+            }
+      }
+
     }
 }

@@ -1,12 +1,11 @@
 ﻿using ShopSystem.Entities;
-using ShopSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopSystem.DataAccessLayer.Abstraction
+namespace ShopSystem.Core.DataAccessLayer.Abstraction
 {
     public interface IBranchesRepository
     {

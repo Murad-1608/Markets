@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    internal class SaveUserCommand : BaseCommand
+    public class SaveUserCommand : BaseCommand
     {
         private readonly UserViewModel viewModel;
         public SaveUserCommand(UserViewModel viewModel)

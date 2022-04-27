@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataContext
 {
-    internal class DataProvider
+    public class DataProvider
     {
-        IUnitOfWork db = new SqlUnitOfWork();
+        IUnitOfWork db = Global.DB;
 
         public List<UserModel> Users()
         {
