@@ -20,7 +20,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
         public override void Execute(object? parameter)
         {
 
-            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
+            int check = viewModel.db.BranchesRepository.Delete(viewModel.SelectedValue.Id);
 
 
 

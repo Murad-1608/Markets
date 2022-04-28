@@ -23,19 +23,20 @@ namespace ShopSystem.Views.Controls
     /// </summary>
     public partial class Branches : UserControl
     {
-        //BranchesModel model = null;
-        //public Branches()
-        //{
-        //    InitializeComponent();
-        //}
+        public Branches()
+        {
+            InitializeComponent();
+        }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    BranchesViewModel viewModel = (BranchesViewModel)DataContext;
-        //    AddProduct addproduct = new AddProduct();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
-        //    addproduct.DataContext = viewModel;
-        //    addproduct.ShowDialog();
-        //}
+            BranchesViewModel viewModel = (BranchesViewModel)DataContext;
+            AddBranch addbranch = new AddBranch();
+
+            addbranch.DataContext = viewModel;
+            addbranch.ShowDialog();
+        }
+        
     }
 }

@@ -31,7 +31,7 @@ namespace ShopSystem.Views.Controls
         {
 
             CompanyViewModel viewModel = (CompanyViewModel)DataContext;
-             AddCompany addcompany = new AddCompany();
+            AddCompany addcompany = new AddCompany();
 
             addcompany.DataContext = viewModel;
             addcompany.ShowDialog();

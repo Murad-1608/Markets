@@ -85,7 +85,7 @@
             </WrapPanel>
 
             <StackPanel Grid.Row="1" Background="White" Margin="20,50,20,12">
-                <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}">
+                <DataGrid Style="{StaticResource DataGridStyle}" SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>
@@ -143,7 +143,7 @@
                         <DataGridTemplateColumn MaxWidth="70" MinWidth="70" Header="Delete" Width="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteCompanyCommand}" Background="Transparent" BorderThickness="0" Height="25">
+                                    <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteBranchesCommand}" Background="Transparent" BorderThickness="0" Height="25">
                                         <Image Source="\Images\DeleteIcon.png"></Image>
                                     </Button>
                                 </DataTemplate>
@@ -153,7 +153,7 @@
                 </DataGrid>
             </StackPanel>
 
-            <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <Button Click="Button_Click" Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
 
         </Grid>

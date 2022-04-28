@@ -49,13 +49,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string cmdtxt = "insert into Branches values(@Id,@Location,@Profit,@PhoneNumber,@Balance)";
+                string cmdtxt = "insert into Branches values(@Location,@Profit,@PhoneNumber,@Balance)";
                 using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", entity.Id);
+                
                     cmd.Parameters.AddWithValue("@Location", entity.Location);
                     cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Balance", entity.Balance);
+                    cmd.Parameters.AddWithValue("@Profit", entity.Profit);
                     int check = cmd.ExecuteNonQuery();
                     return check;
                 }

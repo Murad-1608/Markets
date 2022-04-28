@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
 
             {
                 MessageBox.Show("Success");
-                viewModel.Model = null;
+                viewModel.Model = new Models.BranchesModel();
 
 
                 viewModel.AllBranches = viewModel.dataprovider.Branches();
