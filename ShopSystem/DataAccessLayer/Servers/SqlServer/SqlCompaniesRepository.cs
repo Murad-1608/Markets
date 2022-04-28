@@ -59,10 +59,10 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string cmdtxt = "insert into Companies values(@Id,@Name)";
+                string cmdtxt = "insert into Companies values(@Name)";
                 using (SqlCommand cmd = new SqlCommand(cmdtxt,con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", entity.Id);
+                 
                     cmd.Parameters.AddWithValue("@Name", entity.Name);
                     int check = cmd.ExecuteNonQuery();
                     return check;

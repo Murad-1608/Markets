@@ -91,10 +91,10 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
 
 
-        //public void Initialize()
-        //{
-        //    GetProducts = new ObservableCollection<CompaniesModel>(AllCompanies);
-        //}
+        public void Initialize()
+        {
+            GetCompanies = new ObservableCollection<CompaniesModel>(AllCompanies);
+        }
 
 
         private string searchText;
@@ -118,7 +118,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             var products = AllCompanies.Where(x => (x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower())));
 
 
-            //GetProducts = new ObservableCollection<CompaniesModel>(products);
+            GetCompanies = new ObservableCollection<CompaniesModel>(products);
         }
 
 

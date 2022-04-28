@@ -20,7 +20,7 @@ namespace ShopSystem.Commands.Main.CompanyCommand
         public override void Execute(object? parameter)
         {
 
-            int check = viewModel.db.ProductRepository.Delete(viewModel.SelectedValue.Id);
+            int check = viewModel.db.CompaniesRepository.Delete(viewModel.SelectedValue.Id);
 
 
 
@@ -29,7 +29,7 @@ namespace ShopSystem.Commands.Main.CompanyCommand
                 MessageBox.Show("Success");
 
                 viewModel.AllCompanies = viewModel.dataprovider.Companies();
-                //viewModel.Initialize();
+                viewModel.Initialize();
             }
             else
             {

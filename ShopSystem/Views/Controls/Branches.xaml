@@ -66,17 +66,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="130*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="413*"/>
+            <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Background="#cdd0d5" Grid.RowSpan="2"/>
+        <StackPanel Background="White" Grid.RowSpan="2"/>
 
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
-                <RowDefinition Height="450"/>
-                <RowDefinition/>
+                <RowDefinition Height="320.863"/>
+                <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
 
             <WrapPanel Grid.Row="0">
@@ -84,7 +84,7 @@
                 <TextBlock Foreground="Gray" x:Name="Header1" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7"><Run Text="Branches"/></TextBlock>
             </WrapPanel>
 
-            <StackPanel Grid.Row="1" Background="#cdd0d5" Margin="20,50,20,30">
+            <StackPanel Grid.Row="1" Background="White" Margin="20,50,20,12">
                 <DataGrid SelectedItem="{Binding SelectedValue}" FontSize="15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" x:Name="dgContent" ItemsSource="{Binding GetBranches}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
@@ -155,12 +155,10 @@
 
             <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
-            <Button Command="{Binding DeleteCompanyCommand}" Width="25" Height="25" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" >
-                <Image Source="\Images\DeleteIcon.png"></Image>
-            </Button>
+
         </Grid>
 
-        <WrapPanel Grid.Row="1" Style="{StaticResource SearchPanel}">
+        <WrapPanel Grid.Row="1" Style="{StaticResource SearchPanel}" Height="50">
             <TextBlock Foreground="White" FontSize="15" VerticalAlignment="Center" Margin="20,7,0,0" ><Run Text="Search :"/></TextBlock>
             <TextBox VerticalAlignment="Center" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="25" Width="141" Background="White" Margin="5,10,0,0"/>
         </WrapPanel>

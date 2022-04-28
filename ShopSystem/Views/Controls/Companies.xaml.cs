@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopSystem.ViewModels.CompanentsViewModels;
+using ShopSystem.Views.MainViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,16 @@ namespace ShopSystem.Views.Controls
         public Companies()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            CompanyViewModel viewModel = (CompanyViewModel)DataContext;
+             AddCompany addcompany = new AddCompany();
+
+            addcompany.DataContext = viewModel;
+            addcompany.ShowDialog();
         }
     }
 }

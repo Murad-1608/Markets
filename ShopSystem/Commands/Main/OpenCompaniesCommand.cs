@@ -38,7 +38,7 @@ namespace ShopSystem.Commands.Main
            
             productViewModel.AllCompanies = data.Companies();
 
-            //productViewModel.Initialize();
+            productViewModel.Initialize();
 
         }
     }

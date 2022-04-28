@@ -24,13 +24,13 @@ namespace ShopSystem.Commands.Main
         {
             viewModel.CenterGrid.Children.Clear();
 
-            Branches products = new Branches();
+            Branches branches = new Branches();
 
-            viewModel.CenterGrid.Children.Add(products);
+            viewModel.CenterGrid.Children.Add(branches);
 
             BranchesViewModel productViewModel = new BranchesViewModel(Global.DB);
 
-            products.DataContext = productViewModel;
+            branches.DataContext = productViewModel;
 
             DataProvider data = new DataProvider();
 
