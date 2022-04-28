@@ -38,7 +38,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             {
                 List<CompaniesEntity> companies = new List<CompaniesEntity>();
                 con.Open();
-                string cmdtxt = "selct * from Companies";
+                string cmdtxt = "select * from Companies";
                 using(SqlCommand cmd = new SqlCommand(cmdtxt,con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();

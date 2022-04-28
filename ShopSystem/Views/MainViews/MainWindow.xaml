@@ -71,10 +71,10 @@
                 </Grid.RowDefinitions>
 
                 <Button Style="{StaticResource ButtonStyleMainWindow}" Grid.Row="0" Content="Dashboard"/>
-                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openCompaniesCommand}" Grid.Row="1" Content="Companies"/>
-                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openBranhesCommand}"   Grid.Row="2" Content="Branches"/>
-                <Button Style="{StaticResource ButtonStyleMainWindow}" Command ="{Binding openUsersCommand}"    Grid.Row="3" Content="Users"/>
-                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openProductsCommand}"  Grid.Row="4" Content="Products"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openCompaniesCommand}" Grid.Row="3" Content="Companies"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openBranhesCommand}"   Grid.Row="4" Content="Branches"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command ="{Binding openUsersCommand}"    Grid.Row="1" Content="Users"/>
+                <Button Style="{StaticResource ButtonStyleMainWindow}" Command="{Binding openProductsCommand}"  Grid.Row="2" Content="Products"/>
 
 
 

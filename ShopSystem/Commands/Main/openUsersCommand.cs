@@ -6,6 +6,7 @@ using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls;
+using ShopSystem.Views.Controls.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,7 +33,7 @@ namespace ShopSystem.Commands.Main
             Users users = new Users();
 
             viewModel.CenterGrid.Children.Add(users);
-            UserViewModel userViewModel = new UserViewModel(Global.DB);
+            UserViewModel userViewModel = new UserViewModel(users,Global.DB);
 
             users.DataContext= userViewModel;
 

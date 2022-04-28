@@ -14,7 +14,8 @@ namespace ShopSystem.ViewModels
     internal class LoginViewModel : BaseViewModel
     {
         public IUnitOfWork db = null;
-        public LoginViewModel(IUnitOfWork db) : base(db)
+        public Window Login;
+        public LoginViewModel(Window Login, IUnitOfWork db) : base(db)
         {
             this.db = db;
         }

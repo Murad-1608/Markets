@@ -20,6 +20,9 @@ namespace ShopSystem.Commands.Main.ProductCommand
 
         public override void Execute(object? parameter)
         {
+
+
+
             ProductMapper mapper=new ProductMapper();
             var entity = mapper.Map(viewModel.CurrentValue);
             

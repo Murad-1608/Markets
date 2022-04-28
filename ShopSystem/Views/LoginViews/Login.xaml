@@ -94,8 +94,18 @@
 
 
                 <TextBlock Grid.Row="2" FontSize="15" Margin="50,1,280,45">Password:</TextBlock>
-                <PasswordBox  x:Name="PswPassword" Visibility="Visible" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59"  />
-                <TextBox Visibility="Hidden"  x:Name="txtPassword" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,27,0,58" TextChanged="txt_Password_TextChanged"  />
+                <PasswordBox  x:Name="PswPassword" Visibility="Visible" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59">
+                    <PasswordBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=PswPassword}"/>
+
+                    </PasswordBox.InputBindings>
+                </PasswordBox>
+                <TextBox Visibility="Hidden"  x:Name="txtPassword" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,27,0,58" TextChanged="txt_Password_TextChanged">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=txtPassword.Text}"/>
+                   
+                    </TextBox.InputBindings>
+                </TextBox>
                 <CheckBox Unchecked="check_Show_Unchecked" x:Name="check_Show" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Show" FontSize="10" Margin="0,0,50,38" Checked="check_Show_Checked"></CheckBox>
 
                 <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="3" HorizontalAlignment="Left" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="198,13,0,1" Click="Button_Click_1">Enter</Button>

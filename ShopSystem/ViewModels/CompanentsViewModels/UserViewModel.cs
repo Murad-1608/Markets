@@ -9,6 +9,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
@@ -16,7 +18,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;
-        public UserViewModel(IUnitOfWork db) : base(db)
+        public UserControl UserPanel;
+        public UserViewModel(UserControl UserPanel, IUnitOfWork db) : base(db)
         {
             this.db = db;
             dataprovider = new DataProvider();
@@ -26,6 +29,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         public AddUserCommand AddUserCommand => new AddUserCommand(this);
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
         public SaveUserCommand SaveUserCommand => new SaveUserCommand(this);
+        public OpenUserEditPanel OpenEditpanel=>new OpenUserEditPanel(this);
         #endregion
 
 
@@ -92,6 +96,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnPropertyChanged(nameof(GetUsers));
             }
         }
+
+        public RowDefinition RowDefinition { get; set; }
         #endregion
 
         #region SEARCH
