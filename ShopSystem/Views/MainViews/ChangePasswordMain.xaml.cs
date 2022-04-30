@@ -38,7 +38,7 @@ namespace ShopSystem.Views.MainViews
 
             string Password = Utils.PasswordHash(txtPassword.Password);
 
-            if (Password == UserInformation.Password)
+            if (Password == Global.Password)
             {
                 if (txtNewPassword.Password != "" && (txtNewPassword.Password == txtConfirmPassword.Password))
                 {

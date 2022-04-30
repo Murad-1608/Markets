@@ -19,16 +19,20 @@ namespace ShopSystem.ViewModels
         {
             this.db = db;
         }
-        public LoginClick LoginClick => new LoginClick(this);
+        public LoginEnterCommand LoginClick => new LoginEnterCommand(this);
         public LoginForgotPassword ForgotPasswordClick => new LoginForgotPassword(this);
+        public PasswordChanged password_NewPasswordClick => new PasswordChanged(this);
 
         public string Email { get; set; } = "murad.yunus.2017@mail.ru";
-        public string Password { get; set; }
         public string ForgotPasswordEmail { get; set; }
+
+
+        public int Code { get; set; }
+        public string NewPassword { get; set; }
 
         public UserModel Register { get; set; } = new UserModel();
 
-        private Visibility loginInCorrected=Visibility.Collapsed;
+        private Visibility loginInCorrected = Visibility.Collapsed;
         public Visibility LoginInCorrected
         {
             get
@@ -40,7 +44,7 @@ namespace ShopSystem.ViewModels
                 loginInCorrected = value;
                 OnPropertyChanged(nameof(LoginInCorrected));
             }
-      }
+        }
 
     }
 }

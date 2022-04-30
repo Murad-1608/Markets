@@ -13,7 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Controls;
 
 namespace ShopSystem.Commands.Main
 {
@@ -38,8 +38,9 @@ namespace ShopSystem.Commands.Main
             users.DataContext= userViewModel;
 
             DataProvider dataprovider = new DataProvider();
+            Users User=new Users();
 
-           
+            userViewModel.RowDefinition = User.EditPanel;
             var GetUsers = dataprovider.Users();
 
             userViewModel.AllUsers =GetUsers;

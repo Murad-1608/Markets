@@ -15,8 +15,7 @@ namespace ShopSystem.DataAccessLayer.Abstraction
         int Update(UserEntity entity);
         int Update(string Email, string Password);
         int Insert(UserEntity entity);
-        int Get(string Email, string Password);
-        int Get(string Email);
+        UserEntity Get(string Email);
 
     }
 }

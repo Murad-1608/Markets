@@ -39,9 +39,9 @@ namespace ShopSystem.Commands
             Random random = new Random();
             UserInformation.Code=random.Next(1111,9999);
 
-            int check = viewModel.db.UserRepository.Get(viewModel.ForgotPasswordEmail);
+            UserEntity user = viewModel.db.UserRepository.Get(viewModel.ForgotPasswordEmail);
 
-            if (check == 1)
+            if (user!=null)
             {
                 MailAddress mailReveiver = new MailAddress( viewModel.Email," ");
                 MailAddress mailSender = new MailAddress("projecttesting452@gmail.com", "Murad Kenan");
@@ -60,6 +60,7 @@ namespace ShopSystem.Commands
                 MessageBox.Show("Your password has been sent to your E-mail address", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 ChangedPassword changedPassword = new ChangedPassword();
+                changedPassword.DataContext = viewModel;
                 changedPassword.ShowDialog();
 
 

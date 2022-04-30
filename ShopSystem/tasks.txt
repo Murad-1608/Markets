@@ -3,3 +3,6 @@
 3)Praktika6 video:47;
 
 Login placeHolder problemi
+
+Null excaption error to user update repository when change password 
+ComboBox 42:36 praktika 5

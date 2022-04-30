@@ -87,37 +87,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     return check;
                 }
             }
-        }
-
-        public int Get(string Email, string Password)
-        {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string command = @"select Name,Surname,Password,Position from Users where Password=@Password and Email=@Email";
-
-                using (SqlCommand cmd = new SqlCommand(command, con))
-                {
-                    UserEntity entity = new UserEntity();
-
-
-                    int a = 0;
-                    cmd.Parameters.AddWithValue("@Email", Email);
-                    cmd.Parameters.AddWithValue("@Password", Password);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-
-                        UserInformation.Password = dr["Password"].ToString();
-                        UserInformation.Name = dr["Name"].ToString();
-                        UserInformation.Surname = dr["Surname"].ToString();
-                        UserInformation.Position = dr["Position"].ToString();
-                        a++;
-                    }
-                    return a;
-                }
-            }
-        }
+        }     
 
         public int Update(UserEntity entity)
         {
@@ -142,31 +112,28 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Get(string Email)
+        public UserEntity Get(string Email)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"select Name,Surname,Password,Email,Position from Users where Email=@Email";
+                string command = @"select Email,Name,Surname,Password,Position from Users where Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     UserEntity entity = new UserEntity();
 
-
-                    int a = 0;
-                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Email", Email);               
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        UserInformation.Password = dr["Password"].ToString();
-                        UserInformation.Name = dr["Name"].ToString();
-                        UserInformation.Surname = dr["Surname"].ToString();
-                        UserInformation.Email = dr["Email"].ToString();
-                        UserInformation.Position = dr["Position"].ToString();
-                        a++;
+                        entity.Password = dr["Password"].ToString();
+                        entity.Email = dr["Email"].ToString();
+                        entity.Name = dr["Name"].ToString();
+                        entity.Surname = dr["Surname"].ToString();
+                        entity.Position = dr["Position"].ToString();         
                     }
-                    return a;
+                    return entity;
                 }
             }
         }

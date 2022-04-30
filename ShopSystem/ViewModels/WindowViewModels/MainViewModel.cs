@@ -84,6 +84,8 @@ namespace ShopSystem.ViewModels
 
 
         public Grid CenterGrid { get; set; }
+        public string UserPosition { get; set; }
+        public string UserFullName { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

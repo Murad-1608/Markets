@@ -97,7 +97,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
-        public RowDefinition RowDefinition { get; set; }
+        public RowDefinition RowDefinition { get; set; } = new RowDefinition();
         #endregion
 
         #region SEARCH

@@ -15,8 +15,8 @@ namespace ShopSystem.Commands
 {
     internal class PasswordChanged : BaseCommand
     {
-        private readonly ChangedPasswordViewModel viewModel;
-        public PasswordChanged(ChangedPasswordViewModel viewModel)
+        private readonly LoginViewModel viewModel;
+        public PasswordChanged(LoginViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -25,10 +25,10 @@ namespace ShopSystem.Commands
             PasswordBox NewPassword = parameter as PasswordBox;
 
             string Password = NewPassword.Password;
-
+            
             
 
-            int check = viewModel.db.UserRepository.Update(UserInformation.Email, Password);
+            int check = viewModel.db.UserRepository.Update(Global.Email, Password);
 
             if (check == 1)
             {

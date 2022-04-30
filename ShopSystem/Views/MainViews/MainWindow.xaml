@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="2" x:Name="txt_UserFullName" FontSize="15" HorizontalAlignment="Right" Text="Murad" Margin="20" Foreground="White"/>
+            <TextBlock Grid.Column="2" x:Name="txt_UserFullName" FontSize="15" HorizontalAlignment="Right" Text="{Binding UserFullName}" Margin="20" Foreground="White"/>
 
 
             <Menu Height="50" Width="50" Background="Transparent">
@@ -56,7 +56,7 @@
 
         <!--User position-->
         <Border Grid.Row="0" Grid.Column="0" Background="#2a739f" Height="70" Width="170">
-            <TextBlock x:Name="txt_Position" FontSize="30" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="30,20,10,10"><Run Text="Admin"/></TextBlock>
+            <TextBlock x:Name="txt_Position" FontSize="30" FontWeight="Bold" Foreground="White" Height="70" Width="170" Padding="30,20,10,10"><Run Text="{Binding UserPosition}"/></TextBlock>
         </Border>
 
 

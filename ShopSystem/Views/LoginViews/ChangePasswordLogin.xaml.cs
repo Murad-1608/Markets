@@ -23,19 +23,15 @@ namespace ShopSystem.Views.LoginViews
     /// </summary>
     public partial class ChangedPassword : Window
     {
-        ChangedPasswordViewModel viewModel = new ChangedPasswordViewModel(Global.DB);
+        LoginViewModel viewModel;
         public ChangedPassword()
         {
             InitializeComponent();
-
-
-            DataContext = viewModel;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            viewModel = (ChangedPasswordViewModel)DataContext;
+             viewModel = (LoginViewModel)DataContext;
             if (UserInformation.Code == viewModel.Code)
             {
                 WriteCode.Visibility = Visibility.Collapsed;
@@ -58,7 +54,7 @@ namespace ShopSystem.Views.LoginViews
             }
             else
             {
-                MessageBox.Show("Check again","Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Check again", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

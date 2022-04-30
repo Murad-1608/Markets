@@ -57,7 +57,7 @@ namespace ShopSystem.Views.Controls.UserControls
             SearchPanel.IsEnabled = false;
 
             number = 0;
-            dt.Interval = TimeSpan.FromSeconds(0.005);
+            dt.Interval = TimeSpan.FromMilliseconds(1);
             dt.Tick += dtTicker;
             dt.Start();
 
@@ -66,7 +66,7 @@ namespace ShopSystem.Views.Controls.UserControls
 
         private void dtTicker(object sender, EventArgs e)
         {
-            number += 10;
+            number += 2;
             EditPanel.Height = new GridLength(number);
 
             UserViewModel viewModel = (UserViewModel)DataContext;
@@ -84,7 +84,7 @@ namespace ShopSystem.Views.Controls.UserControls
         private void dtTickerClose(object sender, EventArgs e)
         {
 
-            number -= 5;
+            number -= 2;
             EditPanel.Height = new GridLength(number);
 
 
@@ -103,7 +103,7 @@ namespace ShopSystem.Views.Controls.UserControls
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             
-            dtClose.Interval = TimeSpan.FromSeconds(0.005);
+            dtClose.Interval = TimeSpan.FromMilliseconds(1);
             dtClose.Tick += dtTickerClose;
             dtClose.Start();
         }
