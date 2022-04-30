@@ -29,7 +29,9 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         public AddUserCommand AddUserCommand => new AddUserCommand(this);
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
         public SaveUserCommand SaveUserCommand => new SaveUserCommand(this);
-        public OpenUserEditPanel OpenEditpanel=>new OpenUserEditPanel(this);
+        public OpenUserEditPanel OpenEditPanel=>new OpenUserEditPanel(this);
+        public OpenUserAddPanel OpenAddPanel =>new OpenUserAddPanel(this);
+       
         #endregion
 
 
@@ -97,7 +99,49 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
-        public RowDefinition RowDefinition { get; set; } = new RowDefinition();
+        private GridLength rowHeight = new GridLength(0);  
+        public GridLength RowHeight
+        {
+            get
+            {
+                return rowHeight;
+            }
+            set
+            {
+                rowHeight = value;
+                OnPropertyChanged(nameof(RowHeight));
+            }
+        }
+
+        private Visibility addPanelVisibility = Visibility.Collapsed;
+        public Visibility AddPanelVisibility
+        {
+            get
+            {
+                return addPanelVisibility;
+            }
+            set
+            {
+                addPanelVisibility = value;
+                OnPropertyChanged(nameof(AddPanelVisibility));
+            }
+        }
+
+        private Visibility editPanelVisibility = Visibility.Collapsed;
+        public Visibility EditPanelVisibility
+        {
+            get
+            {
+                return editPanelVisibility;
+            }
+            set
+            {
+                editPanelVisibility = value;
+                OnPropertyChanged(nameof(EditPanelVisibility));
+            }
+        }
+
+
         #endregion
 
         #region SEARCH

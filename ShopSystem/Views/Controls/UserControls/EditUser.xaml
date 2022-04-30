@@ -8,7 +8,7 @@
              d:DesignHeight="200" d:DesignWidth="550">
 
     <StackPanel Background="#f0f2f5">
-        <Grid Height="151">
+        <Grid Height="150">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>

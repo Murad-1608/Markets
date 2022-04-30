@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShopSystem.Views.Controls
+namespace ShopSystem.Views.Controls.ProductControls
 {
     /// <summary>
     /// Interaction logic for Products.xaml

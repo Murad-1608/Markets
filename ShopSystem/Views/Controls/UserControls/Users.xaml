@@ -72,22 +72,33 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-       
+
 
         <Grid Grid.Row="0" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
-                <RowDefinition x:Name="EditPanel" Height="0"/>
-                <RowDefinition Height="555"/>               
+                <RowDefinition x:Name="EditPanel" Height="{Binding RowHeight}" />
+                <RowDefinition Height="555"/>
             </Grid.RowDefinitions>
 
-            <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackEdit">
+
+            <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackEdit" Visibility="{Binding EditPanelVisibly}">
                 <local:EditUser x:Name="EditControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
-                <Button BorderThickness="0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25" Click="Button_Click_4">
+                <Button BorderThickness="0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25" >
                     <Image Source="\Images\UpperButton.png"/>
                 </Button>
             </StackPanel>
-            
+
+
+            <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackAdd" Visibility="{Binding AddPanelVisibly}">
+                <local:AddUser x:Name="AddControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <Button BorderThickness="0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25" >
+                    <Image Source="\Images\UpperButton.png"/>
+                </Button>
+            </StackPanel>
+
+
+
             <!--<Grid Background="White" Grid.Row="0" Height="0" x:Name="stack_EditUser">
                 <local:EditUser VerticalAlignment="Top" HorizontalAlignment="Center"/>
             </Grid>-->
@@ -99,8 +110,8 @@
 
             <StackPanel Name="Center" Grid.Row="2" Background="White" Margin="7,12,20,6">
 
-                <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="2" Margin="10,12,10,20" Height="25" Width="70" Background="#3480b1" HorizontalAlignment="Left" Click="Button_Click"/>
-                
+                <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="2" Margin="10,12,10,20" Height="25" Width="70" Background="#3480b1" HorizontalAlignment="Left" Command="{Binding OpenAddPanel}"/>
+
                 <DataGrid KeyDown="dgContent_KeyDown" Style="{StaticResource DataGridStyle}"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
@@ -165,7 +176,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <WrapPanel>
-                                        <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.OpenEditpanel}" Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0" Click= "Button_Click_2" >
+                                        <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.OpenEditPanel}" Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0"  >
                                             <Image Source="\Images\pen-icon-png-0.jpg" Height="15" Width="15"></Image>
                                         </Button>
                                         <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteUserCommand}" Background="Transparent" BorderThickness="1" Height="25" Width="25">
@@ -178,11 +189,6 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-
-           
-
-
-
         </Grid>
 
 

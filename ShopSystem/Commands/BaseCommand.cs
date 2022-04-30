@@ -21,27 +21,9 @@ namespace ShopSystem.Commands
 
         public abstract void Execute(object? parameter);
 
-        int number = 0;
-        public void EditPanelAnimation()
-        {
-            //DoubleAnimation da = new DoubleAnimation();
-            //CircleEase ease = new CircleEase() { EasingMode = EasingMode.EaseOut };
+     
 
-            //da.From = 0;
-            //da.To = 50;
-            //da.Duration = TimeSpan.FromSeconds(3000);
-            //da.EasingFunction = ease;
-
-
-            DispatcherTimer timer = new DispatcherTimer();
-            number = 0;
-            timer.Interval = TimeSpan.FromMilliseconds(1);
-            timer.Tick += Timer_Tick; ;
-            timer.Start();
-
-        }
-
-        public abstract void Timer_Tick(object? sender, EventArgs e);
+     
        
     }
 }

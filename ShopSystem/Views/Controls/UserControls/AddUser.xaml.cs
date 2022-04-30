@@ -1,9 +1,8 @@
-﻿using ShopSystem.ViewModels.CompanentsViewModels;
-using ShopSystem.Views.MainViews;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,29 +13,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace ShopSystem.Views.Controls.UserControls
 {
     /// <summary>
-    /// Interaction logic for Users.xaml
+    /// Interaction logic for AddUser.xaml
     /// </summary>
-    public partial class Users : UserControl
+    public partial class AddUser : UserControl
     {
-        public Users()
+        public AddUser()
         {
             InitializeComponent();
-        } 
-
-  
-        private void dgContent_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-            {
-                dgContent.UnselectAllCells();
-            }
         }
 
-        
+        private void txtPhoneNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"[^0-9\.]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

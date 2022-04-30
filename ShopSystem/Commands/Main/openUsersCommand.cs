@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ShopSystem.Commands.Main
@@ -28,22 +29,24 @@ namespace ShopSystem.Commands.Main
         public override void Execute(object? parameter)
         {
             viewModel.CenterGrid.Children.Clear();
-       
+
 
             Users users = new Users();
 
             viewModel.CenterGrid.Children.Add(users);
-            UserViewModel userViewModel = new UserViewModel(users,Global.DB);
+            UserViewModel userViewModel = new UserViewModel(users, Global.DB);
 
-            users.DataContext= userViewModel;
+            users.DataContext = userViewModel;
 
             DataProvider dataprovider = new DataProvider();
-            Users User=new Users();
+            Users User = new Users();
 
-            userViewModel.RowDefinition = User.EditPanel;
+            //userViewModel.RowHeight = new GridLength();
+
+
             var GetUsers = dataprovider.Users();
 
-            userViewModel.AllUsers =GetUsers;
+            userViewModel.AllUsers = GetUsers;
 
             userViewModel.Initialize();
         }

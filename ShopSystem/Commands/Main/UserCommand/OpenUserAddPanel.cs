@@ -1,4 +1,5 @@
-﻿using ShopSystem.ViewModels.CompanentsViewModels;
+﻿using ShopSystem.ViewModels;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls.UserControls;
 using System;
 using System.Collections.Generic;
@@ -6,29 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class OpenUserEditPanel : BaseControlCommand
+    public class OpenUserAddPanel : BaseControlCommand
     {
-        public readonly UserViewModel viewModel;
-
-        public OpenUserEditPanel(UserViewModel viewModel)
+        private UserViewModel viewModel;
+        public OpenUserAddPanel(UserViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
 
         public override void Execute(object? parameter)
         {
-            EditUser editUser = new EditUser();
-            editUser.DataContext = viewModel;
-            viewModel.AddPanelVisibility = Visibility.Collapsed;
-            viewModel.EditPanelVisibility = Visibility.Visible;
+            AddUser addUser = new AddUser();
+            addUser.DataContext = viewModel;
+            viewModel.AddPanelVisibility = Visibility.Visible;
+            viewModel.EditPanelVisibility = Visibility.Collapsed;
             EditPanelAnimation();
         }
-
 
         public override void Timer_Tick(object? sender, EventArgs e)
         {
@@ -41,6 +38,5 @@ namespace ShopSystem.Commands.Main.UserCommand
                 timer.Stop();
             }
         }
-
     }
 }
