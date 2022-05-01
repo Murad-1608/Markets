@@ -8,15 +8,14 @@
              d:DesignHeight="200" d:DesignWidth="550">
 
     <StackPanel Background="#f0f2f5">
-        <Grid Height="150">
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition Height="0*"/>
-                <RowDefinition Height="0*"/>
+                <RowDefinition Height="50"/>
+
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -24,7 +23,9 @@
                 <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
 
-
+            <!--<StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+                <controls:NullTextboxError  />
+            </StackPanel>-->
 
             <WrapPanel Margin="5,5,5,5">
                 <TextBlock Text="Name :" FontSize="15"/>
@@ -60,8 +61,8 @@
                 </ComboBox>
             </WrapPanel>
 
-            <Button  Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0" Click="Button_Click_1"/>
-            
+            <Button Command="{Binding SaveUserCommand}" Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0" />
+
 
 
         </Grid>

@@ -1,4 +1,5 @@
 ﻿using ShopSystem.Mappers;
+using ShopSystem.Models;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class SaveUserCommand : BaseCommand
+    public class SaveUserCommand : BaseControlCommand
     {
         private readonly UserViewModel viewModel;
         public SaveUserCommand(UserViewModel viewModel)
@@ -32,39 +33,53 @@ namespace ShopSystem.Commands.Main.UserCommand
                 {
                     if (users.Email != null && users.Email.ToLower().Contains(viewModel.CurrentValue.Email.ToLower()))
                     {
-                        isCompatible = true;
+                        MessageBox.Show("There is a user in this email");
+                        viewModel.CurrentValue = (UserModel)viewModel.SelectedValue.Clone();
+                        break;
                     }
                 }
-            }         
-
-
-
-
-            if (isCompatible)
-            {
-                MessageBox.Show("There is a user in this email");
-                viewModel.CurrentValue = viewModel.SelectedValue;
-            }
+            }      
+                      
 
             else
             {
-                int check = viewModel.db.UserRepository.Update(entity);
-
-                if (check == 1)
-
+                try
                 {
-                    MessageBox.Show("Success");
-                    
+                    int check = viewModel.db.UserRepository.Update(entity);
 
+                    if (check == 1)
 
-                    viewModel.AllUsers = viewModel.dataprovider.Users();
-                    viewModel.Initialize();
+                    {
+                        MessageBox.Show("Success");
+
+                        CloseAddandEditPanel closePanel = new CloseAddandEditPanel(viewModel);
+                        closePanel.Execute("");
+
+                        viewModel.AllUsers = viewModel.dataprovider.Users();
+                        viewModel.Initialize();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("Fail");
-                }
+                    EditPanelAnimation();                   
+                }             
+                               
             }
+        }
+
+        public override void Timer_Tick(object? sender, EventArgs e)
+        {
+            number += 1;
+
+            if (number==6)
+            {
+
+            }
+
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ShopSystem.Commands.Main
         }
 
         public int number { get; set; } = 0;
+        
 
         public DispatcherTimer timer = new DispatcherTimer();
         public void EditPanelAnimation()
@@ -22,7 +23,8 @@ namespace ShopSystem.Commands.Main
             timer.Interval = TimeSpan.FromMilliseconds(0.6);
             timer.Tick += Timer_Tick; ;
             timer.Start();
-        }
+        }  
+       
 
         public abstract void Timer_Tick(object? sender, EventArgs e);
 

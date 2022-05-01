@@ -1,9 +1,8 @@
-﻿1)Trigger
-2)Close animation
-3)Login placeHolder
+﻿3)Login placeHolder
 4)Product combobox
+5)Product BranchID
+6)Null excaption
 
-Login placeHolder problemi
 
 Null excaption error to user update repository when change password 
 ComboBox 42:36 praktika 5

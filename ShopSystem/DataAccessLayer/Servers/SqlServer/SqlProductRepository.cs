@@ -86,7 +86,9 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
                 con.Open();
 
-                string command = @"select *from Products";
+                string command = @"SELECT Branches.Location as 'Branch', Products.Name,Products.Brand,Products.Count,Products.Price,Products.Type,Products.Color,Products.Comment FROM Products
+                                  INNER JOIN  Branches
+                                  ON Products.BranchID = Branches.Id;";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {

@@ -33,8 +33,10 @@ namespace ShopSystem.Commands.Main.ProductCommand
 
             {
                 MessageBox.Show("Success");
-                
 
+                CloseAddandEditPanel closePanel = new CloseAddandEditPanel(viewModel);
+
+                closePanel.Execute("");
 
                 viewModel.AllProducts = viewModel.dataprovider.Products();
                 viewModel.Initialize();

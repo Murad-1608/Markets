@@ -18,18 +18,23 @@ namespace ShopSystem.Commands.Main.UserCommand
 
         public override void Execute(object? parameter)
         {
-            int check = viewModel.db.UserRepository.Delete(viewModel.SelectedValue.Id);
-
-            if (check == 1)
+            if (MessageBox.Show("Want to delete information?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Success");
+                int check = viewModel.db.UserRepository.Delete(viewModel.SelectedValue.Id);
 
-                viewModel.AllUsers = viewModel.dataprovider.Users();
-                viewModel.Initialize();
-            }
-            else
-            {
-                MessageBox.Show("Fail");
+
+
+                if (check == 1)
+                {
+                    MessageBox.Show("Success");
+
+                    viewModel.AllUsers = viewModel.dataprovider.Users();
+                    viewModel.Initialize();
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
             }
         }
     }
