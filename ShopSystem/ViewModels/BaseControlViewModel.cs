@@ -10,9 +10,9 @@ namespace ShopSystem.ViewModels
     public abstract class BaseControlViewModel : BaseViewModel
     {
         public IUnitOfWork db;
-        public BaseControlViewModel(IUnitOfWork db):base(db)
+        public BaseControlViewModel(IUnitOfWork db) : base(db)
         {
-           
+
         }
 
         public abstract void OnSearch();
@@ -28,9 +28,27 @@ namespace ShopSystem.ViewModels
             }
             set
             {
-                searchText = value;                
+                searchText = value;
                 OnSearch();
             }
+        }
+
+        private byte currentSituation;
+        public byte CurrentSituation
+        {
+            get
+            {
+                return currentSituation;
+            }
+
+            set
+            {
+                currentSituation = value;
+                OnPropertyChanged(nameof(CurrentSituation));
+
+            }
+
+
         }
 
 

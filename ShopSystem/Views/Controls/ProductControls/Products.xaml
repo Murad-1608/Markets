@@ -70,21 +70,42 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
+        
+        
         <StackPanel Background="White" Grid.RowSpan="2"/>
 
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
-                <RowDefinition Height="450"/>
-                <RowDefinition/>
+                <RowDefinition x:Name="EditPanel" Height="{Binding RowHeight}" />
+                <RowDefinition Height="555"/>
             </Grid.RowDefinitions>
+
+
+            <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackEdit" Visibility="{Binding EditPanelVisibility}">
+                <local:EditProduct x:Name="EditControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            </StackPanel>
+
+
+            <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackAdd" Visibility="{Binding AddPanelVisibility}">
+                <local:AddProduct x:Name="AddControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            </StackPanel>
+
+            <Button Command="{Binding CloseAddandEditPanel}" Grid.Row="1" BorderThickness="0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25" >
+                <Image Source="\Images\UpperButton.png"/>
+            </Button>
+
+
+
+
 
             <WrapPanel Grid.Row="0">
                 <TextBlock Margin="10,10,5,10" FontSize="25" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Manage"/></TextBlock>
                 <TextBlock Foreground="Gray" x:Name="Header" FontSize="15" Height="25" VerticalAlignment="Bottom" Margin="0,10,10,7" Text="{Binding Header}"/>
             </WrapPanel>
 
-            <StackPanel Grid.Row="1" Background="White" Margin="20,50,20,30">
+            <StackPanel Name="Center" Grid.Row="2" Background="White" Margin="7,12,20,6">
+                <Button Command="{Binding OpenProductAddPanel}" Foreground="White" FontSize="15" Style="{StaticResource AddButton}" Grid.Row="1" />
                 <DataGrid Style="{StaticResource DataGridStyle}" KeyDown="dgContent_KeyDown"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetProducts}" >
 
                     <DataGrid.Columns>
@@ -158,28 +179,26 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <WrapPanel>
-                                        <Button Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0" Click="Button_Click_1">
+                                        <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.OpenProductEditPanel}" Background="Transparent" BorderThickness="1" Height="25" Width="25" Margin="0,0,5,0" >
                                             <Image Source="\Images\pen-icon-png-0.jpg" Height="15" Width="15"></Image>
                                         </Button>
                                         <Button Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteProductCommand}" Background="Transparent" BorderThickness="1" Height="25" Width="25">
                                             <Image Source="\Images\DeleteIcon.png" Height="15" Width="15"></Image>
                                         </Button>
-                                    </WrapPanel>                                                                       
-                                </DataTemplate>                                
+                                    </WrapPanel>
+                                </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
+
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
-
-            <Button Foreground="White" FontSize="15" Style="{DynamicResource ButtonStyle1}" Content="Add" Grid.Row="1" Margin="20,12,0,0" Height="25" Width="70" Background="#3480b1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
+            </StackPanel>           
 
         </Grid>
 
         <WrapPanel Grid.Row="1" Style="{StaticResource SearchPanel}">
             <TextBlock Foreground="White" FontSize="15" VerticalAlignment="Center" Margin="20,7,0,0" ><Run Text="Search :"/></TextBlock>
-            <TextBox VerticalAlignment="Center" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="25" Width="141" Background="White" Margin="5,10,0,0"/>
+            <TextBox Style="{StaticResource SearchText}" VerticalAlignment="Center" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="25" Width="141" Background="White" Margin="5,10,0,0"/>
         </WrapPanel>
 
     </Grid>

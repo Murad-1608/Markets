@@ -31,6 +31,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         public SaveUserCommand SaveUserCommand => new SaveUserCommand(this);
         public OpenUserEditPanel OpenEditPanel=>new OpenUserEditPanel(this);
         public OpenUserAddPanel OpenAddPanel =>new OpenUserAddPanel(this);
+        public CloseAddandEditPanel CloseAddandEditPanel =>new CloseAddandEditPanel(this);
        
         #endregion
 

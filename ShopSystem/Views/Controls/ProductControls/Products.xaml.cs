@@ -30,18 +30,7 @@ namespace ShopSystem.Views.Controls.ProductControls
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ProductViewModel viewModel = (ProductViewModel)DataContext;
-            AddProduct addproduct = new AddProduct();
-
-            addproduct.DataContext = viewModel;
-            addproduct.ShowDialog();
-
-
-        }
-
+    
         private void dgContent_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key==Key.Escape)
@@ -50,12 +39,6 @@ namespace ShopSystem.Views.Controls.ProductControls
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            EditProduct editProduct = new EditProduct();
-            ProductViewModel viewModel = (ProductViewModel)DataContext;
-            editProduct.DataContext = viewModel;
-            editProduct.ShowDialog();
-        }
+   
     }
 }

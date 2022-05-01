@@ -4,6 +4,7 @@ using ShopSystem.Models;
 using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.Controls;
+using ShopSystem.Views.Controls.ProductControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

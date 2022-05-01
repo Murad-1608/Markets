@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
@@ -29,6 +30,9 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         public AddProductCommand AddProductCommand => new AddProductCommand(this);
         public DeleteProductCommand DeleteProductCommand => new DeleteProductCommand(this);
         public SaveProductCommand SaveProductCommand => new SaveProductCommand(this);
+        public OpenProductEditPanel OpenProductEditPanel => new OpenProductEditPanel(this);
+        public CloseAddandEditPanel CloseAddandEditPanel => new CloseAddandEditPanel(this);
+        public OpenProductAddPanel OpenProductAddPanel => new OpenProductAddPanel(this);
 
 
         #endregion
@@ -100,6 +104,47 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
+        private GridLength rowHeight = new GridLength(0);
+        public GridLength RowHeight
+        {
+            get
+            {
+                return rowHeight;
+            }
+            set
+            {
+                rowHeight = value;
+                OnPropertyChanged(nameof(RowHeight));
+            }
+        }
+
+        private Visibility addPanelVisibility = Visibility.Collapsed;
+        public Visibility AddPanelVisibility
+        {
+            get
+            {
+                return addPanelVisibility;
+            }
+            set
+            {
+                addPanelVisibility = value;
+                OnPropertyChanged(nameof(AddPanelVisibility));
+            }
+        }
+
+        private Visibility editPanelVisibility = Visibility.Collapsed;
+        public Visibility EditPanelVisibility
+        {
+            get
+            {
+                return editPanelVisibility;
+            }
+            set
+            {
+                editPanelVisibility = value;
+                OnPropertyChanged(nameof(EditPanelVisibility));
+            }
+        }
 
         #endregion
 

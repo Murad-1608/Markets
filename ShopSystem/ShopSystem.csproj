@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Enums\**" />
-    <EmbeddedResource Remove="Enums\**" />
-    <None Remove="Enums\**" />
-    <Page Remove="Enums\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Images\Back_Button_Icon.jpg" />
     <None Remove="Images\DeleteIcon.png" />
     <None Remove="Images\kontakthome.png" />

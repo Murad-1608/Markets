@@ -65,9 +65,19 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="AlternationCount" Value="2"/>
-            
+            <Setter Property="AlternationCount" Value="2"/>            
             <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="1">
+                    <Setter Property="IsEnabled" Value="True"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="2">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="3">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
 
@@ -99,6 +109,43 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
+
+        <Style TargetType="Button" x:Key="AddButton">
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Content" Value="Add"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Margin" Value="10,12,10,20"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Background" Value="#3480b1"/>
+            <Setter Property="HorizontalAlignment" Value="left"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="1">
+                    <Setter Property="IsEnabled" Value="True"/>                    
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="2">
+                    <Setter Property="IsEnabled" Value="False"/>                
+                </DataTrigger>            
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="SearchText">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="1">
+                    <Setter Property="IsEnabled" Value="True"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="2">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentSituation}" Value="3">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
 
     </Application.Resources>
 </Application>
