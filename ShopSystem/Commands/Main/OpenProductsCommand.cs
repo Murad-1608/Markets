@@ -32,7 +32,7 @@ namespace ShopSystem.Commands.Main
 
             viewModel.CenterGrid.Children.Add(products);
 
-            ProductViewModel productViewModel=new ProductViewModel(Global.DB);
+            ProductViewModel productViewModel = new ProductViewModel(Global.DB);
 
             products.DataContext = productViewModel;
 
@@ -40,8 +40,8 @@ namespace ShopSystem.Commands.Main
 
             var GetProducts = data.Products();
 
-            productViewModel.AllProducts = data.Products();
-
+            productViewModel.AllValues = data.Products();
+            productViewModel.Branches=data.Branches();
             productViewModel.Initialize();
         }
     }

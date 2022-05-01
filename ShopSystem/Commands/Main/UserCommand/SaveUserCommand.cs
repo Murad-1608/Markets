@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class SaveUserCommand : BaseControlCommand
+    internal class SaveUserCommand : BaseControlCommand
     {
         private readonly UserViewModel viewModel;
         public SaveUserCommand(UserViewModel viewModel)
@@ -55,7 +55,7 @@ namespace ShopSystem.Commands.Main.UserCommand
                         CloseAddandEditPanel closePanel = new CloseAddandEditPanel(viewModel);
                         closePanel.Execute("");
 
-                        viewModel.AllUsers = viewModel.dataprovider.Users();
+                        viewModel.AllValues = viewModel.dataprovider.Users();
                         viewModel.Initialize();
                     }
                     else

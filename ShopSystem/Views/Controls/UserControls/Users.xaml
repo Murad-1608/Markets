@@ -108,7 +108,7 @@
 
                 <Button Style="{StaticResource AddButton}"  Command="{Binding OpenAddPanel}"/>
 
-                <DataGrid KeyDown="dgContent_KeyDown" Style="{StaticResource DataGridStyle}"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetUsers}">
+                <DataGrid KeyDown="dgContent_KeyDown" Style="{StaticResource DataGridStyle}"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetValues}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
                             <DataGridTemplateColumn.CellTemplate>

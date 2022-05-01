@@ -70,8 +70,8 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        
-        
+
+
         <StackPanel Background="White" Grid.RowSpan="2"/>
 
         <Grid Grid.Row="0">
@@ -106,7 +106,7 @@
 
             <StackPanel Name="Center" Grid.Row="2" Background="White" Margin="7,12,20,6">
                 <Button Command="{Binding OpenProductAddPanel}" Foreground="White" FontSize="15" Style="{StaticResource AddButton}" Grid.Row="1" />
-                <DataGrid Style="{StaticResource DataGridStyle}" KeyDown="dgContent_KeyDown"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetProducts}" >
+                <DataGrid Style="{StaticResource DataGridStyle}" KeyDown="dgContent_KeyDown"  SelectedItem="{Binding SelectedValue}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="dgContent" ItemsSource="{Binding GetValues}" >
 
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="№" Width="40">
@@ -117,7 +117,15 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Name" Width="250">
+                        <DataGridTemplateColumn Header="Branch" Width="180">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Branch}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Name" Width="180">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Name}"/>
@@ -151,7 +159,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Type" Width="180">
+                        <DataGridTemplateColumn Header="Type" Width="150">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Type}"/>
@@ -167,7 +175,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Comment" Width="290">
+                        <DataGridTemplateColumn Header="Comment" Width="245">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Comment}"/>
@@ -192,7 +200,7 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>           
+            </StackPanel>
 
         </Grid>
 

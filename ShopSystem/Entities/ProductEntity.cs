@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Entities
 {
-    public class ProductEntity:BaseEntity
+    public class ProductEntity : BaseEntity
     {
+        public BranchesModel Branch { get; set; }
         public int Id { get; set; }
+        public int BranchID { get; set; }      
         public string Name { get; set; }
         public string Brand { get; set; }
         public int Count { get; set; }

@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class OpenUserAddPanel : BaseControlCommand
+    internal class OpenUserAddPanel : BaseControlCommand
     {
         private UserViewModel viewModel;
         public OpenUserAddPanel(UserViewModel viewModel)

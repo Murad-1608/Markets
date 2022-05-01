@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class CloseAddandEditPanel : BaseControlCommand
+    internal class CloseAddandEditPanel : BaseControlCommand
     {
         private UserViewModel viewModel;
         public CloseAddandEditPanel(UserViewModel viewModel)

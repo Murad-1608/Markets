@@ -18,16 +18,17 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             this.connectionString = connectionString;
         }
 
-        public int Insert(ProductEntity entity)
+        public int Insert(ProductEntity entity,int BranchID)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string command = @"Insert into Products values(@Name,@Brand,@Count,@Price,@Type,@Color,@Comment)";
+                string command = @"Insert into Products values(@Name,@Brand,@Count,@Price,@Type,@Color,@Comment,@BranchID)";
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     cmd.Parameters.AddWithValue("@Name", entity.Name);
                     cmd.Parameters.AddWithValue("@Brand", entity.Brand);
+                    cmd.Parameters.AddWithValue("@BranchID", BranchID);
                     cmd.Parameters.AddWithValue("@Count", entity.Count);
                     cmd.Parameters.AddWithValue("@Price", entity.Price);
                     cmd.Parameters.AddWithValue("@Type", entity.Type);
@@ -39,16 +40,17 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Update(ProductEntity entity)
+        public int Update(ProductEntity entity,int BranchID)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = "update Products set Brand=@Brand,Count=@Count,Price=@Price,Type=@Type,Color=@Color,Comment=@Comment where Id=@Id";
+                string command = "update Products set BranchID=@BranchID Brand=@Brand,Count=@Count,Price=@Price,Type=@Type,Color=@Color,Comment=@Comment where Id=@Id";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", entity.Id);
                     cmd.Parameters.AddWithValue("@Brand", entity.Brand);
+                    cmd.Parameters.AddWithValue("@BranchID", BranchID);
                     cmd.Parameters.AddWithValue("@Count", entity.Count);
                     cmd.Parameters.AddWithValue("@Price", entity.Price);
                     cmd.Parameters.AddWithValue("@Type", entity.Type);
@@ -86,8 +88,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 
                 con.Open();
 
-                string command = @"SELECT Branches.Location as 'Branch', Products.Name,Products.Brand,Products.Count,Products.Price,Products.Type,Products.Color,Products.Comment FROM Products
-                                  INNER JOIN  Branches
+                string command = @"SELECT * FROM Products INNER JOIN  Branches
                                   ON Products.BranchID = Branches.Id;";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
@@ -98,6 +99,8 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     {
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
+                        entity.BranchID = int.Parse(dr["BranchID"].ToString());
+                        //entity.Branch.Location =dr["Location"].ToString();
                         entity.Name = dr["Name"].ToString();
                         entity.Brand = dr["Brand"].ToString();
                         entity.Count = int.Parse(dr["Count"].ToString());
@@ -106,14 +109,14 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         entity.Color = dr["Color"].ToString();
                         entity.Comment = dr["Comment"].ToString();
                         products.Add(entity);
-
                     }
+                    //Products.Id, Branches.Location as 'Branch', Products.Name,Products.Brand,Products.Count,Products.Price,Products.Type,Products.Color,Products.Comment FROM Products
                     return products;
                 }
             }
         }
 
-       
+
 
         public int Update(string Email, string Password)
         {

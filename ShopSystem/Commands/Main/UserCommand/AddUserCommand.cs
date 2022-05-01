@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class AddUserCommand : BaseCommand
+    internal class AddUserCommand : BaseCommand
     {
         private readonly UserViewModel viewModel;
         public AddUserCommand(UserViewModel viewModel)
@@ -50,7 +50,7 @@ namespace ShopSystem.Commands.Main.UserCommand
                     viewModel.Model = new UserModel();
 
 
-                    viewModel.AllUsers = viewModel.dataprovider.Users();
+                    viewModel.AllValues = viewModel.dataprovider.Users();
                     viewModel.Initialize();
                 }
                 else

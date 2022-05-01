@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class DeleteUserCommand : BaseCommand
+    internal class DeleteUserCommand : BaseCommand
     {
         private UserViewModel viewModel;
         public DeleteUserCommand(UserViewModel viewModel)
@@ -28,7 +28,7 @@ namespace ShopSystem.Commands.Main.UserCommand
                 {
                     MessageBox.Show("Success");
 
-                    viewModel.AllUsers = viewModel.dataprovider.Users();
+                    viewModel.AllValues = viewModel.dataprovider.Users();
                     viewModel.Initialize();
                 }
                 else

@@ -16,6 +16,7 @@ namespace ShopSystem.Mappers
             {
               Id=entity.Id,
               Brand=entity.Brand,
+              Branch=entity.Branch,
               Name=entity.Name,
               Color=entity.Color,
               Count=entity.Count,
@@ -31,6 +32,7 @@ namespace ShopSystem.Mappers
             {
                 Id = model.Id,
                 Brand = model.Brand,
+                Branch=model.Branch,
                 Price = model.Price,
                 Name = model.Name,
                 Type = model.Type,

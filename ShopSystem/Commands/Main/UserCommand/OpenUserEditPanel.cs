@@ -12,7 +12,7 @@ using System.Windows.Threading;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    public class OpenUserEditPanel : BaseControlCommand
+    internal class OpenUserEditPanel : BaseControlCommand
     {
         public readonly UserViewModel viewModel;
 

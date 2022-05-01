@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
         {
             ProductMapper mapper = new ProductMapper();
             var entity = mapper.Map(viewModel.Model);
-            int check = viewModel.db.ProductRepository.Insert(entity);
+            int check = viewModel.db.ProductRepository.Insert(entity,viewModel.SelectedItem.Id);
 
             if (check == 1)
 
@@ -36,7 +36,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
                 viewModel.Model=new ProductModel();
 
 
-                viewModel.AllProducts = viewModel.dataprovider.Products();
+                viewModel.AllValues = viewModel.dataprovider.Products();
                 viewModel.Initialize();
             }
             else

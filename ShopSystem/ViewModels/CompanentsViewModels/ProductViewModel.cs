@@ -14,7 +14,7 @@ using System.Windows;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
-    internal class ProductViewModel : BaseControlViewModel
+    internal class ProductViewModel : BaseControlViewModel<ProductModel>
     {
         public IUnitOfWork db;
         public DataProvider dataprovider;
@@ -39,131 +39,38 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
 
         #region Values
+
+        public List<BranchesModel> Branches { get; set; }
+
+        private BranchesModel selectedItem;
+        public BranchesModel SelectedItem
+        {
+            get
+            {
+                return selectedItem;
+            }
+            set
+            {
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
         public override string Header => "Products";
-
-        private ProductModel selectedvalue;
-        public ProductModel SelectedValue
-        {
-            get => selectedvalue;
-            set
-            {
-                selectedvalue = value;
-                CurrentValue = (ProductModel)SelectedValue?.Clone();
-                OnPropertyChanged(nameof(SelectedValue));
-            }
-        }
-
-
-        private ProductModel currentValue;
-        public ProductModel CurrentValue
-        {
-            get => currentValue;
-            set
-            {
-                currentValue = value;
-                OnPropertyChanged(nameof(currentValue));
-            }
-        }
-
-
-        private ObservableCollection<ProductModel> getproducts;
-        public ObservableCollection<ProductModel> GetProducts
-        {
-            get { return getproducts; }
-            set
-            {
-                getproducts = value;
-                OnPropertyChanged(nameof(GetProducts));
-            }
-        }
-
-
-        private List<ProductModel> allproducts;
-        public List<ProductModel> AllProducts
-        {
-            get { return allproducts; }
-            set
-            {
-                allproducts = value;
-                OnPropertyChanged(nameof(AllProducts));
-            }
-        }
-
-
-        private ProductModel model = new ProductModel();
-        public ProductModel Model
-        {
-            get
-            {
-                return model;
-            }
-            set
-            {
-                model = value;
-                OnPropertyChanged(nameof(Model));
-            }
-        }
-
-        private GridLength rowHeight = new GridLength(0);
-        public GridLength RowHeight
-        {
-            get
-            {
-                return rowHeight;
-            }
-            set
-            {
-                rowHeight = value;
-                OnPropertyChanged(nameof(RowHeight));
-            }
-        }
-
-        private Visibility addPanelVisibility = Visibility.Collapsed;
-        public Visibility AddPanelVisibility
-        {
-            get
-            {
-                return addPanelVisibility;
-            }
-            set
-            {
-                addPanelVisibility = value;
-                OnPropertyChanged(nameof(AddPanelVisibility));
-            }
-        }
-
-        private Visibility editPanelVisibility = Visibility.Collapsed;
-        public Visibility EditPanelVisibility
-        {
-            get
-            {
-                return editPanelVisibility;
-            }
-            set
-            {
-                editPanelVisibility = value;
-                OnPropertyChanged(nameof(EditPanelVisibility));
-            }
-        }
 
         #endregion
 
 
 
-        public void Initialize()
-        {
-            GetProducts = new ObservableCollection<ProductModel>(AllProducts);
-        }
 
 
         public override void OnSearch()
         {
-            var products = AllProducts.Where(x => Filter(x.Name) ||
+            var products = AllValues.Where(x => Filter(x.Name) ||
                                                   Filter(x.Brand) ||
                                                   Filter(x.Type));
 
 
-            GetProducts = new ObservableCollection<ProductModel>(products);
+            GetValues = new ObservableCollection<ProductModel>(products);
         }
     }
 }

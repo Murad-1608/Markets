@@ -49,7 +49,7 @@ namespace ShopSystem.Commands
 
                     mainViewModel.CenterGrid = main.grdCenter;
                     Global.UserName = user.Name + user.Surname;
-                    Global.UserPosition = user.Position;
+                    mainViewModel.UserPosition = user.Position;
                     Global.Email = user.Email;
                     Global.Password = user.Password;
 

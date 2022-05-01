@@ -46,7 +46,7 @@ namespace ShopSystem.Commands.Main
 
             var GetUsers = dataprovider.Users();
 
-            userViewModel.AllUsers = GetUsers;
+            userViewModel.AllValues = GetUsers;
 
             userViewModel.Initialize();
         }

@@ -34,7 +34,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
                 {
                     MessageBox.Show("Success");
 
-                    viewModel.AllProducts = viewModel.dataprovider.Products();
+                    viewModel.AllValues = viewModel.dataprovider.Products();
                     viewModel.Initialize();
                 }
                 else

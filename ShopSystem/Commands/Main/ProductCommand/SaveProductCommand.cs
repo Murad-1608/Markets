@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
             var entity = mapper.Map(viewModel.CurrentValue);
             
 
-            int check = viewModel.db.ProductRepository.Update(entity);
+            int check = viewModel.db.ProductRepository.Update(entity,viewModel.SelectedItem.Id);
 
             if (check == 1)
 
@@ -38,7 +38,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
 
                 closePanel.Execute("");
 
-                viewModel.AllProducts = viewModel.dataprovider.Products();
+                viewModel.AllValues = viewModel.dataprovider.Products();
                 viewModel.Initialize();
             }
             else
