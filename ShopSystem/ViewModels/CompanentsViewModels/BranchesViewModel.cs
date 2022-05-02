@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
@@ -108,6 +109,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnSearch();
             }
         }
+
+        
 
         public void OnSearch()
         {

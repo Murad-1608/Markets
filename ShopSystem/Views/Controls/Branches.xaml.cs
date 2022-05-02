@@ -1,5 +1,6 @@
 ﻿using ShopSystem.Models;
 using ShopSystem.ViewModels.CompanentsViewModels;
+using ShopSystem.Views.Controls.BranchesCont;
 using ShopSystem.Views.MainViews;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,13 @@ namespace ShopSystem.Views.Controls
             addbranch.DataContext = viewModel;
             addbranch.ShowDialog();
         }
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BranchesViewModel viewModel = (BranchesViewModel)DataContext;
+            EditBranches edit = new EditBranches();
+            edit.DataContext = viewModel;
+            edit.ShowDialog();
+        }
     }
 }

@@ -1,11 +1,11 @@
-﻿<Window x:Class="ShopSystem.Views.MainViews.AddBranch"
+﻿<Window x:Class="ShopSystem.Views.MainViews.EditBranches"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShopSystem.Views.MainViews"
         mc:Ignorable="d"
-        Title="AddBranch"  Height="170" Width="530" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+          Title="EditBranch"  Height="170" Width="530" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -41,7 +41,7 @@
 
 
 
-        <Button  Content="Add" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="163,6,0,0" Command="{Binding addcommand}"/>
+        <Button  Content="Edit" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="163,6,0,0" Command="{Binding addcommand}"/>
 
 
     </Grid>

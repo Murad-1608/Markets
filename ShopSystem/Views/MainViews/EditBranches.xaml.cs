@@ -10,15 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ShopSystem.Views.Controls.BranchesCont
+namespace ShopSystem.Views.MainViews
 {
     /// <summary>
     /// EditBranches.xaml etkileşim mantığı
     /// </summary>
-    public partial class EditBranches : Page
+    public partial class EditBranches : Window
     {
         public EditBranches()
         {
