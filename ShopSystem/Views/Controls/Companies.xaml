@@ -107,7 +107,7 @@
                         <DataGridTemplateColumn MaxWidth="100" MinWidth="70" Header="Edit" Width="70">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderThickness="0" Height="25" >
+                                    <Button Click="Button_Click_1" Background="Transparent" BorderThickness="0" Height="25" >
                                         <Image Source="\Images\pen-icon-png-0.jpg"></Image>
                                     </Button>
                                 </DataTemplate>

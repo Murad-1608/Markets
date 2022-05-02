@@ -36,5 +36,16 @@ namespace ShopSystem.Views.Controls
             addcompany.DataContext = viewModel;
             addcompany.ShowDialog();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            CompanyViewModel viewModel = (CompanyViewModel)DataContext;
+            EditCompany editcompany = new EditCompany();
+
+            editcompany.DataContext = viewModel;
+            editcompany.ShowDialog();
+
+        }
     }
 }
