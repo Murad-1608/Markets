@@ -35,19 +35,14 @@
 
             <Menu Height="50" Width="50" Background="Transparent">
                 <MenuItem  FontSize="13" VerticalAlignment="Center" Height="50" Width="50">
-
                     <MenuItem.Icon>
                         <Image Source="/Images/menuIcon.png" Margin="-5,-18,-30,-17"/>
                     </MenuItem.Icon>
-
                     <MenuItem Header="Acount"/>
                     <MenuItem Header="Change Password" Click="MenuItem_Click_1" />
                     <MenuItem Header="Exit" Click="MenuItem_Click"/>
                 </MenuItem>
-
-
             </Menu>
-
         </Grid>
 
 

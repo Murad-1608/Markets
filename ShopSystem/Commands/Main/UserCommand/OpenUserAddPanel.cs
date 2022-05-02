@@ -1,6 +1,7 @@
 ﻿using ShopSystem.Enums;
 using ShopSystem.ViewModels;
 using ShopSystem.ViewModels.CompanentsViewModels;
+using ShopSystem.Views.Controls;
 using ShopSystem.Views.Controls.UserControls;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace ShopSystem.Commands.Main.UserCommand
             viewModel.AddPanelVisibility = Visibility.Visible;
             viewModel.EditPanelVisibility = Visibility.Collapsed;
             viewModel.CurrentSituation = (byte)Situations.ADDandEDIT;
+          
             EditPanelAnimation();
         }
 

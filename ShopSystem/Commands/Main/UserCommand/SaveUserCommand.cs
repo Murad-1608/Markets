@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.Commands.Main.UserCommand
 {
-    internal class SaveUserCommand : BaseControlCommand
+    internal class SaveUserCommand : BaseCommand 
     {
         private readonly UserViewModel viewModel;
         public SaveUserCommand(UserViewModel viewModel)
@@ -38,48 +38,31 @@ namespace ShopSystem.Commands.Main.UserCommand
                         break;
                     }
                 }
-            }      
-                      
+            }
 
+            int check = viewModel.db.UserRepository.Update(entity);
+
+            if (check == 1)
+
+            {
+                MessageBox.Show("Success");
+
+                CloseAddandEditPanel closePanel = new CloseAddandEditPanel(viewModel);
+                closePanel.Execute("");
+
+                viewModel.AllValues = viewModel.dataprovider.Users();
+                viewModel.Initialize();
+              
+
+            }
             else
             {
-                try
-                {
-                    int check = viewModel.db.UserRepository.Update(entity);
-
-                    if (check == 1)
-
-                    {
-                        MessageBox.Show("Success");
-
-                        CloseAddandEditPanel closePanel = new CloseAddandEditPanel(viewModel);
-                        closePanel.Execute("");
-
-                        viewModel.AllValues = viewModel.dataprovider.Users();
-                        viewModel.Initialize();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Fail");
-                    }
-                }
-                catch (Exception)
-                {
-                    EditPanelAnimation();                   
-                }             
-                               
-            }
-        }
-
-        public override void Timer_Tick(object? sender, EventArgs e)
-        {
-            number += 1;
-
-            if (number==6)
-            {
-
+                MessageBox.Show("Fail");
             }
 
+          
         }
+
+       
     }
 }

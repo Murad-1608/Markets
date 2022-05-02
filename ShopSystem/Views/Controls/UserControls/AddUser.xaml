@@ -14,7 +14,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition/>   
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -37,9 +37,17 @@
                 <TextBox Name="txtFatherName" Text="{Binding Path=Model.FatherName}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
             </WrapPanel>
 
-            <WrapPanel Margin="5,5,5,5" Grid.Row="3">
+            <WrapPanel Margin="6,4,4,5" Grid.Row="3" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                <WrapPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.117"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.265"/>
+                    </TransformGroup>
+                </WrapPanel.RenderTransform>
                 <TextBlock Text="Email :" FontSize="15"/>
-                <TextBox Name="txtEmail" Text="{Binding Path=Model.Email}"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="63,0,0,0"/>
+                <TextBox x:Name="txtEmail" Text="{Binding Model.Email}"  FontSize="13" Height="20" Width="189" VerticalAlignment="Center" Margin="35,0,0,0"/>
             </WrapPanel>
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
@@ -54,13 +62,14 @@
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="2" Grid.Column="1">
                 <TextBlock Text="Position :" FontSize="15"/>
-                <ComboBox Text="{Binding Path=Model.Position}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
+                <ComboBox BorderThickness="0" Text="{Binding Path=Model.Position}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
                     <ComboBoxItem Content="Admin"></ComboBoxItem>
                     <ComboBoxItem Content="User"></ComboBoxItem>
                 </ComboBox>
-
             </WrapPanel>
-            <Button  Command="{Binding Path=addcommand}" Content="Add" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="137,11,0,0" Grid.RowSpan="2"/>
+            <Button Content="Add" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="137,11,0,0" Grid.RowSpan="2" Click="Button_Click"/>
+
+           
         </Grid>
     </StackPanel>
 </UserControl>

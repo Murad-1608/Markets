@@ -55,14 +55,13 @@
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
                 <TextBlock Text="Position :" FontSize="15"/>
-                <ComboBox Text="{Binding Path=CurrentValue.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
+                <ComboBox BorderThickness="0" Text="{Binding Path=CurrentValue.Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="55,0,0,0" Name="ComboPosition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="120">
                     <ComboBoxItem Content="Admin"></ComboBoxItem>
                     <ComboBoxItem Content="User"></ComboBoxItem>
                 </ComboBox>
             </WrapPanel>
 
-            <Button Command="{Binding SaveUserCommand}" Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0" />
-
+            <Button  Content="Save" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="100" Margin="146,0,0,0" Click="Button_Click_1"/>
 
 
         </Grid>

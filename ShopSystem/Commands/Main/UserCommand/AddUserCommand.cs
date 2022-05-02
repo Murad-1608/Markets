@@ -25,6 +25,7 @@ namespace ShopSystem.Commands.Main.UserCommand
             var Users= viewModel.dataprovider.Users();
 
             bool isCompatible = false;
+
             foreach (var users in Users)
             {
                 if (users.Email!=null&&users.Email.ToLower().Contains(viewModel.Model.Email.ToLower()))

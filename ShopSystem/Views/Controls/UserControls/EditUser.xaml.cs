@@ -27,31 +27,31 @@ namespace ShopSystem.Views.Controls.UserControls
             InitializeComponent();
         }
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    UserViewModel viewModel = (UserViewModel)DataContext;
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            UserViewModel viewModel = (UserViewModel)DataContext;
 
-        //    if (txtName.Text == "")
-        //        MessageBox.Show("Name is empty");
+            if (txtName.Text == "")
+                MessageBox.Show("Name is empty");
 
-        //    else if (txtSurname.Text == "")
-        //        MessageBox.Show("Surname is empty");
+            else if (txtSurname.Text == "")
+                MessageBox.Show("Surname is empty");
 
-        //    else if (txtFatherName.Text == "")
-        //        MessageBox.Show("Father name is empty");
+            else if (txtFatherName.Text == "")
+                MessageBox.Show("Father name is empty");
 
-        //    else if (txtEmail.Text == "")
-        //        MessageBox.Show("Email is empty");
+            else if (txtEmail.Text == "")
+                MessageBox.Show("Email is empty");
 
-        //    else if (txtPhoneNumber.Text == "")
-        //        MessageBox.Show("Phone number is empty");
+            else if (txtPhoneNumber.Text == "")
+                MessageBox.Show("Phone number is empty");
 
-        //    else if (ComboPosition.Text == "")
-        //        MessageBox.Show("Position is empty");
+            else if (ComboPosition.Text == "")
+                MessageBox.Show("Position is empty");
 
-        //    else
-        //        viewModel.SaveUserCommand.Execute("");
-        //}
+            else
+                viewModel.SaveUserCommand.Execute("");
+        }
 
         private void txtPhoneNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {

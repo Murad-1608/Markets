@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace ShopSystem.ViewModels
 {
-    internal abstract class BaseControlViewModel<T> : BaseViewModel where T : BaseModel,new()
+    internal abstract class BaseControlViewModel<T> : BaseViewModel where T : BaseModel, new()
     {
         public IUnitOfWork db;
         public BaseControlViewModel(IUnitOfWork db) : base(db)
@@ -136,6 +136,34 @@ namespace ShopSystem.ViewModels
                 OnPropertyChanged(nameof(EditPanelVisibility));
             }
         }
+
+        private Visibility errorTextVisibility = Visibility.Collapsed;
+        public Visibility ErrorTextVisibility
+        {
+            get
+            {
+                return errorTextVisibility;
+            }
+            set
+            {
+                errorTextVisibility = value;
+                OnPropertyChanged(nameof(ErrorTextVisibility));
+            }
+        }
+        private string errorText;
+        public string ErrorText
+        {
+            get
+            {
+                return errorText;
+            }
+            set
+            {
+                errorText = value;
+                OnPropertyChanged(nameof(ErrorText));
+            }
+        }
+
 
 
         public void Initialize()

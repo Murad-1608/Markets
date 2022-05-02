@@ -31,15 +31,16 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         public AddUserCommand AddUserCommand => new AddUserCommand(this);
         public DeleteUserCommand DeleteUserCommand => new DeleteUserCommand(this);
         public SaveUserCommand SaveUserCommand => new SaveUserCommand(this);
-        public OpenUserEditPanel OpenEditPanel=>new OpenUserEditPanel(this);
-        public OpenUserAddPanel OpenAddPanel =>new OpenUserAddPanel(this);
-        public CloseAddandEditPanel CloseAddandEditPanel =>new CloseAddandEditPanel(this);
-       
+        public OpenUserEditPanel OpenEditPanel => new OpenUserEditPanel(this);
+        public OpenUserAddPanel OpenAddPanel => new OpenUserAddPanel(this);
+        public CloseAddandEditPanel CloseAddandEditPanel => new CloseAddandEditPanel(this);
+
         #endregion
 
 
         #region Values
-        public override string Header => "Users";              
+        public override string Header => "Users";
+        public Grid ErrorGrid { get; set; }
 
         #endregion
 

@@ -64,7 +64,7 @@
                 <ComboBox BorderThickness="0" Text="{Binding Path=CurrentValue.BranchName}" SelectedItem="{Binding SelectedItem}" x:Name="ComboBranch" ItemsSource="{Binding Branches}" DisplayMemberPath="Location" FontSize="13" Height="20" Width="117" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,0,0,0"/>
             </WrapPanel>
 
-            <Button Command="{Binding SaveProductCommand}" Content="Save" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2"/>
+            <Button Content="Save" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2" Click="Button_Click"/>
 
 
         </Grid>
