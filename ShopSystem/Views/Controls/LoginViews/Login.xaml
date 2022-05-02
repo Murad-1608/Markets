@@ -98,16 +98,16 @@
                         <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=PswPassword}"/>
                     </PasswordBox.InputBindings>
                 </PasswordBox>
-                <TextBox Visibility="Hidden"  x:Name="txtPassword" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,27,0,58" >
+                <TextBox Visibility="Hidden"  x:Name="txtPassword" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59" >
                     <TextBox.InputBindings>
-                        <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=txtPassword.Text}"/>                   
+                        <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=txtPassword.Text}"/>
                     </TextBox.InputBindings>
                 </TextBox>
                 <CheckBox Unchecked="check_Show_Unchecked" x:Name="check_Show" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Show" FontSize="10" Margin="0,0,50,38" Checked="check_Show_Checked"></CheckBox>
 
-                <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="3" HorizontalAlignment="Left" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="198,13,0,1" Click="Button_Click_1">Enter</Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="3" HorizontalAlignment="Left" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="198,29,0,-15" Click="Button_Click_1">Enter</Button>
                 <Label MouseDoubleClick="Label_MouseDoubleClick" Grid.Row="2" FontSize="14" HorizontalAlignment="Left" Foreground="#16adcc" Margin="48,62,0,18" Width="120" Height="35">Forgot password?</Label>
-                <TextBlock Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="Red" FontSize="15" Visibility="{Binding LoginInCorrected}">Email or password incorrected</TextBlock>
+                <TextBlock Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red" FontSize="15" Visibility="{Binding LoginInCorrected}">Email or password incorrected</TextBlock>
                 <Grid Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="0" Width="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

@@ -120,7 +120,7 @@
                         <DataGridTemplateColumn Header="Branch" Width="180">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Branch}"/>
+                                    <TextBlock Text="{Binding BranchName}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

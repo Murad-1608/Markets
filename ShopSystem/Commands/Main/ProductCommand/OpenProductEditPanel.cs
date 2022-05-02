@@ -22,6 +22,8 @@ namespace ShopSystem.Commands.Main.ProductCommand
             number = 0;
             EditProduct editProduct = new EditProduct();
             editProduct.DataContext = viewModel;
+
+            viewModel.CurrentValue.Branch = viewModel.SelectedItem;
             viewModel.AddPanelVisibility = Visibility.Collapsed;
             viewModel.EditPanelVisibility = Visibility.Visible;
             viewModel.CurrentSituation = (byte)Situations.ADDandEDIT;
@@ -30,7 +32,7 @@ namespace ShopSystem.Commands.Main.ProductCommand
 
         public override void Timer_Tick(object? sender, EventArgs e)
         {
-            number += 2;
+            number += 1;
             viewModel.RowHeight = new GridLength(number);
 
 

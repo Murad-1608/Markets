@@ -12,14 +12,17 @@
     <None Remove="Images\DeleteIcon.png" />
     <None Remove="Images\kontakthome.png" />
     <None Remove="Images\menuIcon.png" />
+    <None Remove="Images\PasswordIcon.png" />
     <None Remove="Images\pen-icon-png-0.jpg" />
     <None Remove="Images\UpperButton.png" />
+    <None Remove="Images\Usericon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\menuIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\PasswordIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +40,7 @@
     <Resource Include="Images\DeleteIcon.png" />
     <Resource Include="Images\kontakthome.png" />
     <Resource Include="Images\UpperButton.png" />
+    <Resource Include="Images\Usericon.png" />
   </ItemGroup>
 
 </Project>

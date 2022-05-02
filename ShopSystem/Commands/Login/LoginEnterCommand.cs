@@ -31,16 +31,16 @@ namespace ShopSystem.Commands
             {
                 UserEntity user = viewModel.db.UserRepository.Get(viewModel.Email);
 
-                if (user==null)
+                if (user == null)
                 {
                     viewModel.LoginInCorrected = Visibility.Visible;
-                }               
+                }
 
-               
+
 
                 string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
-                if (PasswordHash==user.Password)
+                if (PasswordHash == user.Password)
                 {
                     MainViewModel mainViewModel = new MainViewModel(Global.DB);
 
@@ -53,10 +53,10 @@ namespace ShopSystem.Commands
                     Global.Email = user.Email;
                     Global.Password = user.Password;
 
-                     mainViewModel.UserPosition = user.Position;
+                    mainViewModel.UserPosition = user.Position;
                     mainViewModel.UserFullName = $"{user.Name} {user.Surname}";
-                    
-                    main.Show();
+
+                    main.ShowDialog();
                 }
 
                 else
@@ -64,7 +64,7 @@ namespace ShopSystem.Commands
                     viewModel.LoginInCorrected = Visibility.Visible;
                 }
 
-             
+
             }
             catch (Exception)
             {

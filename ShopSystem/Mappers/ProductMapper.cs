@@ -8,21 +8,22 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Mappers
 {
-    public class ProductMapper:BaseMapper<ProductModel,ProductEntity>
+    public class ProductMapper : BaseMapper<ProductModel, ProductEntity>
     {
         public override ProductModel Map(ProductEntity entity)
         {
             ProductModel model = new ProductModel()
             {
-              Id=entity.Id,
-              Brand=entity.Brand,
-              Branch=entity.Branch,
-              Name=entity.Name,
-              Color=entity.Color,
-              Count=entity.Count,
-              Price=entity.Price,
-              Type=entity.Type,
-              Comment=entity.Comment
+                Id = entity.Id,
+                Brand = entity.Brand,
+                BranchName = entity.BranchName,
+                Branch = entity.Branch,
+                Name = entity.Name,
+                Color = entity.Color,
+                Count = entity.Count,
+                Price = entity.Price,
+                Type = entity.Type,
+                Comment = entity.Comment
             };
             return model;
         }
@@ -32,7 +33,8 @@ namespace ShopSystem.Mappers
             {
                 Id = model.Id,
                 Brand = model.Brand,
-                Branch=model.Branch,
+                BranchName = model.BranchName,
+                Branch = model.Branch,
                 Price = model.Price,
                 Name = model.Name,
                 Type = model.Type,

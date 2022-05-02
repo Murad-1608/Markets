@@ -35,7 +35,7 @@ namespace ShopSystem.Commands.Main.UserCommand
 
         public override void Timer_Tick(object? sender, EventArgs e)
         {
-            number += 2;
+            number += 1;
             viewModel.RowHeight = new GridLength(number);
 
 

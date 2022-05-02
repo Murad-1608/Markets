@@ -44,7 +44,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string command = "update Products set BranchID=@BranchID Brand=@Brand,Count=@Count,Price=@Price,Type=@Type,Color=@Color,Comment=@Comment where Id=@Id";
+                string command = "update Products set BranchID=@BranchID, Brand=@Brand,Count=@Count,Price=@Price,Type=@Type,Color=@Color,Comment=@Comment where Id=@Id";
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
@@ -100,7 +100,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
                         entity.BranchID = int.Parse(dr["BranchID"].ToString());
-                        //entity.Branch.Location =dr["Location"].ToString();
+                        entity.BranchName = dr["Location"].ToString();
                         entity.Name = dr["Name"].ToString();
                         entity.Brand = dr["Brand"].ToString();
                         entity.Count = int.Parse(dr["Count"].ToString());
