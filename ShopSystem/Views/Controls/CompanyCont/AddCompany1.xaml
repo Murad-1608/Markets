@@ -36,12 +36,12 @@
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="2">
                 <TextBlock Text="Price :" FontSize="15"/>
-                <TextBox Name="txtPrice" Text="{Binding Path=Model.Price}" PreviewTextInput="txtCount_PreviewTextInput"  FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
+                <TextBox Name="txtPrice" Text="{Binding Path=Model.Price}"   FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="17,0,0,0"/>
             </WrapPanel>
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="3">
                 <TextBlock Text="Count :" FontSize="15"/>
-                <TextBox Name="txtCount" Text="{Binding Path=Model.Count}"  PreviewTextInput="txtCount_PreviewTextInput" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBox Name="txtCount" Text="{Binding Path=Model.Count}"   FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
             </WrapPanel>
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
@@ -64,7 +64,7 @@
                 <ComboBox  BorderThickness="0" SelectedItem="{Binding SelectedItem}" x:Name="ComboBranch" ItemsSource="{Binding Branches}" DisplayMemberPath="Location" FontSize="13" Height="20" Width="117" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,0,0,0"/>
             </WrapPanel>
 
-            <Button Content="Add" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2" Click="Button_Click"/>
+            <Button Content="Add" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2" />
 
 
         </Grid>
