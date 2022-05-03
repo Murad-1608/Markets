@@ -5,25 +5,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ShopSystem.Commands.Main.CompanyCommand
 {
-    public class EditCompanyCommand
+    internal class EditCompanyCommand
     {
         private CompanyViewModel viewModel;
         public EditCompanyCommand(CompanyViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
-        public override void Execute(object? parameter)
-        {
 
-            EditCompany addPanel = new EditCompany();
-            addPanel.DataContext = viewModel;
-            viewModel.AddPanelVisibility = Visibility.Visible;
-            viewModel.EditPanelVisibility = Visibility.Collapsed;
-            viewModel.CurrentSituation = (byte)Situations.ADDandEDIT;
-            EditPanelAnimation();
-        }
+        //public override void Execute(object? parameter)
+        //{
+
+        //    //EditCompany addPanel = new EditCompany();
+        //    //addPanel.DataContext = viewModel;
+        //    //viewModel.AddPanelVisibility = Visibility.Visible;
+        //    //viewModel.EditPanelVisibility = Visibility.Collapsed;
+        //    //viewModel.CurrentSituation = (byte)Situations.ADDandEDIT;
+        //    //EditPanelAnimation();
+        //}
     }
 }
