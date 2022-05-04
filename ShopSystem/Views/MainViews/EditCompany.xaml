@@ -17,7 +17,7 @@
             <TextBox x:Name="txtName" Text="{Binding Path=Model.Name}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
-        <Button  Content="Edit" Grid.Row="1" HorizontalAlignment="Left" Width="100" Margin="83,4,0,8" Command="{Binding addcommand}"/>
+        <Button  Content="Edit" Grid.Row="1" HorizontalAlignment="Left" Width="100" Margin="83,4,0,8" Command="{Binding EditCompanyCommand}"/>
 
 
     </Grid>

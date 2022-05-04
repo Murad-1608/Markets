@@ -41,7 +41,7 @@
 
 
 
-        <Button  Content="Edit" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="163,6,0,0" Command="{Binding addcommand}"/>
+        <Button  Content="Edit" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="163,6,0,0" Command="{Binding EditBranchesCommand}"/>
 
 
     </Grid>
