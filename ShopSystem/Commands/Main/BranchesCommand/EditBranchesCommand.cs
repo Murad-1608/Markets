@@ -1,10 +1,12 @@
-﻿using ShopSystem.ViewModels.CompanentsViewModels;
+﻿using ShopSystem.Mappers;
+using ShopSystem.ViewModels.CompanentsViewModels;
 using ShopSystem.Views.MainViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ShopSystem.Commands.Main.BranchesCommand
 {
@@ -16,9 +18,29 @@ namespace ShopSystem.Commands.Main.BranchesCommand
             this.viewModel = viewModel;
         }
 
+      
         public override void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            BranchesMapper mapper = new BranchesMapper();
+            var entity = mapper.Map(viewModel.SelectedValue);
+
+
+            int check = viewModel.db.BranchesRepository.Update(entity);
+
+            if (check == 1)
+
+            {
+                MessageBox.Show("Success");
+
+
+
+                viewModel.AllBranches = viewModel.dataprovider.Branches();
+                viewModel.Initialize();
+            }
+            else
+            {
+                MessageBox.Show("Fail");
+            }
         }
 
         //public override void Execute(object? parameter)
