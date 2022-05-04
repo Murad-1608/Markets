@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ShopSystem.Views.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="800" Background="White">
+             d:DesignHeight="700" d:DesignWidth="1200" Background="White">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -34,6 +34,54 @@
                 <TextBlock Grid.Row="1" Text="Total Products" Foreground="White" FontWeight="Normal" FontSize="18" Margin="10,3"/>
                 <Button Grid.Row="3" Height="25" Margin="0,20,0,0" BorderThickness="0" Content="More info" Foreground="White" Background="#08a4d2" Command="{Binding openProductsCommand}"/>
             </StackPanel>
+            
+            <!--Branches-->
+            <StackPanel Background="#019c50" Height="140" Width="280" Margin="20,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="35" Margin="10" Text="{Binding BranchCount}"/>
+                <TextBlock Grid.Row="1" Text="Total Branches" Foreground="White" FontWeight="Normal" FontSize="18" Margin="10,3"/>
+                <Button Grid.Row="3" Height="25" Margin="0,20,0,0" BorderThickness="0" Content="More info" Foreground="White" Background="#088947" Command="{Binding openBranhesCommand}"/>
+            </StackPanel>
+
+            <!--Users-->
+            <StackPanel Background="#ef8f14" Height="140" Width="280" Margin="20,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="35" Margin="10" Text="{Binding UserCount}"/>
+                <TextBlock Grid.Row="1" Text="Total Users" Foreground="White" FontWeight="Normal" FontSize="18" Margin="10,3"/>
+                <Button Grid.Row="3" Height="25" Margin="0,20,0,0" BorderThickness="0" Content="More info" Foreground="White" Background="#d28117" Command="{Binding openUsersCommand}"/>
+            </StackPanel>
+
+            <!--Branches-->
+            <StackPanel Background="#c23c2d" Height="140" Width="280" Margin="20,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="35" Margin="10" Text="{Binding CompanyCount}"/>
+                <TextBlock Grid.Row="1" Text="Total Companies" Foreground="White" FontWeight="Normal" FontSize="18" Margin="10,3"/>
+                <Button Grid.Row="3" Height="25" Margin="0,20,0,0" BorderThickness="0" Content="More info" Foreground="White" Background="#bf3a2b" Command="{Binding openCompaniesCommand}"/>
+            </StackPanel>
+
+            
+
         </WrapPanel>
     </Grid>
 </UserControl>

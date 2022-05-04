@@ -26,11 +26,18 @@ namespace ShopSystem.Commands.Main
             DataProvider data = new DataProvider();
 
             var GetProducts = data.Products();
+            var GetBranches = data.Branches();
+            var GetCompies = data.Companies();
+            var GetUsers = data.Users();
+
             viewModel.ProductCount = GetProducts.Count;
+            viewModel.BranchCount = GetBranches.Count;
+            viewModel.CompanyCount = GetCompies.Count;
+            viewModel.UserCount = GetUsers.Count;
 
             viewModel.CenterGrid.Children.Add(dashboard);
 
-            
+
         }
         public override void Timer_Tick(object? sender, EventArgs e)
         {

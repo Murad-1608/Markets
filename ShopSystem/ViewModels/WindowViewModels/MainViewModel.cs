@@ -109,6 +109,50 @@ namespace ShopSystem.ViewModels
 
         }
 
+        private int branchCount;
+        public int BranchCount
+        {
+            get
+            {
+                return branchCount;
+            }
+            set
+            {
+                branchCount = value;
+                OnPropertyChanged(nameof(BranchCount));
+            }
+
+        }
+
+        private int companyCount;
+        public int CompanyCount
+        {
+            get
+            {
+                return companyCount;
+            }
+            set
+            {
+                companyCount = value;
+                OnPropertyChanged(nameof(CompanyCount));
+            }
+
+        }
+
+        private int userCount;
+        public int UserCount
+        {
+            get
+            {
+                return userCount;
+            }
+            set
+            {
+                userCount = value;
+                OnPropertyChanged(nameof(UserCount));
+            }
+
+        }
 
 
         #endregion
