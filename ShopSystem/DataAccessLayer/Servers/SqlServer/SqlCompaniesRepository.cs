@@ -76,10 +76,10 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string cmdtxt = "update Companies set Name=@Name where Id=@Id";
+                string cmdtxt = "update Companies set Name=@Name where Name=@Name ";
                 using (SqlCommand cmd = new SqlCommand(cmdtxt,con))
                 {
-                    cmd.Parameters.AddWithValue("@Id", entity.Id);
+                    
                     cmd.Parameters.AddWithValue("@Name", entity.Name);
                     int check = cmd.ExecuteNonQuery();
                     return check;
