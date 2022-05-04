@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\AvatarUser.png" />
     <None Remove="Images\Back_Button_Icon.jpg" />
     <None Remove="Images\DeleteIcon.png" />
     <None Remove="Images\kontakthome.png" />
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\AvatarUser.png" />
     <Resource Include="Images\menuIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

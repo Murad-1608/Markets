@@ -65,30 +65,20 @@ namespace ShopSystem.ViewModels
         public OpenUsersCommand openUsersCommand => new OpenUsersCommand(this);
         public OpenProductsCommand openProductsCommand => new OpenProductsCommand(this);
         public ChangePassword changePassword => new ChangePassword(this);
+        public OpenDashboard OpenDashboard => new OpenDashboard(this);
 
 
 
 
 
-        private string searchText;
-        public string SearchText
-        {
-            get => searchText;
-            set
-            {
-                searchText = value;
-                OnSearchUsers();
-                OnPropertyChanged(nameof(SearchText));
-            }
-        }
 
-
+        #region Values
         public Grid CenterGrid { get; set; }
 
 
         private string userPosition = "Murad";
         public string UserPosition
-        { 
+        {
             get
             {
                 return userPosition;
@@ -98,24 +88,32 @@ namespace ShopSystem.ViewModels
                 userPosition = value;
                 OnPropertyChanged(nameof(UserPosition));
             }
-        
-        
+
+
         }
 
-        public string UserFullName { get; set; } 
+        public string UserFullName { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public void OnPropertyChanged(string propertyName)
+        private int productCount;
+        public int ProductCount
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get
+            {
+                return productCount;
+            }
+            set
+            {
+                productCount = value;
+                OnPropertyChanged(nameof(ProductCount));
+            }
+
         }
 
-        public void OnSearchUsers()
-        {
-            var users = AllGetUsers.Where(x => x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower()));
 
-            GetUsers = new ObservableCollection<UserModel>(users);
-        }
+
+        #endregion
+
+
+
     }
 }
