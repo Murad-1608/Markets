@@ -26,6 +26,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         #region Commands
         public AddBranchesCommand addcommand => new AddBranchesCommand(this);
         public DeleteBranchesCommand DeleteBranchesCommand => new DeleteBranchesCommand(this);
+        public EditBranchesCommand EditBranchesCommand => new EditBranchesCommand(this);
 
 
         #endregion

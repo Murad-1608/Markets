@@ -29,7 +29,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         #region Commands
         public AddCompanyCommand addcommand => new AddCompanyCommand(this);
         public DeleteCompanyCommand DeleteProductCommand => new DeleteCompanyCommand(this);
-
+        public EditCompanyCommand EditCompanyCommand => new EditCompanyCommand(this);
 
         #endregion
 
