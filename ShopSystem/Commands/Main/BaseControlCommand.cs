@@ -18,7 +18,7 @@ namespace ShopSystem.Commands.Main
         
 
         public DispatcherTimer timer = new DispatcherTimer();
-        public void EditPanelAnimation()
+        public virtual void EditPanelAnimation()
         {
             timer.Interval = TimeSpan.FromMilliseconds(0.5);
             timer.Tick += Timer_Tick; ;

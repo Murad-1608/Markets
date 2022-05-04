@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ShopSystem.ViewModels
@@ -66,6 +67,8 @@ namespace ShopSystem.ViewModels
         public OpenProductsCommand openProductsCommand => new OpenProductsCommand(this);
         public ChangePassword changePassword => new ChangePassword(this);
         public OpenDashboard OpenDashboard => new OpenDashboard(this);
+        public OpenMenuWindow OpenMenuWindow => new OpenMenuWindow(this);
+        public CloseMenuWindow CloseMenuWindow => new CloseMenuWindow(this);
 
 
 
@@ -152,6 +155,49 @@ namespace ShopSystem.ViewModels
                 OnPropertyChanged(nameof(UserCount));
             }
 
+        }
+
+        private GridLength mainMenu = new GridLength(150);
+        public GridLength MainMenu
+        {
+            get
+            {
+                return mainMenu;
+            }
+            set
+            {
+                mainMenu = value;
+                OnPropertyChanged(nameof(MainMenu));
+            }
+
+        }
+
+        private Visibility openMenu = Visibility.Collapsed;
+        public Visibility OpenMenu
+        {
+            get
+            {
+                return openMenu;
+            }
+            set
+            {
+                openMenu = value;
+                OnPropertyChanged(nameof(OpenMenu));
+            }
+        }
+
+        private Visibility closeMenu = Visibility.Visible;
+        public Visibility CloseMenu
+        {
+            get
+            {
+                return closeMenu;
+            }
+            set
+            {
+                closeMenu = value;
+                OnPropertyChanged(nameof(CloseMenu));
+            }
         }
 
 

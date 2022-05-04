@@ -10,8 +10,10 @@
   <ItemGroup>
     <None Remove="Images\AvatarUser.png" />
     <None Remove="Images\Back_Button_Icon.jpg" />
+    <None Remove="Images\CloseMenu.png" />
     <None Remove="Images\DeleteIcon.png" />
     <None Remove="Images\kontakthome.png" />
+    <None Remove="Images\LeftIcon.png" />
     <None Remove="Images\menuIcon.png" />
     <None Remove="Images\PasswordIcon.png" />
     <None Remove="Images\pen-icon-png-0.jpg" />
@@ -22,6 +24,8 @@
 
   <ItemGroup>
     <Resource Include="Images\AvatarUser.png" />
+    <Resource Include="Images\CloseMenu.png" />
+    <Resource Include="Images\LeftIcon.png" />
     <Resource Include="Images\menuIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
