@@ -21,22 +21,22 @@
 
         <WrapPanel Margin="5,5,5,5">
             <TextBlock Text="Location :" FontSize="15"/>
-            <TextBox x:Name="txtName" Text="{Binding Path=Model.Location}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="txtName" Text="{Binding Path=CurrentValue.Location}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1">
             <TextBlock Text="Profit :" FontSize="15"/>
-            <TextBox x:Name="txtBrand" Text="{Binding Path=Model.Profit}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="30,0,0,0"/>
+            <TextBox x:Name="txtBrand" Text="{Binding Path=CurrentValue.Profit}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="30,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
             <TextBlock Text="Phone number :" FontSize="15"/>
-            <TextBox Name="txtType" Text="{Binding Path=Model.PhoneNumber}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center"/>
+            <TextBox Name="txtType" Text="{Binding Path=CurrentValue.PhoneNumber}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center"/>
         </WrapPanel>
 
         <WrapPanel Margin="5,5,5,5" Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Balance :" FontSize="15"/>
-            <TextBox Name="txtColor" Text="{Binding Path=Model.Balance}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="47,0,0,0"/>
+            <TextBox Name="txtColor" Text="{Binding Path=CurrentValue.Balance}" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="47,0,0,0"/>
         </WrapPanel>
 
 

@@ -79,22 +79,22 @@ namespace ShopSystem.DataContext
         }
         public List<BranchesModel> Branches()
         {
-            var products = db.BranchesRepository.GetBranches();
-            List<BranchesModel> ProductModel = new List<BranchesModel>();
+            var branches = db.BranchesRepository.GetBranches();
+            List<BranchesModel> BranchModel = new List<BranchesModel>();
 
             BranchesMapper mapper = new BranchesMapper();
 
-            for (int i = 0; i < products.Count; i++)
+            for (int i = 0; i < branches.Count; i++)
             {
-                var product = products[i];
+                var branch = branches[i];
 
-                var productModel = mapper.Map(product);
+                var productModel = mapper.Map(branch);
 
                 productModel.No = i + 1;
 
-                ProductModel.Add(productModel);
+                BranchModel.Add(productModel);
             }
-            return ProductModel;
+            return BranchModel;
         }
 
     }

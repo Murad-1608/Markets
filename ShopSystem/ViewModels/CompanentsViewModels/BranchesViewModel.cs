@@ -41,7 +41,19 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 selectedvalue = value;
+                CurrentValue = (BranchesModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
+
+        private BranchesModel currentValue;
+        public BranchesModel CurrentValue
+        {
+            get => currentValue;
+            set
+            {
+                currentValue = value;
+                OnPropertyChanged(nameof(CurrentValue));
             }
         }
 
@@ -111,7 +123,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
-        
+
 
         public void OnSearch()
         {

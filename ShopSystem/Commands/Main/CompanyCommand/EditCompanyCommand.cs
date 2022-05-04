@@ -1,6 +1,5 @@
 ﻿using ShopSystem.Mappers;
 using ShopSystem.ViewModels.CompanentsViewModels;
-using ShopSystem.Views.Controls.CompanyCont;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace ShopSystem.Commands.Main.CompanyCommand
         public override void Execute(object? parameter)
         {
             CompaniesMapper mapper = new CompaniesMapper();
-            var entity = mapper.Map(viewModel.SelectedValue);
+            var entity = mapper.Map(viewModel.CurrentValue);
 
 
             int check = viewModel.db.CompaniesRepository.Update(entity);
@@ -40,16 +39,5 @@ namespace ShopSystem.Commands.Main.CompanyCommand
                 MessageBox.Show("Fail");
             }
         }
-
-        //public override void Execute(object? parameter)
-        //{
-
-        //    //EditCompany addPanel = new EditCompany();
-        //    //addPanel.DataContext = viewModel;
-        //    //viewModel.AddPanelVisibility = Visibility.Visible;
-        //    //viewModel.EditPanelVisibility = Visibility.Collapsed;
-        //    //viewModel.CurrentSituation = (byte)Situations.ADDandEDIT;
-        //    //EditPanelAnimation();
-        //}
     }
 }

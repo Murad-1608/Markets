@@ -68,10 +68,11 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string cmdtxt = "update Branches set ,Profit=@Profit,PhoneNumber=@PhoneNumber,Balance=@Balance  where Location=@Location";
+                string cmdtxt = "update Branches set Location=@Location, Profit=@Profit,PhoneNumber=@PhoneNumber,Balance=@Balance where Id=@Id";
                 using (SqlCommand cmd = new SqlCommand(cmdtxt, con))
                 {
                     cmd.Parameters.AddWithValue("@Profit", entity.Profit);
+                    cmd.Parameters.AddWithValue("@Id", entity.Id);
                     cmd.Parameters.AddWithValue("@Location", entity.Location);
                     cmd.Parameters.AddWithValue("@PhoneNumber", entity.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Balance", entity.Balance);

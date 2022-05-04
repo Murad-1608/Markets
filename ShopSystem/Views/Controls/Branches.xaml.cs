@@ -1,6 +1,5 @@
 ﻿using ShopSystem.Models;
 using ShopSystem.ViewModels.CompanentsViewModels;
-using ShopSystem.Views.Controls.BranchesCont;
 using ShopSystem.Views.MainViews;
 using System;
 using System.Collections.Generic;

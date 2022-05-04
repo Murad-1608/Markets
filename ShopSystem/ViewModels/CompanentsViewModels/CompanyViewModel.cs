@@ -43,7 +43,19 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             set
             {
                 selectedvalue = value;
+                currentValue = (CompaniesModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
+            }
+        }
+
+        private CompaniesModel currentValue;
+        public CompaniesModel CurrentValue
+        {
+            get => currentValue;
+            set
+            {
+                selectedvalue = value;
+                OnPropertyChanged(nameof(CurrentValue));
             }
         }
 

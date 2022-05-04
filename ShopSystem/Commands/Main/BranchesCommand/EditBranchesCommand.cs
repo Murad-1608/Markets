@@ -22,7 +22,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
         public override void Execute(object? parameter)
         {
             BranchesMapper mapper = new BranchesMapper();
-            var entity = mapper.Map(viewModel.SelectedValue);
+            var entity = mapper.Map(viewModel.CurrentValue);
 
 
             int check = viewModel.db.BranchesRepository.Update(entity);

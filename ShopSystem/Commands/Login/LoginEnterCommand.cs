@@ -55,7 +55,7 @@ namespace ShopSystem.Commands
 
                     mainViewModel.UserPosition = user.Position;
                     mainViewModel.UserFullName = $"{user.Name} {user.Surname}";
-
+                    viewModel.LoginInCorrected = Visibility.Collapsed;
                     main.ShowDialog();
                 }
 
@@ -70,28 +70,6 @@ namespace ShopSystem.Commands
             {
                 MessageBox.Show("No connection", "Fail", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            //int check = viewModel.db.UserRepository.Get(viewModel.Email);
-
-            //string PasswordHash = Utils.PasswordHash(parameter.ToString());
-
-            //if (PasswordHash == UserInformation.Password)
-            //{
-            //    MainViewModel mainViewModel = new MainViewModel(Global.DB);
-
-            //    MainWindow main = new MainWindow();
-            //    main.DataContext = mainViewModel;
-
-            //    mainViewModel.CenterGrid = main.grdCenter;
-
-            //    main.Show();
-
-            //}
-            //else
-            //{
-            //    viewModel.LoginInCorrected = Visibility.Visible;
-            //}
-
 
         }
     }
