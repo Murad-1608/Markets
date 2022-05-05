@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ShopSystem.Commands
@@ -36,9 +37,10 @@ namespace ShopSystem.Commands
                     viewModel.LoginInCorrected = Visibility.Visible;
                 }
 
+                PasswordBox password=parameter as PasswordBox;
 
+                string PasswordHash = Utils.PasswordHash(password.Password);
 
-                string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
                 if (PasswordHash == user.Password)
                 {
