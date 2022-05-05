@@ -13,22 +13,15 @@ namespace ShopSystem.ViewModels
 {
     internal class LoginViewModel : BaseViewModel
     {
-        public IUnitOfWork db = null;
-        public Window Login;
-        public LoginViewModel(Window Login, IUnitOfWork db) : base(db)
+        public LoginViewModel(IUnitOfWork db) : base(db)
         {
-            this.db = db;
         }
+
         public LoginEnterCommand LoginClick => new LoginEnterCommand(this);
         public LoginForgotPassword ForgotPasswordClick => new LoginForgotPassword(this);
-        public PasswordChanged password_NewPasswordClick => new PasswordChanged(this);
 
         public string Email { get; set; } = "murad.yunus.2017@mail.ru";
         public string ForgotPasswordEmail { get; set; }
-
-
-        public int Code { get; set; }
-        public string NewPassword { get; set; }
 
         public UserModel Register { get; set; } = new UserModel();
 
@@ -45,6 +38,5 @@ namespace ShopSystem.ViewModels
                 OnPropertyChanged(nameof(LoginInCorrected));
             }
         }
-
     }
 }

@@ -99,8 +99,6 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     {
                         ProductEntity entity = new ProductEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
-                        entity.BranchID = int.Parse(dr["BranchID"].ToString());
-                        entity.BranchName = dr["Location"].ToString();
                         entity.Name = dr["Name"].ToString();
                         entity.Brand = dr["Brand"].ToString();
                         entity.Count = int.Parse(dr["Count"].ToString());
@@ -108,9 +106,18 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                         entity.Type = dr["Type"].ToString();
                         entity.Color = dr["Color"].ToString();
                         entity.Comment = dr["Comment"].ToString();
+
+                        entity.BranchID = int.Parse(dr["BranchID"].ToString());
+
+                        entity.Branch = new BranchEntity()
+                        {
+                            Id = entity.BranchID,
+                            Location = dr["Location"].ToString()
+                        };
+
                         products.Add(entity);
                     }
-                    //Products.Id, Branches.Location as 'Branch', Products.Name,Products.Brand,Products.Count,Products.Price,Products.Type,Products.Color,Products.Comment FROM Products
+
                     return products;
                 }
             }

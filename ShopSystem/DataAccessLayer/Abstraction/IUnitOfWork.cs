@@ -10,8 +10,8 @@ namespace ShopSystem.DataAccessLayer.Abstraction
     public interface IUnitOfWork
     {
         IUserRepository UserRepository { get; }
-        IBranchesRepository BranchesRepository { get; }
+        IBranchRepository BranchesRepository { get; }
         IProductRepository ProductRepository { get; }
-        ICompaniesRepository CompaniesRepository { get; }
+        ICompanyRepository CompaniesRepository { get; }
     }
 }

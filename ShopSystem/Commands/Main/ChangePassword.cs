@@ -1,12 +1,6 @@
 ﻿using ShopSystem.Models;
 using ShopSystem.Security;
 using ShopSystem.ViewModels;
-using ShopSystem.ViewModels.CompanentsViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -26,14 +20,15 @@ namespace ShopSystem.Commands.Main
 
             string Password = NewPassword.Password;
 
+            var user = viewModel.db.UserRepository.Get(Global.User.Email);
 
+            user.Password = Utils.PasswordHash(Password);
 
-            int check = viewModel.db.UserRepository.Update(UserInformation.Email, Password);
+            int check = viewModel.db.UserRepository.Update(user);
 
             if (check == 1)
             {
                 MessageBox.Show("Password changed", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                UserInformation.Password = NewPassword.Password;
             }
         }
     }

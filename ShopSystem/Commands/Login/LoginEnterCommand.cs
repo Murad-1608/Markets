@@ -37,23 +37,20 @@ namespace ShopSystem.Commands
                     viewModel.LoginInCorrected = Visibility.Visible;
                 }
 
-                
-
                 string PasswordHash = Utils.PasswordHash(parameter.ToString());
-
 
                 if (PasswordHash == user.Password)
                 {
+                    Global.User = user;
+
                     MainViewModel mainViewModel = new MainViewModel(Global.DB);
 
                     MainWindow main = new MainWindow();
                     main.DataContext = mainViewModel;
 
                     mainViewModel.CenterGrid = main.grdCenter;
-                    Global.UserName = user.Name + user.Surname;
+
                     mainViewModel.UserPosition = user.Position;
-                    Global.Email = user.Email;
-                    Global.Password = user.Password;
 
                     mainViewModel.UserPosition = user.Position;
                     mainViewModel.UserFullName = $"{user.Name} {user.Surname}";

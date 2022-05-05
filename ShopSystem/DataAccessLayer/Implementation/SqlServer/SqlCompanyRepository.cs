@@ -1,19 +1,14 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.Entities;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 {
-    public class SqlCompaniesRepository : ICompaniesRepository
+    public class SqlCompanyRepository : ICompanyRepository
     {
         private readonly string connectionString;
-        public SqlCompaniesRepository(string connectionString)
+        public SqlCompanyRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -32,11 +27,11 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public List<CompaniesEntity> GetCompanies()
+        public List<CompanyEntity> GetCompanies()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                List<CompaniesEntity> companies = new List<CompaniesEntity>();
+                List<CompanyEntity> companies = new List<CompanyEntity>();
                 con.Open();
                 string cmdtxt = "select * from Companies";
                 using(SqlCommand cmd = new SqlCommand(cmdtxt,con))
@@ -44,7 +39,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        CompaniesEntity entity = new CompaniesEntity();
+                        CompanyEntity entity = new CompanyEntity();
                         entity.Id = int.Parse(dr["Id"].ToString());
                         entity.Name = dr["Name"].ToString();
                         companies.Add(entity);
@@ -54,7 +49,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             }
         }
 
-        public int Insert(CompaniesEntity entity)
+        public int Insert(CompanyEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -71,7 +66,7 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         }
 
         
-        public int Update(CompaniesEntity entity)
+        public int Update(CompanyEntity entity)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {

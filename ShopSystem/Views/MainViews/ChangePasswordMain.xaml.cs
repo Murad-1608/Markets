@@ -1,21 +1,6 @@
-﻿using ShopSystem.DataAccessLayer.Servers.SqlServer;
-using ShopSystem.Models;
-using ShopSystem.Security;
+﻿using ShopSystem.Security;
 using ShopSystem.ViewModels;
-using ShopSystem.ViewModels.CompanentsViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ShopSystem.Views.MainViews
 {
@@ -24,7 +9,6 @@ namespace ShopSystem.Views.MainViews
     /// </summary>
     public partial class ChangePasswordMain : Window
     {
-
         public ChangePasswordMain()
         {
             InitializeComponent();
@@ -35,10 +19,11 @@ namespace ShopSystem.Views.MainViews
         {
             MainViewModel viewModel = (MainViewModel)DataContext;
 
-
             string Password = Utils.PasswordHash(txtPassword.Password);
 
-            if (Password == Global.Password)
+            var user = viewModel.db.UserRepository.Get(Global.User.Email);
+
+            if (Password == user.Password)
             {
                 if (txtNewPassword.Password != "" && (txtNewPassword.Password == txtConfirmPassword.Password))
                 {

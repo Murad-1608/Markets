@@ -10,14 +10,15 @@ namespace ShopSystem.Mappers
 {
     public class ProductMapper : BaseMapper<ProductModel, ProductEntity>
     {
+        private readonly BranchMapper branchesMapper = new BranchMapper();
+
         public override ProductModel Map(ProductEntity entity)
         {
             ProductModel model = new ProductModel()
             {
                 Id = entity.Id,
                 Brand = entity.Brand,
-                BranchName = entity.BranchName,
-                Branch = entity.Branch,
+                Branch = branchesMapper.Map(entity.Branch),
                 Name = entity.Name,
                 Color = entity.Color,
                 Count = entity.Count,
@@ -27,14 +28,14 @@ namespace ShopSystem.Mappers
             };
             return model;
         }
+
         public override ProductEntity Map(ProductModel model)
         {
             ProductEntity entity = new ProductEntity()
             {
                 Id = model.Id,
                 Brand = model.Brand,
-                BranchName = model.BranchName,
-                Branch = model.Branch,
+                Branch = branchesMapper.Map(model.Branch),
                 Price = model.Price,
                 Name = model.Name,
                 Type = model.Type,
@@ -42,6 +43,7 @@ namespace ShopSystem.Mappers
                 Comment = model.Comment,
                 Count = model.Count
             };
+
             return entity;
         }
     }

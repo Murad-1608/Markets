@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Models
 {
-    public class UserModel:BaseModel
-    {  
+    public class UserModel : BaseModel
+    {
         public string Name { get; set; }
         public string Surname { get; set; }
         public string FatherName { get; set; }
@@ -19,15 +19,15 @@ namespace ShopSystem.Models
         public override object Clone()
         {
             return new UserModel
-            { 
-                Id=Id,
-                Name=Name,
-                Surname=Surname,
-                FatherName=FatherName,
-                Email=Email,
-                Password=Password,
-                PhoneNumber=PhoneNumber,
-                Position=Position
+            {
+                Id = Id,
+                Name = Name,
+                Surname = Surname,
+                FatherName = FatherName,
+                Email = Email,
+                Password = Password,
+                PhoneNumber = PhoneNumber,
+                Position = Position
             };
 
         }

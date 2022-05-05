@@ -22,8 +22,6 @@
                 <ColumnDefinition Width="15*"/>
             </Grid.ColumnDefinitions>
 
-           
-
             <WrapPanel Margin="5,5,5,5">
                 <TextBlock Text="Name :" FontSize="15"/>
                 <TextBox Text="{Binding Path=CurrentValue.Name}" x:Name="txtName" FontSize="13" Height="20" Width="120" VerticalAlignment="Center" Margin="10,0,0,0"/>
@@ -61,7 +59,12 @@
 
             <WrapPanel Margin="5,5,5,5" Grid.Row="3" Grid.Column="1">
                 <TextBlock Text="Branch :" FontSize="15"/>
-                <ComboBox BorderThickness="0" Text="{Binding Path=CurrentValue.BranchName}" SelectedItem="{Binding SelectedItem}" x:Name="ComboBranch" ItemsSource="{Binding Branches}" DisplayMemberPath="Location" FontSize="13" Height="20" Width="117" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,0,0,0"/>
+                <ComboBox BorderThickness="0" SelectedItem="{Binding SelectedItem}" 
+                          x:Name="ComboBranch" ItemsSource="{Binding Branches}" 
+                          SelectedValue="{Binding SelectedItem.Id}"
+                          SelectedValuePath="Id"
+                          DisplayMemberPath="Location" FontSize="13" Height="20" Width="117" 
+                          VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,0,0,0"/>
             </WrapPanel>
 
             <Button Content="Save" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="100" Margin="113,11,0,0" Grid.RowSpan="2" Click="Button_Click"/>

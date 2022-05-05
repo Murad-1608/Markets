@@ -15,12 +15,10 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 {
     internal class BranchesViewModel : BaseViewModel
     {
-        public IUnitOfWork db;
         public DataProvider dataprovider;
         public BranchesViewModel(IUnitOfWork db) : base(db)
         {
-            this.db = db;
-            dataprovider = new DataProvider();
+            dataprovider = new DataProvider(Global.DB);
         }
 
         #region Commands
@@ -31,23 +29,22 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #endregion
 
-
         #region Values
 
-        private BranchesModel selectedvalue;
-        public BranchesModel SelectedValue
+        private BranchModel selectedvalue;
+        public BranchModel SelectedValue
         {
             get => selectedvalue;
             set
             {
                 selectedvalue = value;
-                CurrentValue = (BranchesModel)SelectedValue?.Clone();
+                CurrentValue = (BranchModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
             }
         }
 
-        private BranchesModel currentValue;
-        public BranchesModel CurrentValue
+        private BranchModel currentValue;
+        public BranchModel CurrentValue
         {
             get => currentValue;
             set
@@ -58,8 +55,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<BranchesModel> getbranches;
-        public ObservableCollection<BranchesModel> GetBranches
+        private ObservableCollection<BranchModel> getbranches;
+        public ObservableCollection<BranchModel> GetBranches
         {
             get { return getbranches; }
             set
@@ -69,9 +66,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             }
         }
 
-
-        private List<BranchesModel> allBranches;
-        public List<BranchesModel> AllBranches
+        private List<BranchModel> allBranches;
+        public List<BranchModel> AllBranches
         {
             get { return allBranches; }
             set
@@ -82,8 +78,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private BranchesModel model = new BranchesModel();
-        public BranchesModel Model
+        private BranchModel model = new BranchModel();
+        public BranchModel Model
         {
             get
             {
@@ -99,11 +95,9 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #endregion
 
-
-
         public void Initialize()
         {
-            GetBranches = new ObservableCollection<BranchesModel>(AllBranches);
+            GetBranches = new ObservableCollection<BranchModel>(AllBranches);
         }
 
 
@@ -132,7 +126,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
 
 
-            GetBranches = new ObservableCollection<BranchesModel>(products);
+            GetBranches = new ObservableCollection<BranchModel>(products);
         }
     }
 }

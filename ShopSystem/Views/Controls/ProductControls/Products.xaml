@@ -70,8 +70,6 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-
-
         <StackPanel Background="White" Grid.RowSpan="2"/>
 
         <Grid Grid.Row="0">
@@ -81,11 +79,9 @@
                 <RowDefinition Height="555"/>
             </Grid.RowDefinitions>
 
-
             <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackEdit" Visibility="{Binding EditPanelVisibility}">
                 <local:EditProduct x:Name="EditControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
             </StackPanel>
-
 
             <StackPanel  Grid.Row="1"  Background="#f0f2f5" x:Name="StackAdd" Visibility="{Binding AddPanelVisibility}">
                 <local:AddProduct x:Name="AddControl" VerticalAlignment="center" HorizontalAlignment="Center" Margin="0,20,0,0"/>
@@ -94,10 +90,6 @@
             <Button Command="{Binding CloseAddandEditPanel}" Grid.Row="1" BorderThickness="0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25" >
                 <Image Source="\Images\UpperButton.png"/>
             </Button>
-
-
-
-
 
             <WrapPanel Grid.Row="0">
                 <TextBlock Margin="10,10,5,10" FontSize="25" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Manage"/></TextBlock>
@@ -120,7 +112,7 @@
                         <DataGridTemplateColumn Header="Branch" Width="180">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding BranchName}"/>
+                                    <TextBlock Text="{Binding Branch.Location}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

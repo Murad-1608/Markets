@@ -1,29 +1,19 @@
-﻿using ShopSystem.Commands;
-using ShopSystem.Commands.Main;
-using ShopSystem.Commands.Main.CompanyCommand;
-using ShopSystem.Commands.Main.ProductCommand;
+﻿using ShopSystem.Commands.Main.CompanyCommand;
 using ShopSystem.DataAccessLayer.Abstraction;
 using ShopSystem.DataContext;
 using ShopSystem.Models;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShopSystem.Core.DataAccessLayer.Abstraction;
 
 namespace ShopSystem.ViewModels.CompanentsViewModels
 {
     internal class CompanyViewModel : BaseViewModel
     {
-        public IUnitOfWork db;
         public DataProvider dataprovider;
         public CompanyViewModel(IUnitOfWork db) : base(db)
         {
-            this.db = db;
-            dataprovider = new DataProvider();
+            dataprovider = new DataProvider(Global.DB);
         }
 
         #region Commands
@@ -36,20 +26,20 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #region Values
 
-        private CompaniesModel selectedvalue;
-        public CompaniesModel SelectedValue
+        private CompanyModel selectedvalue;
+        public CompanyModel SelectedValue
         {
             get => selectedvalue;
             set
             {
                 selectedvalue = value;
-                currentValue = (CompaniesModel)SelectedValue?.Clone();
+                currentValue = (CompanyModel)SelectedValue?.Clone();
                 OnPropertyChanged(nameof(SelectedValue));
             }
         }
 
-        private CompaniesModel currentValue;
-        public CompaniesModel CurrentValue
+        private CompanyModel currentValue;
+        public CompanyModel CurrentValue
         {
             get => currentValue;
             set
@@ -60,8 +50,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private ObservableCollection<CompaniesModel> getcompanies;
-        public ObservableCollection<CompaniesModel> GetCompanies
+        private ObservableCollection<CompanyModel> getcompanies;
+        public ObservableCollection<CompanyModel> GetCompanies
         {
             get { return getcompanies; }
             set
@@ -72,8 +62,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private List<CompaniesModel> allCompanies;
-        public List<CompaniesModel> AllCompanies
+        private List<CompanyModel> allCompanies;
+        public List<CompanyModel> AllCompanies
         {
             get { return allCompanies; }
             set
@@ -84,8 +74,8 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
 
-        private CompaniesModel model = new CompaniesModel();
-        public CompaniesModel Model
+        private CompanyModel model = new CompanyModel();
+        public CompanyModel Model
         {
             get
             {
@@ -105,7 +95,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         public void Initialize()
         {
-            GetCompanies = new ObservableCollection<CompaniesModel>(AllCompanies);
+            GetCompanies = new ObservableCollection<CompanyModel>(AllCompanies);
         }
 
 
@@ -130,7 +120,7 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
             var products = AllCompanies.Where(x => (x.Name != null && x.Name.ToLower().Contains(SearchText.ToLower())));
 
 
-            GetCompanies = new ObservableCollection<CompaniesModel>(products);
+            GetCompanies = new ObservableCollection<CompanyModel>(products);
         }
 
 

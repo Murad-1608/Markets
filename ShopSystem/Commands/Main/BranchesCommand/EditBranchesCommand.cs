@@ -21,7 +21,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
       
         public override void Execute(object? parameter)
         {
-            BranchesMapper mapper = new BranchesMapper();
+            BranchMapper mapper = new BranchMapper();
             var entity = mapper.Map(viewModel.CurrentValue);
 
 

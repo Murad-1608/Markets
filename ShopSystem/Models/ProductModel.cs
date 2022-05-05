@@ -8,7 +8,7 @@ namespace ShopSystem.Models
 {
     public class ProductModel : BaseModel
     {
-        public BranchesModel Branch { get; set; }
+        public BranchModel Branch { get; set; }
         public string BranchName { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -31,7 +31,7 @@ namespace ShopSystem.Models
                 Type = Type,
                 Color = Color,
                 Comment = Comment,
-                Branch = (BranchesModel)Branch?.Clone()
+                Branch = (BranchModel)Branch?.Clone()
             };
 
         }

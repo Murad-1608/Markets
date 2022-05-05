@@ -23,7 +23,7 @@ namespace ShopSystem.Commands.Main
             DashBoard dashboard = new DashBoard();
             dashboard.DataContext = viewModel;
 
-            DataProvider data = new DataProvider();
+            DataProvider data = new DataProvider(Global.DB);
 
             var GetProducts = data.Products();
             var GetBranches = data.Branches();

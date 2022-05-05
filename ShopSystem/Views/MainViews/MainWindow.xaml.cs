@@ -27,14 +27,12 @@ namespace ShopSystem.Views.MainViews
         {
             InitializeComponent();
 
-            MainViewModel main = new MainViewModel(Global.DB); 
+            MainViewModel main = new MainViewModel(Global.DB);
 
             DataContext = main;
 
-            
-
-            txt_UserFullName.Text = UserInformation.Name + " " + UserInformation.Surname;
-            txt_Position.Text=UserInformation.Position;
+            txt_UserFullName.Text = $"{Global.User.Name} {Global.User.Surname}";
+            txt_Position.Text = Global.User.Position;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

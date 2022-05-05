@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Core.DataAccessLayer.Abstraction
 {
-    public interface IBranchesRepository
+    public interface IBranchRepository
     {
         int Insert(BranchEntity entity);
         int Update(BranchEntity entity);

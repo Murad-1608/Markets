@@ -34,11 +34,11 @@ namespace ShopSystem.Commands.Main
             Users users = new Users();
 
             viewModel.CenterGrid.Children.Add(users);
-            UserViewModel userViewModel = new UserViewModel(users, Global.DB);
+            UserViewModel userViewModel = new UserViewModel(Global.DB);
 
             users.DataContext = userViewModel;
 
-            DataProvider dataprovider = new DataProvider();
+            DataProvider dataprovider = new DataProvider(Global.DB);
             Users User = new Users();
 
             //userViewModel.RowHeight = new GridLength();

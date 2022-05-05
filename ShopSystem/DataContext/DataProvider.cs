@@ -13,13 +13,18 @@ namespace ShopSystem.DataContext
 {
     public class DataProvider
     {
-        IUnitOfWork db = Global.DB;
+        private readonly IUnitOfWork db;
+        
+        public DataProvider(IUnitOfWork db)
+        {
+            this.db = db;
+        }
 
         public List<UserModel> Users()
         {
             var users = db.UserRepository.GetUsers();
 
-            List<UserModel> UsersModel = new List<UserModel>();
+            List<UserModel> usersModels = new List<UserModel>();
 
             UserMapper mapper = new UserMapper();
 
@@ -31,17 +36,17 @@ namespace ShopSystem.DataContext
 
                 usersmodel.No = i + 1;
 
-                UsersModel.Add(usersmodel);
+                usersModels.Add(usersmodel);
             }
-            return UsersModel;
+
+            return usersModels;
         }
-
-
 
         public List<ProductModel> Products()
         {
             var products = db.ProductRepository.GetProducts();
-            List<ProductModel> ProductModel = new List<ProductModel>();
+
+            List<ProductModel> productModels = new List<ProductModel>();
 
             ProductMapper mapper = new ProductMapper();
 
@@ -53,36 +58,40 @@ namespace ShopSystem.DataContext
 
                 productModel.No = i + 1;
 
-                ProductModel.Add(productModel);
+                productModels.Add(productModel);
             }
-            return ProductModel;
+            
+            return productModels;
         }
 
-        public List<CompaniesModel> Companies()
+        public List<CompanyModel> Companies()
         {
-            var products = db.CompaniesRepository.GetCompanies();
-            List<CompaniesModel> ProductModel = new List<CompaniesModel>();
+            var companies = db.CompaniesRepository.GetCompanies();
+
+            List<CompanyModel> companiesModel = new List<CompanyModel>();
 
             CompaniesMapper mapper = new CompaniesMapper();
 
-            for (int i = 0; i < products.Count; i++)
+            for (int i = 0; i < companies.Count; i++)
             {
-                var product = products[i];
+                var product = companies[i];
 
                 var productModel = mapper.Map(product);
 
                 productModel.No = i + 1;
 
-                ProductModel.Add(productModel);
+                companiesModel.Add(productModel);
             }
-            return ProductModel;
+
+            return companiesModel;
         }
-        public List<BranchesModel> Branches()
+
+        public List<BranchModel> Branches()
         {
             var branches = db.BranchesRepository.GetBranches();
-            List<BranchesModel> BranchModel = new List<BranchesModel>();
+            List<BranchModel> branchModels = new List<BranchModel>();
 
-            BranchesMapper mapper = new BranchesMapper();
+            BranchMapper mapper = new BranchMapper();
 
             for (int i = 0; i < branches.Count; i++)
             {
@@ -92,9 +101,10 @@ namespace ShopSystem.DataContext
 
                 productModel.No = i + 1;
 
-                BranchModel.Add(productModel);
+                branchModels.Add(productModel);
             }
-            return BranchModel;
+
+            return branchModels;
         }
 
     }

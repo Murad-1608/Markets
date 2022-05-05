@@ -1,34 +1,31 @@
 ﻿using ShopSystem.DataAccessLayer.Abstraction;
-using ShopSystem.DataAccessLayer.Servers.SqlServer;
-using ShopSystem.Models;
+using ShopSystem.Security;
 using ShopSystem.ViewModels;
-using ShopSystem.Views.LoginViews;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ShopSystem.ViewModels.WindowViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace ShopSystem.Commands
 {
-    internal class PasswordChanged : BaseCommand
+    internal class ChangeForgottonPassword : BaseCommand
     {
-        private readonly LoginViewModel viewModel;
-        public PasswordChanged(LoginViewModel viewModel)
+        private readonly ForgotPasswordViewModel viewModel;
+        public ChangeForgottonPassword(ForgotPasswordViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
+
         public override void Execute(object? parameter)
         {
             PasswordBox NewPassword = parameter as PasswordBox;
 
             string Password = NewPassword.Password;
-            
-            
 
-            int check = viewModel.db.UserRepository.Update(Global.Email, Password);
+            var user = viewModel.db.UserRepository.Get(viewModel.Email);
+
+            user.Password = Utils.PasswordHash(Password);
+
+            int check = viewModel.db.UserRepository.Update(user);
 
             if (check == 1)
             {

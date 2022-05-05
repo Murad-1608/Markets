@@ -2,6 +2,7 @@
 using ShopSystem.DataAccessLayer.Servers.SqlServer;
 using ShopSystem.Models;
 using ShopSystem.ViewModels;
+using ShopSystem.ViewModels.WindowViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,21 +22,25 @@ namespace ShopSystem.Views.LoginViews
     /// <summary>
     /// Interaction logic for ChangedPassword.xaml
     /// </summary>
-    public partial class ChangedPassword : Window
+    public partial class ForgotPassword : Window
     {
-        LoginViewModel viewModel;
-        public ChangedPassword()
+        public ForgotPassword()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void enterClick(object sender, RoutedEventArgs e)
         {
-             viewModel = (LoginViewModel)DataContext;
-            if (UserInformation.Code == viewModel.Code)
+            var viewModel = (ForgotPasswordViewModel)DataContext;
+
+            // TODO: Get actual confirmation code from Confirmation Codes table by email
+            string actualCode = string.Empty; // DB.ConfirmationCodesRepository.Get(email);
+
+            if (actualCode == viewModel.Code)
             {
-                WriteCode.Visibility = Visibility.Collapsed;
-                UpdateCode.Visibility = Visibility.Visible;
+                // TODO: move this click event to command and add visibility properties to viewmodel
+                //WriteCode.Visibility = Visibility.Collapsed;
+                //UpdateCode.Visibility = Visibility.Visible;
             }
             else
             {
@@ -43,13 +48,13 @@ namespace ShopSystem.Views.LoginViews
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void updateBtnClick(object sender, RoutedEventArgs e)
         {
-
+            var viewModel = (ForgotPasswordViewModel)DataContext;
 
             if (txt_NewPassword.Password == txt_ConfirmPassword.Password)
             {
-                viewModel.password_NewPasswordClick.Execute(txt_NewPassword);
+                viewModel.NewPasswordClick.Execute(txt_NewPassword);
                 this.Close();
             }
             else

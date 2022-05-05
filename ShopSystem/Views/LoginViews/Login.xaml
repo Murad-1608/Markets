@@ -64,8 +64,6 @@
         </Style>
     </Window.Resources>
 
-
-
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="482" Width="400">
 
         <Grid.RowDefinitions>
@@ -73,6 +71,7 @@
             <RowDefinition Height="59*"/>
             <RowDefinition Height="368*"/>
         </Grid.RowDefinitions>
+        
         <!--LOGIN ACCOUNT-->
         <StackPanel Visibility="Visible" x:Name="Panel_Login" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
             <Grid HorizontalAlignment="Center" Width="400" Height="387">
@@ -83,16 +82,12 @@
                     <RowDefinition Height="54"/>
                 </Grid.RowDefinitions>
                 
-
                 <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Height="48" Width="176">WELCOME</TextBlock>
 
 
                 <TextBlock Grid.Row="1" FontSize="15" Margin="50,0,0,0">E-mail:</TextBlock>
 
                 <TextBox x:Name="txtEmail" Text="{Binding Path=Email}"  Grid.Row="1"  Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,24,0,11"/>
-
-                
-
 
                 <TextBlock Grid.Row="2" FontSize="15" Margin="50,1,280,45">Password:</TextBlock>
                 <PasswordBox  x:Name="PswPassword" Visibility="Visible" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59">
@@ -107,26 +102,20 @@
                 </TextBox>
                 <CheckBox Unchecked="check_Show_Unchecked" x:Name="check_Show" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Show" FontSize="10" Margin="0,0,50,38" Checked="check_Show_Checked"></CheckBox>
 
-                <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="3" HorizontalAlignment="Left" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="198,29,0,-15" Click="Button_Click_1">Enter</Button>
-                <Label MouseDoubleClick="Label_MouseDoubleClick" Grid.Row="2" FontSize="14" HorizontalAlignment="Left" Foreground="#16adcc" Margin="48,62,0,18" Width="120" Height="35">Forgot password?</Label>
+                <Button Style="{DynamicResource ButtonStyle1}" Grid.Row="3" HorizontalAlignment="Left" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="198,29,0,-15" Click="loginClick">Enter</Button>
+               
+                <Label MouseDoubleClick="forgetPasswordClick" Grid.Row="2" FontSize="14" HorizontalAlignment="Left" Foreground="#16adcc" Margin="48,62,0,18" Width="120" Height="35">Forgot password?</Label>
+                
                 <TextBlock Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red" FontSize="15" Visibility="{Binding LoginInCorrected}">Email or password incorrected</TextBlock>
-                <Grid Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="0" Width="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
             </Grid>
         </StackPanel>
-
 
         <!--Forgot password-->
         <StackPanel Visibility="Collapsed" HorizontalAlignment="Left" Name="Panel_ForgotPassword" Width="425" Margin="0,0,0,8" Grid.RowSpan="3" Grid.ColumnSpan="2">
 
-            <Button BorderThickness="0" Background="Transparent" Click="Button_Click" Height="31" Width="45" Margin="0,18,370,0">
+            <Button BorderThickness="0" Background="Transparent" Click="backButtonClick" Height="31" Width="45" Margin="0,18,370,0">
                 <Image Source="\Images\Back_Button_Icon.jpg"></Image>
             </Button>
-
 
             <Grid Height="355" Margin="0,60,0,0">
                 <Grid.RowDefinitions>
@@ -137,21 +126,15 @@
 
                 </Grid.RowDefinitions>
 
-
                 <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="292" Margin="58,11,0,0"><Run Text="FORGOT PASSWORD"/></TextBlock>
 
                 <TextBlock Height="20" Width="50" Margin="32,129,343,55" FontSize="15" Grid.RowSpan="2"><Run Text="E-mail:"/></TextBlock>
                 <TextBox Visibility="Visible" Text="{Binding ForgotPasswordEmail}" Grid.Row="1" BorderBrush="Black" Background="White" HorizontalAlignment="Left" FontSize="14" Padding="4" Width="330" Margin="30,28,0,14"  />
 
-
-
                 <Button Command="{Binding ForgotPasswordClick}" Grid.Row="2" Width="170" FontSize="14" Background="#16adcc" Foreground="White" Margin="194,36,36,15" Content="Send" Height="38"/>
-
-
             </Grid>
 
         </StackPanel>
-
 
         <!--Register-->
         <!--<StackPanel Visibility="Visible" x:Name="Panel_Register" Grid.RowSpan="3" Grid.ColumnSpan="2" Width="400" Height="482">
@@ -210,8 +193,5 @@
                 </Grid>
             </Grid>
         </StackPanel>-->
-
-
-
     </Grid>
 </Window>

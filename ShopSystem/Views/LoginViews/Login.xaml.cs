@@ -1,17 +1,6 @@
 ﻿using ShopSystem.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ShopSystem.Views.LoginViews
 {
@@ -25,46 +14,40 @@ namespace ShopSystem.Views.LoginViews
             InitializeComponent();
         }
 
-        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void forgetPasswordClick(object sender, MouseButtonEventArgs e)
         {
             Panel_ForgotPassword.Visibility = Visibility.Visible;
             Panel_Login.Visibility = Visibility.Hidden;
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void backButtonClick(object sender, RoutedEventArgs e)
         {
             Panel_ForgotPassword.Visibility = Visibility.Hidden;
             Panel_Login.Visibility = Visibility.Visible;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void loginClick(object sender, RoutedEventArgs e)
         {
-
-
             LoginViewModel viewModel = (LoginViewModel)DataContext;
 
-            if (txtPassword.IsVisible == true)
+            if (txtPassword.IsVisible)
             {
                 viewModel.LoginClick.Execute(txtPassword.Text);
             }
 
-            else if (PswPassword.IsVisible == true)
+            else if (PswPassword.IsVisible)
             {
                 viewModel.LoginClick.Execute(PswPassword.Password);
             }
-
         }
 
         private void check_Show_Checked(object sender, RoutedEventArgs e)
         {
-
             txtPassword.Text = PswPassword.Password;
 
             PswPassword.Visibility = Visibility.Hidden;
             txtPassword.Visibility = Visibility.Visible;
         }
-
 
         private void check_Show_Unchecked(object sender, RoutedEventArgs e)
         {

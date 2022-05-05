@@ -32,7 +32,7 @@ namespace ShopSystem.Commands.Main
 
             branches.DataContext = productViewModel;
 
-            DataProvider data = new DataProvider();
+            DataProvider data = new DataProvider(Global.DB);
 
             var GetBranches = data.Branches();
 

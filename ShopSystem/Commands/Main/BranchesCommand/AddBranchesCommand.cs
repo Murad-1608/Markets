@@ -19,7 +19,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
 
         public override void Execute(object? parameter)
         {
-            BranchesMapper mapper = new BranchesMapper();
+            BranchMapper mapper = new BranchMapper();
             var entity = mapper.Map(viewModel.Model);
             int check = viewModel.db.BranchesRepository.Insert(entity);
 
@@ -27,7 +27,7 @@ namespace ShopSystem.Commands.Main.BranchesCommand
 
             {
                 MessageBox.Show("Success");
-                viewModel.Model = new Models.BranchesModel();
+                viewModel.Model = new Models.BranchModel();
 
 
                 viewModel.AllBranches = viewModel.dataprovider.Branches();

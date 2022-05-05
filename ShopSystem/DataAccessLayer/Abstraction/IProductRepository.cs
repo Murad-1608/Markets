@@ -14,6 +14,5 @@ namespace ShopSystem.DataAccessLayer.Abstraction
         int Update(ProductEntity entity, int BranchID);
         int Delete(int Id);
         List<ProductEntity> GetProducts();
-
     }
 }

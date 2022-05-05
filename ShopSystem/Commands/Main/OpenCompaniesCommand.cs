@@ -31,7 +31,7 @@ namespace ShopSystem.Commands.Main
 
             products.DataContext = productViewModel;
 
-            DataProvider data = new DataProvider();
+            DataProvider data = new DataProvider(Global.DB);
 
             var GetCompanies = data.Companies();
 

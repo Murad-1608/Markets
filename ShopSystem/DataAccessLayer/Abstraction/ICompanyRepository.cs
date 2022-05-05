@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Abstraction
 {
-    public interface ICompaniesRepository
+    public interface ICompanyRepository
     {
-        int Insert(CompaniesEntity entity);
-        int Update(CompaniesEntity entity);
+        int Insert(CompanyEntity entity);
+        int Update(CompanyEntity entity);
         int Delete(int Id);
-        List<CompaniesEntity> GetCompanies();
+        List<CompanyEntity> GetCompanies();
     }
 }

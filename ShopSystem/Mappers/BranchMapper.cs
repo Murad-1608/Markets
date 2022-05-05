@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Mappers
 {
-    public class BranchesMapper
+    public class BranchMapper : BaseMapper<BranchModel, BranchEntity>
     {
-        public BranchesModel Map(BranchEntity entity)
+        public override BranchModel Map(BranchEntity entity)
         {
-           BranchesModel model = new BranchesModel()
+           BranchModel model = new BranchModel()
            {
                Id = entity.Id,
                Location = entity.Location,
@@ -22,7 +22,8 @@ namespace ShopSystem.Mappers
            };
             return model;
         }
-        public BranchEntity Map(BranchesModel model)
+
+        public override BranchEntity Map(BranchModel model)
         {
             BranchEntity entity = new BranchEntity()
             {
@@ -32,6 +33,7 @@ namespace ShopSystem.Mappers
                 Profit = model.Profit,
                 Balance = model.Balance,
             };
+
             return entity;
         }
     }

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.DataAccessLayer.Servers.SqlServer
 {
-    public class SqlBranchesRepository : IBranchesRepository
+    public class SqlBranchRepository : IBranchRepository
     {
         private readonly string connectionString;
-        public SqlBranchesRepository(string connectionString)
+        public SqlBranchRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }    

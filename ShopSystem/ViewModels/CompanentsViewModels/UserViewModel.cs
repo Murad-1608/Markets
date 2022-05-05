@@ -16,16 +16,12 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 {
     internal class UserViewModel : BaseControlViewModel<UserModel>
     {
-        public IUnitOfWork db;
         public DataProvider dataprovider;
         public UserControl UserPanel;
-        public UserViewModel(UserControl UserPanel, IUnitOfWork db) : base(db)
+        public UserViewModel(IUnitOfWork db) : base(db)
         {
-            this.db = db;
-            dataprovider = new DataProvider();
+            dataprovider = new DataProvider(Global.DB);
         }
-
-
 
         #region Commands
         public AddUserCommand AddUserCommand => new AddUserCommand(this);
@@ -37,14 +33,11 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #endregion
 
-
         #region Values
         public override string Header => "Users";
         public Grid ErrorGrid { get; set; }
 
         #endregion
-
-
 
         #region SEARCH
 
@@ -67,7 +60,5 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
         }
 
         #endregion
-
-
     }
 }

@@ -39,15 +39,16 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-
                 List<UserEntity> Users = new List<UserEntity>();
 
                 string command = @"select *from Users";
+                
                 con.Open();
+                
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-
                     SqlDataReader dr = cmd.ExecuteReader();
+                    
                     while (dr.Read())
                     {
                         UserEntity entity = new UserEntity();
@@ -66,7 +67,6 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
                 }
             }
         }
-
 
         public int Insert(UserEntity entity)
         {
@@ -117,40 +117,29 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
+
                 string command = @"select Email,Name,Surname,Password,Position from Users where Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(command, con))
                 {
-                    UserEntity entity = new UserEntity();
-
                     cmd.Parameters.AddWithValue("@Email", Email);               
+                    
                     SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
+
+                    if (dr.Read())
                     {
+                        UserEntity entity = new UserEntity();
+
                         entity.Password = dr["Password"].ToString();
                         entity.Email = dr["Email"].ToString();
                         entity.Name = dr["Name"].ToString();
                         entity.Surname = dr["Surname"].ToString();
-                        entity.Position = dr["Position"].ToString();         
+                        entity.Position = dr["Position"].ToString();
+
+                        return entity;
                     }
-                    return entity;
-                }
-            }
-        }
 
-        public int Update(string Email, string Password)
-        {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                string command = @"Update Users set Password=@Password where Email=@Email";
-                con.Open();
-
-                using (SqlCommand cmd = new SqlCommand(command, con))
-                {
-                    cmd.Parameters.AddWithValue("@Password", Utils.PasswordHash(Password));
-                    cmd.Parameters.AddWithValue("@Email", Email);
-                    int check = cmd.ExecuteNonQuery();
-                    return check;
+                    return null;
                 }
             }
         }

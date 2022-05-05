@@ -21,6 +21,10 @@ namespace ShopSystem.ViewModels
         public abstract void OnSearch();
         public abstract string Header { get; }
 
+        public virtual void OnCurrentValueChange()
+        {
+
+        }
 
         private string searchText;
         public string SearchText
@@ -80,6 +84,7 @@ namespace ShopSystem.ViewModels
             set
             {
                 currentValue = value;
+                OnCurrentValueChange();
                 OnPropertyChanged(nameof(CurrentValue));
             }
         }

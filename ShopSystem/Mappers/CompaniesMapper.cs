@@ -8,25 +8,27 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Mappers
 {
-    public class CompaniesMapper
+    public class CompaniesMapper : BaseMapper<CompanyModel, CompanyEntity>
     {
-        
-        public CompaniesModel Map(CompaniesEntity entity)
+        public override CompanyModel Map(CompanyEntity entity)
         {
-            CompaniesModel model = new CompaniesModel()
+            CompanyModel model = new CompanyModel()
             {
                 Id = entity.Id,
                 Name = entity.Name,
             };
+
             return model;
         }
-        public CompaniesEntity Map(CompaniesModel model)
+
+        public override CompanyEntity Map(CompanyModel model)
         {
-            CompaniesEntity entity = new CompaniesEntity()
+            CompanyEntity entity = new CompanyEntity()
             {
                 Id = model.Id,
                 Name = model.Name,
             };
+
             return entity;
         }
     }

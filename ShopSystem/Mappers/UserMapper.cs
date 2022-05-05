@@ -22,6 +22,7 @@ namespace ShopSystem.Mappers
                 PhoneNumber = entity.PhoneNumber,
                 Position = entity.Position
             };
+
             return model;
         }
 
@@ -38,6 +39,7 @@ namespace ShopSystem.Mappers
                 PhoneNumber = model.PhoneNumber,
                 Position = model.Position
             };
+
             return entity;
         }
     }

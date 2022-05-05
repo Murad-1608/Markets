@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Entities
 {
-    public class UserEntity:BaseEntity
+    public class UserEntity : BaseEntity
     {
-       
-        public int BranchId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string FatherName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string PhoneNumber { get; set; }       
-        public string Position { get; set; }       
+        public string PhoneNumber { get; set; }
+        public string Position { get; set; }
     }
 }

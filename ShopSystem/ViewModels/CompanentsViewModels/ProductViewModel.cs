@@ -16,15 +16,11 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 {
     internal class ProductViewModel : BaseControlViewModel<ProductModel>
     {
-        public IUnitOfWork db;
         public DataProvider dataprovider;
         public ProductViewModel(IUnitOfWork db) : base(db)
         {
-            this.db = db;
-            dataprovider = new DataProvider();
+            dataprovider = new DataProvider(Global.DB);
         }
-
-
 
         #region Commands
         public AddProductCommand AddProductCommand => new AddProductCommand(this);
@@ -37,13 +33,12 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
 
         #endregion
 
-
         #region Values
 
-        public List<BranchesModel> Branches { get; set; }
+        public List<BranchModel> Branches { get; set; }
 
-        private BranchesModel selectedItem;
-        public BranchesModel SelectedItem
+        private BranchModel selectedItem;
+        public BranchModel SelectedItem
         {
             get
             {
@@ -55,13 +50,15 @@ namespace ShopSystem.ViewModels.CompanentsViewModels
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
+
         public override string Header => "Products";
 
+        public override void OnCurrentValueChange()
+        {
+            SelectedItem = CurrentValue?.Branch?.Clone() as BranchModel;
+        }
+
         #endregion
-
-
-
-
 
         public override void OnSearch()
         {

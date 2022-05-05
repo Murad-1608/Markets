@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopSystem.Models
 {
-    public class CompaniesModel:BaseModel
+    public class CompanyModel : BaseModel
     {
         public int Id { get; set; }
         public int No { get; set; }
@@ -14,12 +14,11 @@ namespace ShopSystem.Models
 
         public override object Clone()
         {
-            return new CompaniesModel
+            return new CompanyModel
             {
                 Id = Id,
-                Name=Name      
+                Name = Name
             };
-
         }
     }
 }

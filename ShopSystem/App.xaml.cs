@@ -26,14 +26,11 @@ namespace ShopSystem
             Login login = new Login();
 
             Global.DB = DBFactory.Create(connectionstring);
-            LoginViewModel viewModel = new LoginViewModel(login,Global.DB);            
 
-            
+            LoginViewModel viewModel = new LoginViewModel(Global.DB);
+
             login.DataContext = viewModel;
             login.Show();
-
-            
-
         }
     }
 }

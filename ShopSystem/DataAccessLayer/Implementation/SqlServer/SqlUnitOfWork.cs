@@ -19,11 +19,11 @@ namespace ShopSystem.DataAccessLayer.Servers.SqlServer
         
         public IUserRepository UserRepository => new SqlUserRepository(connectionString);
 
-        public IBranchesRepository BranchesRepository =>  new SqlBranchesRepository(connectionString);
+        public IBranchRepository BranchesRepository =>  new SqlBranchRepository(connectionString);
 
         public IProductRepository ProductRepository => new SqlProductRepository(connectionString);
 
-        public ICompaniesRepository CompaniesRepository => new SqlCompaniesRepository(connectionString);
+        public ICompanyRepository CompaniesRepository => new SqlCompanyRepository(connectionString);
 
         
     }
