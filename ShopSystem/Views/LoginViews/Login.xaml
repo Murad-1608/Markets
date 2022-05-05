@@ -82,7 +82,7 @@
                     <RowDefinition Height="115"/>
                     <RowDefinition Height="54"/>
                 </Grid.RowDefinitions>
-
+                
 
                 <TextBlock Foreground="#48ad9d" FontStyle="Normal" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Height="48" Width="176">WELCOME</TextBlock>
 
@@ -91,17 +91,19 @@
 
                 <TextBox x:Name="txtEmail" Text="{Binding Path=Email}"  Grid.Row="1"  Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,24,0,11"/>
 
+                
+
 
                 <TextBlock Grid.Row="2" FontSize="15" Margin="50,1,280,45">Password:</TextBlock>
                 <PasswordBox  x:Name="PswPassword" Visibility="Visible" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59">
-                    <PasswordBox.InputBindings>
+                    <!--<PasswordBox.InputBindings>
                         <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=PswPassword}"/>
-                    </PasswordBox.InputBindings>
+                    </PasswordBox.InputBindings>-->
                 </PasswordBox>
                 <TextBox Visibility="Hidden"  x:Name="txtPassword" Grid.Row="2" BorderBrush="Black" Background="White" Height="30" HorizontalAlignment="Center" FontSize="14" Padding="4" Width="300" Margin="0,26,0,59" >
-                    <TextBox.InputBindings>
+                    <!--<TextBox.InputBindings>
                         <KeyBinding Key="Enter" Command="{Binding Path=LoginClick}" CommandParameter="{Binding ElementName=txtPassword}"/>
-                    </TextBox.InputBindings>
+                    </TextBox.InputBindings>-->
                 </TextBox>
                 <CheckBox Unchecked="check_Show_Unchecked" x:Name="check_Show" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Show" FontSize="10" Margin="0,0,50,38" Checked="check_Show_Checked"></CheckBox>
 

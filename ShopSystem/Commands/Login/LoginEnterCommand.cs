@@ -37,9 +37,9 @@ namespace ShopSystem.Commands
                     viewModel.LoginInCorrected = Visibility.Visible;
                 }
 
-                PasswordBox password=parameter as PasswordBox;
+                
 
-                string PasswordHash = Utils.PasswordHash(password.Password);
+                string PasswordHash = Utils.PasswordHash(parameter.ToString());
 
 
                 if (PasswordHash == user.Password)
